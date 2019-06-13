@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  helloworld
+//  drone
 //
 //  Created by Hongyu Shi on 2019/6/13.
 //  Copyright © 2019 Hongyu Shi. All rights reserved.
