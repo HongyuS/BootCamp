@@ -26,7 +26,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <state key="normal" title="  Takeoff" image="arrow.turn.right.up" catalog="system">
+                                                <state key="normal" title="Takeoff">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <variation key="heightClass=compact">
@@ -38,7 +38,7 @@
                                                 <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <state key="normal" title="  Landing" image="arrow.down.to.line" catalog="system">
+                                                <state key="normal" title="Landing">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <variation key="heightClass=compact">
@@ -194,7 +194,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                        <state key="normal" image="arrow.counterclockwise" catalog="system">
+                                                        <state key="normal" title="CCW">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <variation key="heightClass=compact">
@@ -206,7 +206,7 @@
                                                         <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                        <state key="normal" image="arrow.clockwise" catalog="system">
+                                                        <state key="normal" title="CW">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <variation key="heightClass=compact">
@@ -528,10 +528,4 @@
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="arrow.counterclockwise" catalog="system" width="56" height="64"/>
-        <image name="arrow.down.to.line" catalog="system" width="64" height="64"/>
-        <image name="arrow.turn.right.up" catalog="system" width="60" height="64"/>
-    </resources>
 </document>
