@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
@@ -16,67 +16,489 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6eS-aR-gd6">
-                                <rect key="frame" x="121" y="121" width="182" height="48"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="N2s-KF-M46">
+                                <rect key="frame" x="10.5" y="54" width="393" height="697"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-4H-gRI">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
-                                        <rect key="frame" x="96" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6eS-aR-gd6">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-4H-gRI">
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Takeoff">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
+                                                <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Landing">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lvc-Ue-wcg">
+                                        <rect key="frame" x="0.0" y="76" width="393" height="30"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="20" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mkL-LJ-kyP">
+                                                <rect key="frame" x="-2" y="0.0" width="345" height="31"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-nW-IGR">
+                                                <rect key="frame" x="351" y="0.0" width="42" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <variation key="widthClass=regular" spacing="20"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-dJ-4S1">
+                                        <rect key="frame" x="0.0" y="134" width="393" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-JG-BRK">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" title="Left">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB3-64-ubB">
+                                                <rect key="frame" x="100.5" y="0.0" width="91" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" title="Up">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
+                                                <rect key="frame" x="201.5" y="0.0" width="91" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" title="Down">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
+                                                <rect key="frame" x="302.5" y="0.0" width="90.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" title="Right">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-xa-8mw">
+                                        <rect key="frame" x="0.0" y="210" width="393" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-d3-c7u">
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Forward">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Bx-LNa">
+                                                <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rqw-zq-J0B">
+                                        <rect key="frame" x="0.0" y="286" width="393" height="30"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="20" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gjf-iH-Mcj">
+                                                <rect key="frame" x="-2" y="0.0" width="345" height="31"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-lr-Z3I">
+                                                <rect key="frame" x="351" y="0.0" width="42" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <variation key="widthClass=regular" spacing="20"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n8Q-ZW-5go">
+                                        <rect key="frame" x="0.0" y="344" width="393" height="76"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BW-kr-AZK">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="9ue-tS-MUx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-2j-BHc">
+                                                <rect key="frame" x="0.0" y="28" width="393" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
+                                                        <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                        <state key="normal" title="CCW">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        </variation>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
+                                                        <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                        <state key="normal" title="CW">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        </variation>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="1BW-kr-AZK"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="subviews">
+                                                <include reference="1BW-kr-AZK"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-53-uD2">
+                                        <rect key="frame" x="0.0" y="448" width="393" height="76"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2e-oE-0cb">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="HiL-Is-Ta5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk3-AR-YyU">
+                                                <rect key="frame" x="0.0" y="28" width="393" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90.5" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Left">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        </variation>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-MH-F9G">
+                                                        <rect key="frame" x="100.5" y="0.0" width="91" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Forward">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        </variation>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
+                                                        <rect key="frame" x="201.5" y="0.0" width="91" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Back">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        </variation>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
+                                                        <rect key="frame" x="302.5" y="0.0" width="90.5" height="48"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Right">
+                                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        </variation>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="j2e-oE-0cb"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="subviews">
+                                                <include reference="j2e-oE-0cb"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DxV-Xe-T63">
+                                        <rect key="frame" x="0.0" y="552" width="393" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-kh-Ph0">
+                                                <rect key="frame" x="0.0" y="0.0" width="38" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-Ki-cxa">
+                                                <rect key="frame" x="48" y="0.0" width="10.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOA-OA-jRP">
+                                                <rect key="frame" x="68.5" y="0.0" width="51" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv3-uh-WJQ">
+                                                <rect key="frame" x="129.5" y="0.0" width="10.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV5-n0-H3z">
+                                                <rect key="frame" x="150" y="0.0" width="55.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JGw-on-lKQ">
+                                                <rect key="frame" x="215.5" y="9.5" width="177.5" height="2"/>
+                                            </progressView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-61-Oel">
+                                        <rect key="frame" x="0.0" y="600.5" width="393" height="20.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ue3-eP-KFA">
+                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Drone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-vW-jP6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-V7-SmD">
+                                                        <rect key="frame" x="54.5" y="0.0" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-tt-paU">
+                                                <rect key="frame" x="159" y="0.0" width="85" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="UDP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulw-n0-xje">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozz-aY-lIL">
+                                                        <rect key="frame" x="43" y="0.0" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U13-o9-oE4">
+                                                <rect key="frame" x="306" y="0.0" width="87" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2B2-Gb-4aD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSJ-R8-qwv">
+                                                        <rect key="frame" x="45" y="0.0" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wnh-lW-wpi">
+                                        <rect key="frame" x="0.0" y="649" width="393" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAz-DR-k6y">
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Start">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRK-rw-Eb1">
+                                                <rect key="frame" x="201.5" y="0.0" width="191.5" height="48"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <state key="normal" title="Stop">
+                                                    <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-dJ-4S1">
-                                <rect key="frame" x="25" y="324" width="374" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-JG-BRK">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB3-64-ubB">
-                                        <rect key="frame" x="96" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
-                                        <rect key="frame" x="192" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
-                                        <rect key="frame" x="288" y="0.0" width="86" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Qk3-AR-YyU" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="CXd-lU-7MO"/>
+                                    <constraint firstItem="zX5-dJ-4S1" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="Cgc-IY-Hdi"/>
+                                    <constraint firstItem="0Ir-xa-8mw" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="OS0-LH-E9I"/>
+                                    <constraint firstItem="wnh-lW-wpi" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="QWu-VX-JoO"/>
+                                    <constraint firstItem="jSA-2j-BHc" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="Qzh-LE-65n"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8pw-8C-Qhh"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="B8j-rJ-Yna"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.95" id="D7d-dX-XAK"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ucw-KI-mZA"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" constant="-20" id="jM2-mv-KFj"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qMa-by-0nh"/>
+                            <constraint firstItem="N2s-KF-M46" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="3/5" id="rdi-Wi-nZB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="B8j-rJ-Yna"/>
+                                <exclude reference="D7d-dX-XAK"/>
+                                <exclude reference="Ucw-KI-mZA"/>
+                                <exclude reference="jM2-mv-KFj"/>
+                                <exclude reference="rdi-Wi-nZB"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="jM2-mv-KFj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="D7d-dX-XAK"/>
+                                <include reference="jM2-mv-KFj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="B8j-rJ-Yna"/>
+                                <include reference="Ucw-KI-mZA"/>
+                                <exclude reference="qMa-by-0nh"/>
+                                <include reference="rdi-Wi-nZB"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
