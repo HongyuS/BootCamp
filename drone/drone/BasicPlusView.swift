@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlusView: UIViewController {
+class BasicPlusView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
