@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7174D15922B7764A00B2F060 /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174D15822B7764A00B2F060 /* PlusView.swift */; };
+		7174D15922B7764A00B2F060 /* BasicPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174D15822B7764A00B2F060 /* BasicPlusView.swift */; };
 		71C210F822B1F94C00BA033F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C210F722B1F94C00BA033F /* AppDelegate.swift */; };
 		71C210FC22B1F94C00BA033F /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C210FB22B1F94C00BA033F /* BasicView.swift */; };
 		71C210FF22B1F94C00BA033F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71C210FD22B1F94C00BA033F /* Main.storyboard */; };
@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7174D15822B7764A00B2F060 /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
+		7174D15822B7764A00B2F060 /* BasicPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPlusView.swift; sourceTree = "<group>"; };
 		71C210F422B1F94C00BA033F /* drone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C210F722B1F94C00BA033F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71C210FB22B1F94C00BA033F /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				71C210F722B1F94C00BA033F /* AppDelegate.swift */,
 				71C210FB22B1F94C00BA033F /* BasicView.swift */,
-				7174D15822B7764A00B2F060 /* PlusView.swift */,
+				7174D15822B7764A00B2F060 /* BasicPlusView.swift */,
 				71C210FD22B1F94C00BA033F /* Main.storyboard */,
 				71C2110022B1F94D00BA033F /* Assets.xcassets */,
 				71C2110222B1F94D00BA033F /* LaunchScreen.storyboard */,
@@ -140,7 +140,7 @@
 			files = (
 				71C210FC22B1F94C00BA033F /* BasicView.swift in Sources */,
 				71C210F822B1F94C00BA033F /* AppDelegate.swift in Sources */,
-				7174D15922B7764A00B2F060 /* PlusView.swift in Sources */,
+				7174D15922B7764A00B2F060 /* BasicPlusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
