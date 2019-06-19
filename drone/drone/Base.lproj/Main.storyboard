@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFP-qa-P0z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFP-qa-P0z">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
@@ -23,9 +23,12 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WER-cR-jgO" userLabel="Mode">
                                         <rect key="frame" x="91" y="32" width="193" height="32"/>
                                         <segments>
-                                            <segment title="Fly" width="96"/>
-                                            <segment title="" image="arrow.up.and.down" catalog="system" width="96"/>
+                                            <segment title="Horizontal" width="96"/>
+                                            <segment title="Vertical" width="96"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="modeControl:" destination="aIA-os-i5q" eventType="valueChanged" id="YkA-me-20D"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjU-0y-d9y" userLabel="Up/Forward">
                                         <rect key="frame" x="151.5" y="95" width="72" height="72"/>
@@ -36,8 +39,11 @@
                                         </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="systemBlueColor"/>
                                         <state key="normal" image="arrowtriangle.up.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMotion:" destination="aIA-os-i5q" eventType="touchUpInside" id="gHT-T6-HCE"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDR-fu-4C4" userLabel="Left">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDR-fu-4C4" userLabel="Left">
                                         <rect key="frame" x="73.5" y="173" width="72" height="72"/>
                                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -46,8 +52,11 @@
                                         </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="systemBlueColor"/>
                                         <state key="normal" image="arrowtriangle.left.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMotion:" destination="aIA-os-i5q" eventType="touchUpInside" id="ugx-th-spe"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teN-fi-jY8" userLabel="Right">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teN-fi-jY8" userLabel="Right">
                                         <rect key="frame" x="229.5" y="173" width="72" height="72"/>
                                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -56,8 +65,11 @@
                                         </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="systemBlueColor"/>
                                         <state key="normal" image="arrowtriangle.right.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMotion:" destination="aIA-os-i5q" eventType="touchUpInside" id="ueV-os-R9B"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-Zb-nha" userLabel="Down/Back">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-Zb-nha" userLabel="Down/Back">
                                         <rect key="frame" x="151.5" y="251" width="72" height="72"/>
                                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -66,6 +78,9 @@
                                         </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="systemBlueColor"/>
                                         <state key="normal" image="arrowtriangle.down.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMotion:" destination="aIA-os-i5q" eventType="touchUpInside" id="BB1-AZ-SOX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Jd-1ty" userLabel="Takeoff">
                                         <rect key="frame" x="36" y="32" width="31" height="31"/>
@@ -74,14 +89,20 @@
                                             <constraint firstAttribute="height" constant="31" id="o8d-gO-w93"/>
                                         </constraints>
                                         <state key="normal" image="arrow.up" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="3iE-IH-bYL"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6q-uc-JHo" userLabel="Landing">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6q-uc-JHo" userLabel="Landing">
                                         <rect key="frame" x="308" y="32" width="31" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="cpT-sp-hgb"/>
                                             <constraint firstAttribute="height" constant="31" id="kCg-gZ-g8a"/>
                                         </constraints>
                                         <state key="normal" image="arrow.down.to.line" catalog="system"/>
+                                        <connections>
+                                            <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="vks-SV-AEl"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-9U-RWz">
                                         <rect key="frame" x="8" y="428" width="359" height="52"/>
@@ -188,7 +209,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-V2-1Im">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-V2-1Im" userLabel="Time Status">
                                                 <rect key="frame" x="50" y="0.0" width="10.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
@@ -206,7 +227,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbt-M6-myv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbt-M6-myv" userLabel="Height Status">
                                                 <rect key="frame" x="134" y="0.0" width="10.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
@@ -244,7 +265,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-zV-5DE" userLabel="Drone State">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-zV-5DE" userLabel="Drone Status">
                                                         <rect key="frame" x="56.5" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
@@ -267,7 +288,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV8-47-Cel" userLabel="UDP State">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV8-47-Cel" userLabel="UDP Status">
                                                         <rect key="frame" x="43.5" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
@@ -290,7 +311,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWR-X6-po2" userLabel="Alive State">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWR-X6-po2" userLabel="Alive Status">
                                                         <rect key="frame" x="47" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
@@ -306,7 +327,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="lxl-4U-o8v">
                                         <rect key="frame" x="32" y="569" width="311" height="33"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-y0-YX6">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-y0-YX6">
                                                 <rect key="frame" x="0.0" y="0.0" width="139.5" height="33"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -316,8 +337,11 @@
                                                 <variation key="heightClass=compact">
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="N34-gL-1ya"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-2r-8oH">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-2r-8oH">
                                                 <rect key="frame" x="171.5" y="0.0" width="139.5" height="33"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -327,6 +351,9 @@
                                                 <variation key="heightClass=compact">
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="1G1-aK-H9J"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -378,10 +405,10 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="T1G-1o-4Xk" appends="YES" id="Ojn-2M-fVj"/>
                                     <outletCollection property="gestureRecognizers" destination="HlS-qx-hfN" appends="YES" id="8Oh-y6-vFq"/>
                                     <outletCollection property="gestureRecognizers" destination="Koq-5O-izR" appends="YES" id="ZR8-eJ-zaT"/>
                                     <outletCollection property="gestureRecognizers" destination="AAU-07-t9A" appends="YES" id="dj3-Z6-Oup"/>
+                                    <outletCollection property="gestureRecognizers" destination="T1G-1o-4Xk" appends="YES" id="9Lz-wX-m4s"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -423,21 +450,46 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Basic +" image="rhombus.fill" catalog="system" landscapeImage="rhombus.fill" largeContentSizeImage="rhombus.fill" id="JbP-xl-AHn"/>
                     <connections>
+                        <outlet property="aliveStatus" destination="FWR-X6-po2" id="8jU-1A-13b"/>
+                        <outlet property="batteryStatus" destination="9IN-uZ-N8X" id="sUy-3D-Snl"/>
+                        <outlet property="connectionStatus" destination="BV8-47-Cel" id="Egr-d7-6aw"/>
                         <outlet property="distanceSlider" destination="Wzt-pH-ZMb" id="Boa-pa-79I"/>
                         <outlet property="distanceSliderValue" destination="3fN-0t-A3t" id="XlK-bG-lyN"/>
                         <outlet property="downButton" destination="aHT-Zb-nha" id="LZj-9o-nK9"/>
+                        <outlet property="droneStatus" destination="1yy-zV-5DE" id="Ez5-iC-hhv"/>
+                        <outlet property="heightStatus" destination="Lbt-M6-myv" id="b7h-3H-grv"/>
                         <outlet property="leftButton" destination="hDR-fu-4C4" id="CeE-u1-k5N"/>
+                        <outlet property="mode" destination="WER-cR-jgO" id="7od-P3-YcJ"/>
                         <outlet property="rightButton" destination="teN-fi-jY8" id="aSM-rf-dmY"/>
                         <outlet property="rotateAngle" destination="QAd-hg-4wI" id="q2g-Gq-SKE"/>
                         <outlet property="rotateAngleSlider" destination="US3-fE-cQd" id="lcs-WH-zwK"/>
+                        <outlet property="startButton" destination="Z04-y0-YX6" id="N1H-Az-BIG"/>
+                        <outlet property="stopButton" destination="6Xt-2r-8oH" id="jCt-L6-EiJ"/>
+                        <outlet property="timeStatus" destination="U1n-V2-1Im" id="wBQ-Ui-rDF"/>
                         <outlet property="upButton" destination="XjU-0y-d9y" id="SBR-tT-5hE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj6-Gz-NJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer"/>
-                <swipeGestureRecognizer direction="down" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer"/>
-                <swipeGestureRecognizer direction="left" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer"/>
-                <swipeGestureRecognizer direction="right" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer"/>
+                <swipeGestureRecognizer direction="up" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="flipControl:" destination="aIA-os-i5q" id="fpu-GC-xn8"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="flipControl:" destination="aIA-os-i5q" id="rBS-jf-yKr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="flipControl:" destination="aIA-os-i5q" id="gmb-ev-wEU"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="flipControl:" destination="aIA-os-i5q" id="YZm-5O-l9v"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-543.75" y="55.985915492957744"/>
         </scene>
@@ -772,7 +824,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-Ki-cxa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-Ki-cxa" userLabel="Time Status">
                                                 <rect key="frame" x="48" y="0.0" width="10.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="systemBlueColor"/>
@@ -790,7 +842,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv3-uh-WJQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv3-uh-WJQ" userLabel="Height Status">
                                                 <rect key="frame" x="129.5" y="0.0" width="10.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="systemBlueColor"/>
@@ -828,7 +880,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-V7-SmD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-V7-SmD" userLabel="Drone Status">
                                                         <rect key="frame" x="54.5" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -851,7 +903,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozz-aY-lIL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozz-aY-lIL" userLabel="Udp Status">
                                                         <rect key="frame" x="43" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -874,7 +926,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSJ-R8-qwv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSJ-R8-qwv" userLabel="Alive Status">
                                                         <rect key="frame" x="45" y="0.0" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -999,7 +1051,6 @@
     <resources>
         <image name="arrow.down.to.line" catalog="system" width="64" height="64"/>
         <image name="arrow.up" catalog="system" width="58" height="64"/>
-        <image name="arrow.up.and.down" catalog="system" width="52" height="64"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="64" height="62"/>
         <image name="arrowtriangle.left.fill" catalog="system" width="64" height="56"/>
         <image name="arrowtriangle.right.fill" catalog="system" width="64" height="56"/>
