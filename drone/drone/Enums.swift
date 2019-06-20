@@ -42,6 +42,15 @@ enum MasterButton: Int, CaseIterable {
     }
 }
 
+// Reset Buttons on the UI
+enum ResetButton: Int, CaseIterable {
+    case distance
+    case angle
+    init(_ ix:Int) {
+        self = ResetButton.allCases[ix]
+    }
+}
+
 // Commands to be sent to drone (see spec)
 enum MoveDirection: String, CaseIterable {
     case up
