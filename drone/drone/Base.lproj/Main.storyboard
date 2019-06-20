@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
@@ -120,16 +121,15 @@
                                                         <rect key="frame" x="0.0" y="32" width="171.5" height="20"/>
                                                         <subviews>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="20" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Wzt-pH-ZMb">
-                                                                <rect key="frame" x="-2" y="0.0" width="121.5" height="21"/>
+                                                                <rect key="frame" x="-2" y="0.0" width="123.5" height="21"/>
                                                                 <connections>
                                                                     <action selector="distanceSliderValueChange:" destination="aIA-os-i5q" eventType="valueChanged" id="8uU-5V-dwn"/>
-                                                                    <action selector="distanceSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="gA1-qE-LbI"/>
                                                                 </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fN-0t-A3t">
-                                                                <rect key="frame" x="121.5" y="0.0" width="50" height="20"/>
+                                                                <rect key="frame" x="123.5" y="0.0" width="48" height="20"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="9XG-w5-OfV"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="9XG-w5-OfV"/>
                                                                     <constraint firstAttribute="height" constant="20" id="oYI-bP-fB0"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -165,17 +165,16 @@
                                                         <rect key="frame" x="0.0" y="32" width="171.5" height="20"/>
                                                         <subviews>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="1" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="US3-fE-cQd">
-                                                                <rect key="frame" x="-2" y="0.0" width="121.5" height="21"/>
+                                                                <rect key="frame" x="-2" y="0.0" width="123.5" height="21"/>
                                                                 <connections>
-                                                                    <action selector="rotateAngleSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OK-1Q-veK"/>
                                                                     <action selector="rotateAngleSliderValueChange:" destination="aIA-os-i5q" eventType="valueChanged" id="l8K-vu-TrY"/>
                                                                 </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAd-hg-4wI">
-                                                                <rect key="frame" x="121.5" y="0.0" width="50" height="20"/>
+                                                                <rect key="frame" x="123.5" y="0.0" width="48" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="8L2-Ue-FU4"/>
-                                                                    <constraint firstAttribute="width" constant="50" id="9eD-L9-h4z"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="9eD-L9-h4z"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -254,7 +253,7 @@
                                         <rect key="frame" x="8" y="532.5" width="359" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KWS-7I-pMv">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Drone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1W-AQ-XD0">
                                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="20.5"/>
@@ -265,8 +264,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-zV-5DE" userLabel="Drone Status">
-                                                        <rect key="frame" x="56.5" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-zV-5DE" userLabel="Drone Status">
+                                                        <rect key="frame" x="56.5" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -277,7 +276,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yvx-rh-xJG">
-                                                <rect key="frame" x="141.5" y="0.0" width="85.5" height="20.5"/>
+                                                <rect key="frame" x="154" y="0.0" width="60.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="UDP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEu-Xw-ag4">
                                                         <rect key="frame" x="0.0" y="0.0" width="35.5" height="20.5"/>
@@ -288,8 +287,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV8-47-Cel" userLabel="UDP Status">
-                                                        <rect key="frame" x="43.5" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV8-47-Cel" userLabel="Connection Status">
+                                                        <rect key="frame" x="43.5" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -300,7 +299,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xff-mV-axN">
-                                                <rect key="frame" x="270" y="0.0" width="89" height="20.5"/>
+                                                <rect key="frame" x="295" y="0.0" width="64" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-bE-H7i">
                                                         <rect key="frame" x="0.0" y="0.0" width="39" height="20.5"/>
@@ -311,8 +310,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWR-X6-po2" userLabel="Alive Status">
-                                                        <rect key="frame" x="47" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWR-X6-po2" userLabel="Alive Status">
+                                                        <rect key="frame" x="47" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -324,12 +323,15 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="lxl-4U-o8v">
-                                        <rect key="frame" x="32" y="569" width="311" height="33"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lxl-4U-o8v">
+                                        <rect key="frame" x="8" y="569" width="359" height="33"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-y0-YX6">
-                                                <rect key="frame" x="0.0" y="0.0" width="139.5" height="33"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-y0-YX6">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="33"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="tHr-aF-UB4"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -346,9 +348,12 @@
                                                     <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="N34-gL-1ya"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-2r-8oH">
-                                                <rect key="frame" x="171.5" y="0.0" width="139.5" height="33"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-2r-8oH">
+                                                <rect key="frame" x="80" y="0.0" width="72" height="33"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="9uj-dH-FUV"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Stop">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -365,6 +370,20 @@
                                                     <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="1G1-aK-H9J"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-19-gLr">
+                                                <rect key="frame" x="160" y="0.0" width="199" height="33"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Flip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-eP-VUS">
+                                                        <rect key="frame" x="0.0" y="6.5" width="134" height="20.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9CI-X8-TzE">
+                                                        <rect key="frame" x="150" y="1" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -375,13 +394,13 @@
                                     <constraint firstAttribute="trailing" secondItem="VVi-9U-RWz" secondAttribute="trailing" constant="8" id="40J-Nj-PVO"/>
                                     <constraint firstItem="XjU-0y-d9y" firstAttribute="top" secondItem="WER-cR-jgO" secondAttribute="bottom" constant="32" id="5qk-xs-iOg"/>
                                     <constraint firstItem="WER-cR-jgO" firstAttribute="centerX" secondItem="NQJ-GT-oKO" secondAttribute="centerX" id="6qg-f1-Vfg"/>
-                                    <constraint firstAttribute="trailing" secondItem="lxl-4U-o8v" secondAttribute="trailing" constant="32" id="7Uq-cR-cDq"/>
+                                    <constraint firstAttribute="trailing" secondItem="lxl-4U-o8v" secondAttribute="trailing" constant="8" id="7Uq-cR-cDq"/>
                                     <constraint firstItem="teN-fi-jY8" firstAttribute="centerX" secondItem="hDR-fu-4C4" secondAttribute="centerX" constant="156" id="8BB-Rw-6SG"/>
                                     <constraint firstItem="VVi-9U-RWz" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="8" id="AOq-gQ-r8E"/>
                                     <constraint firstAttribute="trailing" secondItem="Y6F-2f-hWU" secondAttribute="trailing" constant="8" id="CZb-Xe-5WR"/>
                                     <constraint firstItem="Hfw-oh-fsu" firstAttribute="centerX" secondItem="NQJ-GT-oKO" secondAttribute="centerX" id="DLL-rE-1Nd"/>
                                     <constraint firstItem="teN-fi-jY8" firstAttribute="centerY" secondItem="hDR-fu-4C4" secondAttribute="centerY" id="ELH-Pq-Isj"/>
-                                    <constraint firstItem="lxl-4U-o8v" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="32" id="Gkn-ef-vw6"/>
+                                    <constraint firstItem="lxl-4U-o8v" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="8" id="Gkn-ef-vw6"/>
                                     <constraint firstItem="Y6F-2f-hWU" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="8" id="LzQ-HI-26R"/>
                                     <constraint firstItem="WER-cR-jgO" firstAttribute="leading" secondItem="oJK-Jd-1ty" secondAttribute="trailing" constant="24" id="WMp-0o-rdJ"/>
                                     <constraint firstItem="WER-cR-jgO" firstAttribute="centerY" secondItem="oJK-Jd-1ty" secondAttribute="centerY" id="enO-2Y-7YS"/>
@@ -467,14 +486,13 @@
                         <outlet property="distanceSliderValue" destination="3fN-0t-A3t" id="XlK-bG-lyN"/>
                         <outlet property="downButton" destination="aHT-Zb-nha" id="LZj-9o-nK9"/>
                         <outlet property="droneStatus" destination="1yy-zV-5DE" id="Ez5-iC-hhv"/>
+                        <outlet property="flipSwitch" destination="9CI-X8-TzE" id="IMa-AQ-Gza"/>
                         <outlet property="heightStatus" destination="Lbt-M6-myv" id="b7h-3H-grv"/>
                         <outlet property="leftButton" destination="hDR-fu-4C4" id="CeE-u1-k5N"/>
                         <outlet property="mode" destination="WER-cR-jgO" id="7od-P3-YcJ"/>
                         <outlet property="rightButton" destination="teN-fi-jY8" id="aSM-rf-dmY"/>
                         <outlet property="rotateAngle" destination="QAd-hg-4wI" id="q2g-Gq-SKE"/>
                         <outlet property="rotateAngleSlider" destination="US3-fE-cQd" id="lcs-WH-zwK"/>
-                        <outlet property="startButton" destination="Z04-y0-YX6" id="N1H-Az-BIG"/>
-                        <outlet property="stopButton" destination="6Xt-2r-8oH" id="jCt-L6-EiJ"/>
                         <outlet property="timeStatus" destination="U1n-V2-1Im" id="wBQ-Ui-rDF"/>
                         <outlet property="upButton" destination="XjU-0y-d9y" id="SBR-tT-5hE"/>
                     </connections>
@@ -546,6 +564,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydl-zZ-UtG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
@@ -558,6 +579,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zrg-aR-qTj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -599,6 +623,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="87c-Lg-0nf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB3-64-ubB">
                                                 <rect key="frame" x="91.5" y="0.0" width="81.5" height="48"/>
@@ -611,6 +638,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJl-wm-pC8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
                                                 <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
@@ -623,6 +653,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1IH-OG-bit"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
                                                 <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
@@ -635,6 +668,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dz-Wm-UmM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -652,6 +688,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TZr-hf-vek"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Bx-LNa">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
@@ -664,6 +703,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NfP-4J-tm1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -714,7 +756,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-2j-BHc">
                                                 <rect key="frame" x="0.0" y="60" width="356" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -725,8 +767,11 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="buttonRotate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ae7-L6-zGg"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
                                                         <rect key="frame" x="183" y="0.0" width="173" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -737,6 +782,9 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="buttonRotate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcg-Eb-DBL"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -760,7 +808,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk3-AR-YyU">
                                                 <rect key="frame" x="0.0" y="28" width="356" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -771,8 +819,11 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="flipControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="weu-Gx-Tiq"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-MH-F9G">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-MH-F9G">
                                                         <rect key="frame" x="91.5" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -783,8 +834,11 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="flipControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oil-Gj-mvk"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
                                                         <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -795,8 +849,11 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="flipControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yW3-W2-DZP"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
                                                         <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -807,6 +864,9 @@
                                                             <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="flipControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0sR-Ez-1Pj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -879,7 +939,7 @@
                                         <rect key="frame" x="0.0" y="480.5" width="356" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ue3-eP-KFA">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Drone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-vW-jP6">
                                                         <rect key="frame" x="0.0" y="0.0" width="46.5" height="20.5"/>
@@ -890,8 +950,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-V7-SmD" userLabel="Drone Status">
-                                                        <rect key="frame" x="54.5" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-V7-SmD" userLabel="Drone Status">
+                                                        <rect key="frame" x="54.5" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -902,7 +962,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-tt-paU">
-                                                <rect key="frame" x="140.5" y="0.0" width="85" height="20.5"/>
+                                                <rect key="frame" x="153" y="0.0" width="60" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="UDP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulw-n0-xje">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
@@ -913,8 +973,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozz-aY-lIL" userLabel="Udp Status">
-                                                        <rect key="frame" x="43" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozz-aY-lIL" userLabel="Connection Status">
+                                                        <rect key="frame" x="43" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -925,7 +985,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U13-o9-oE4">
-                                                <rect key="frame" x="269" y="0.0" width="87" height="20.5"/>
+                                                <rect key="frame" x="294" y="0.0" width="62" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2B2-Gb-4aD">
                                                         <rect key="frame" x="0.0" y="0.0" width="37" height="20.5"/>
@@ -936,8 +996,8 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSJ-R8-qwv" userLabel="Alive Status">
-                                                        <rect key="frame" x="45" y="0.0" width="42" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSJ-R8-qwv" userLabel="Alive Status">
+                                                        <rect key="frame" x="45" y="0.0" width="17" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -963,6 +1023,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yxk-qr-wyb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRK-rw-Eb1">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
@@ -975,6 +1038,9 @@
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="buttonMaster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pnC-QN-dcr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1049,17 +1115,11 @@
                         <outlet property="connectionStatus" destination="Ozz-aY-lIL" id="uhM-eS-Gaf"/>
                         <outlet property="distanceSlider" destination="mkL-LJ-kyP" id="Gf8-9p-slE"/>
                         <outlet property="distanceSliderValue" destination="Y3C-nW-IGR" id="OS2-tM-4UU"/>
-                        <outlet property="downButton" destination="x5q-zA-Piw" id="7ta-yH-e8S"/>
                         <outlet property="droneStatus" destination="xx8-V7-SmD" id="5hS-pC-Hln"/>
                         <outlet property="heightStatus" destination="rv3-uh-WJQ" id="jtZ-l6-pgE"/>
-                        <outlet property="leftButton" destination="BG6-JG-BRK" id="gbG-dj-gAr"/>
-                        <outlet property="rightButton" destination="Rfh-5c-PvH" id="a61-TN-irj"/>
                         <outlet property="rotateAngle" destination="AHw-lr-Z3I" id="LNY-BE-aeJ"/>
                         <outlet property="rotateAngleSlider" destination="gjf-iH-Mcj" id="aGa-kL-RNs"/>
-                        <outlet property="startButton" destination="FAz-DR-k6y" id="27L-rD-IJD"/>
-                        <outlet property="stopButton" destination="bRK-rw-Eb1" id="aFO-Kn-g4q"/>
                         <outlet property="timeStatus" destination="c66-Ki-cxa" id="ZXT-nc-Wrb"/>
-                        <outlet property="upButton" destination="tB3-64-ubB" id="I6m-Wq-EOL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

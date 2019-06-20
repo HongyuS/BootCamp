@@ -19,10 +19,6 @@ class BasicPlusView: UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     
-    // Master Button outlet.
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
-    
     // Distance Slider outlet and action to change value label.
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceSliderValue: UILabel!
@@ -44,6 +40,9 @@ class BasicPlusView: UIViewController {
     @IBOutlet weak var droneStatus: UILabel!
     @IBOutlet weak var connectionStatus: UILabel!
     @IBOutlet weak var aliveStatus: UILabel!
+    
+    // Switch to enalbe flip gestures.
+    @IBOutlet weak var flipSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,30 +81,26 @@ extension BasicPlusView {
     @IBAction func buttonMotion(_ sender: UIButton) {
         switch MotionMode(mode.selectedSegmentIndex) {
         case .horizontal:
-            switch sender.tag {
-            case 0: // `Forward` Button
+            switch MotionButton(sender.tag) {
+            case .up: // `Forward` Button
                 print("Move Forward")
-            case 1: // `Bcak` Button
+            case .down: // `Bcak` Button
                 print("Move Back")
-            case 2: // `Left` Button
+            case .left: // `Left` Button
                 print("Move Left")
-            case 3: // `Right` Button
+            case .right: // `Right` Button
                 print("Move Right")
-            default:
-                print(#function, mode.selectedSegmentIndex)
             }
         case .rotation: // `Vertical` or `Rotation` Mode
-            switch sender.tag {
-            case 0: // `Up` Button
+            switch MotionButton(sender.tag) {
+            case .up: // `Up` Button
                 print("Move Up")
-            case 1: // `Down` Button
+            case .down: // `Down` Button
                 print("Move Down")
-            case 2: // `Left` Button (Rotate)
+            case .left: // `Left` Button (Rotate)
                 print("Rotate Left")
-            case 3: // `Right` Button (Rotate)
+            case .right: // `Right` Button (Rotate)
                 print("Rotate Right")
-            default:
-                print(#function, mode.selectedSegmentIndex)
             }
         }
     }
@@ -116,17 +111,19 @@ extension BasicPlusView {
         // LEFT: flip left;
         // RIGHT: flip right.
     @IBAction func flipControl(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction {
-        case .up: // Swipe UP on the screen.
-            print("Flip FORWARD")
-        case .down: // Swipe DOWN on the screen.
-            print("Flip BACK")
-        case .left: // Swipe LEFT on the screen.
-            print("Flip LEFT")
-        case .right: // Swipe RIGHT on the screen.
-            print("Flip RIGHT")
-        default:
-            print(#function)
+        if flipSwitch.isOn {
+            switch sender.direction {
+            case .up: // Swipe UP on the screen.
+                print("Flip FORWARD")
+            case .down: // Swipe DOWN on the screen.
+                print("Flip BACK")
+            case .left: // Swipe LEFT on the screen.
+                print("Flip LEFT")
+            case .right: // Swipe RIGHT on the screen.
+                print("Flip RIGHT")
+            default:
+                print(#function)
+            }
         }
     }
     
