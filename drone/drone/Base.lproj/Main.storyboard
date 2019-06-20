@@ -537,7 +537,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -578,7 +578,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-dJ-4S1">
                                         <rect key="frame" x="0.0" y="100" width="356" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-JG-BRK">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-JG-BRK">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -602,7 +602,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
                                                 <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -614,7 +614,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
                                                 <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -631,7 +631,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-xa-8mw">
                                         <rect key="frame" x="0.0" y="164" width="356" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-d3-c7u">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-d3-c7u">
                                                 <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -643,7 +643,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Bx-LNa">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Bx-LNa">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -704,7 +704,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-2j-BHc">
                                                 <rect key="frame" x="0.0" y="60" width="356" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -716,7 +716,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
                                                         <rect key="frame" x="183" y="0.0" width="173" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -750,7 +750,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk3-AR-YyU">
                                                 <rect key="frame" x="0.0" y="28" width="356" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -774,7 +774,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
                                                         <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -786,7 +786,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         </variation>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
                                                         <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -942,7 +942,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wnh-lW-wpi">
                                         <rect key="frame" x="0.0" y="517" width="356" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAz-DR-k6y">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAz-DR-k6y">
                                                 <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -954,7 +954,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRK-rw-Eb1">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRK-rw-Eb1">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -1034,13 +1034,22 @@
                     <tabBarItem key="tabBarItem" title="Basic" image="table.fill" catalog="system" landscapeImage="table.fill" largeContentSizeImage="table.fill" id="uc5-Vc-Zce" userLabel="Basic"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="aliveState" destination="NSJ-R8-qwv" id="NRG-mu-JVu"/>
+                        <outlet property="aliveStatus" destination="NSJ-R8-qwv" id="NRG-mu-JVu"/>
+                        <outlet property="batteryStatus" destination="JGw-on-lKQ" id="cx1-CF-IbU"/>
+                        <outlet property="connectionStatus" destination="Ozz-aY-lIL" id="uhM-eS-Gaf"/>
                         <outlet property="distanceSlider" destination="mkL-LJ-kyP" id="Gf8-9p-slE"/>
                         <outlet property="distanceSliderValue" destination="Y3C-nW-IGR" id="OS2-tM-4UU"/>
-                        <outlet property="droneState" destination="xx8-V7-SmD" id="5hS-pC-Hln"/>
+                        <outlet property="downButton" destination="x5q-zA-Piw" id="7ta-yH-e8S"/>
+                        <outlet property="droneStatus" destination="xx8-V7-SmD" id="5hS-pC-Hln"/>
+                        <outlet property="heightStatus" destination="rv3-uh-WJQ" id="jtZ-l6-pgE"/>
+                        <outlet property="leftButton" destination="BG6-JG-BRK" id="gbG-dj-gAr"/>
+                        <outlet property="rightButton" destination="Rfh-5c-PvH" id="a61-TN-irj"/>
                         <outlet property="rotateAngle" destination="AHw-lr-Z3I" id="LNY-BE-aeJ"/>
                         <outlet property="rotateAngleSlider" destination="gjf-iH-Mcj" id="aGa-kL-RNs"/>
-                        <outlet property="udpState" destination="Ozz-aY-lIL" id="uhM-eS-Gaf"/>
+                        <outlet property="startButton" destination="FAz-DR-k6y" id="27L-rD-IJD"/>
+                        <outlet property="stopButton" destination="bRK-rw-Eb1" id="aFO-Kn-g4q"/>
+                        <outlet property="timeStatus" destination="c66-Ki-cxa" id="ZXT-nc-Wrb"/>
+                        <outlet property="upButton" destination="tB3-64-ubB" id="I6m-Wq-EOL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
