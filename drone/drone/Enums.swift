@@ -8,8 +8,8 @@
 
 import Foundation
 
-// ?? TODO: all init() DO NOT
-// catch index out of range !!!
+// MARK: ??
+// TODO: all init() DO NOT catch index out of range !!!
 
 // modes of the motion
 enum MotionMode: Int, CaseIterable {
@@ -44,12 +44,12 @@ enum MasterButton: Int, CaseIterable {
 
 // Commands to be sent to drone (see spec)
 enum MoveDirection: String, CaseIterable {
+    case up
+    case down
     case left
     case right
     case forward
     case back
-    case up
-    case down
     init(_ ix:Int) {
         self = MoveDirection.allCases[ix]
     }
