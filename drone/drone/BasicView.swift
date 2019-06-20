@@ -9,6 +9,8 @@
 import UIKit
 
 class BasicView: UIViewController {
+    
+    private var mgr = DroneManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,21 +20,18 @@ class BasicView: UIViewController {
         Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
         Global.updateLabel(rotateAngle, withValue: "\(Int(rotateAngleSlider.value))")
         
+        // Make drone ready.
+        var drone = Global.createDrone()
+        drone.delegate = self
+        mgr.drone = drone
+        
     }
     
-    // Distance Slider outlet and action to change value label.
+    // Sliders and their labels.
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceSliderValue: UILabel!
-    @IBAction func distanceSliderValueChange(_ sender: UISlider) {
-        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
-    }
-    
-    // Rotation Angle Slider outlet and action to change value label.
     @IBOutlet weak var rotateAngleSlider: UISlider!
     @IBOutlet weak var rotateAngle: UILabel!
-    @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
-        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
-    }
     
     // Drone Status labels.
     @IBOutlet weak var timeStatus: UILabel!
@@ -44,63 +43,116 @@ class BasicView: UIViewController {
     
 }
 
-// MARK: Actions of buttons.
+
+// MARK: Private Functions
 extension BasicView {
+    
+    private func resetStatus() {
+        Global.updateProgress(self.batteryStatus, withValue: "0")
+        Global.updateLabel(self.aliveStatus, withValue: "??")
+        Global.updateLabel(self.droneStatus, withValue: "??")
+        Global.updateLabel(self.connectionStatus, withValue: "??")
+        Global.updateLabel(self.timeStatus, withValue: "0")
+        Global.updateLabel(self.heightStatus, withValue: "0")
+    }
+    
+    private func processStateData(withItems items: [Substring]) {
+        if let value = Global.extractInfo(byKey: "bat", withItems: items) {
+            Global.updateProgress(self.batteryStatus, withValue: value)
+        }
+        if let value = Global.extractInfo(byKey: "h", withItems: items) {
+            Global.updateLabel(self.heightStatus, withValue: value)
+        }
+        if let value = Global.extractInfo(byKey: "t", withItems: items) {
+            Global.updateLabel(self.timeStatus, withValue: value)
+        }
+        
+    }
+}
+
+
+// MARK: UI Actions
+extension BasicView {
+    
+    @IBAction func distanceSliderValueChange(_ sender: UISlider) {
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
+    }
+    
+    @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
+        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
+    }
     
     // Move Button actions.
     @IBAction func buttonMove(_ sender: UIButton) {
-        switch MoveDirection(sender.tag) {
-        case .forward: // `Forward` Button
-            print("Move Forward")
-        case .back: // `Bcak` Button
-            print("Move Back")
-        case .left: // `Left` Button
-            print("Move Left")
-        case .right: // `Right` Button
-            print("Move Right")
-        case .up: // `Up` Button
-            print("Move Up")
-        case .down: // `Down` Button
-            print("Move Down")
-        }
+        
+        let distance = distanceSliderValue.text!
+        
+        let dir = MoveDirection(sender.tag)
+        self.mgr.move(inDirection: dir, withDistance: distance)
+        
     }
     
     // Rotate Button actions.
     @IBAction func buttonRotate(_ sender: UIButton) {
-        switch RotateDirection(sender.tag) {
-        case .ccw: // `CCW` Button
-            print("Rotate Left")
-        case .cw: // `CW` Button
-            print("Rotate Right")
-        }
+        
+        let angle = rotateAngle.text!
+        
+        let dir = RotateDirection(sender.tag)
+        self.mgr.rotate(inDirection: dir, withDegree: angle)
+        
     }
     
     // Flip Button actions.
     @IBAction func flipControl(_ sender: UIButton) {
-        switch FlipDirection(sender.tag) {
-        case .forward: // Click `Flip Forward` button on the screen.
-            print("Flip FORWARD")
-        case .back: // Click `Flip Back` button on the screen.
-            print("Flip BACK")
-        case .left: // Click `Flip Left` button on the screen.
-            print("Flip LEFT")
-        case .right: // Click `Flip Right` button on the screen.
-            print("Flip RIGHT")
-        }
+        
+        let dir = FlipDirection(sender.tag)
+        self.mgr.flip(inDirection: dir)
+        
     }
     
     // Master Button actions.
     @IBAction func buttonMaster(_ sender: UIButton) {
+        
         switch MasterButton(sender.tag) {
-        case .takeoff: // `Takeoff` Button
-            print("Takeoff")
-        case .landing: // `Landing` Button
-            print("Landing")
-        case .start: // `Start` Button
-            print("Start")
-        case .stop: // `Stop` Button
-            print("Stop")
+        case .takeoff:
+            self.mgr.takeoff()
+        case .landing:
+            self.mgr.landing()
+        case .start:
+            resetStatus()
+            self.mgr.start()
+        case .stop:
+            resetStatus()
+            self.mgr.stop()
         }
+        
     }
+    
+}
+
+// MARK: Drone Delegate
+extension BasicView: DroneDelegate {
+    
+    // Status string from device
+    func onStatusDataArrival(withItems items: [Substring]) {
+        Global.updateLabel(self.aliveStatus, withValue: "Ok")
+    }
+    
+    func onConnectionStatusUpdate(msg: String) {
+        Global.updateLabel(self.connectionStatus, withValue: msg)
+    }
+    
+    func onListenerStatusUpdate(msg: String) {
+        print("TODO:", #function)
+    }
+    
+    func onDroneStatusUpdate(msg: String) {
+        Global.updateLabel(self.droneStatus, withValue: msg)
+    }
+    
+    func droneIsIdling() {
+        Global.updateLabel(self.droneStatus, withValue: "Idle")
+    }
+    
     
 }

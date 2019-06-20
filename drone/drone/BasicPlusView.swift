@@ -10,6 +10,8 @@ import UIKit
 
 class BasicPlusView: UIViewController {
     
+    private var mgr = DroneManager()
+    
     // Mode Control outlet.
     @IBOutlet weak var mode: UISegmentedControl!
     
@@ -19,19 +21,11 @@ class BasicPlusView: UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     
-    // Distance Slider outlet and action to change value label.
+    // Sliders and their labels.
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceSliderValue: UILabel!
-    @IBAction func distanceSliderValueChange(_ sender: UISlider) {
-        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
-    }
-    
-    // Rotation Angle Slider outlet and action to change value label.
     @IBOutlet weak var rotateAngleSlider: UISlider!
     @IBOutlet weak var rotateAngle: UILabel!
-    @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
-        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
-    }
     
     // Drone Status labels.
     @IBOutlet weak var timeStatus: UILabel!
@@ -52,7 +46,45 @@ class BasicPlusView: UIViewController {
         Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
         Global.updateLabel(rotateAngle, withValue: "\(Int(rotateAngleSlider.value))")
         
+        // Create drone and pass it to the manager.
+        var drone = Global.createDrone()
+        drone.delegate = self
+        mgr.drone = drone
+        
     }
+    
+}
+
+
+// MARK: Private Functions
+extension BasicPlusView {
+    
+    private func resetStatus() {
+        Global.updateProgress(self.batteryStatus, withValue: "0")
+        Global.updateLabel(self.aliveStatus, withValue: "??")
+        Global.updateLabel(self.droneStatus, withValue: "??")
+        Global.updateLabel(self.connectionStatus, withValue: "??")
+        Global.updateLabel(self.timeStatus, withValue: "0")
+        Global.updateLabel(self.heightStatus, withValue: "0")
+    }
+    
+    private func processStateData(withItems items: [Substring]) {
+        if let value = Global.extractInfo(byKey: "bat", withItems: items) {
+            Global.updateProgress(self.batteryStatus, withValue: value)
+        }
+        if let value = Global.extractInfo(byKey: "h", withItems: items) {
+            Global.updateLabel(self.heightStatus, withValue: value)
+        }
+        if let value = Global.extractInfo(byKey: "t", withItems: items) {
+            Global.updateLabel(self.timeStatus, withValue: value)
+        }
+        
+    }
+}
+
+
+// MARK: UI Actions
+extension BasicPlusView {
     
     @IBAction func modeControl(_ sender: UISegmentedControl) {
         // Switch color of `UP` and `DOWN` button.
@@ -68,81 +100,117 @@ class BasicPlusView: UIViewController {
         }
     }
     
-}
-
-// MARK: Actions of buttons and gestures.
-extension BasicPlusView {
+    @IBAction func distanceSliderValueChange(_ sender: UISlider) {
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
+    }
     
-    // Motion Button actions:
-        // 1. moveForward or moveUp
-        // 2. moveBack or moveDown
-        // 3. moveLeft or rotateLeft
-        // 4. moveRight or rotateRight
+    @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
+        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
+    }
+    
+    @IBAction func resetSliderValue(_ sender: UIButton) {
+        switch ResetButton(sender.tag) {
+        case .distance:
+            distanceSlider.value = 50
+            Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
+        case .angle:
+            rotateAngleSlider.value = 90
+            Global.updateLabel(rotateAngle, withValue: "\(Int(rotateAngleSlider.value))")
+        }
+    }
+    
+    // Motion Button actions.
     @IBAction func buttonMotion(_ sender: UIButton) {
+        Global.animateButton(sender)
+        
+        let distance = distanceSliderValue.text!
+        let angle = rotateAngle.text!
+        
         switch MotionMode(mode.selectedSegmentIndex) {
         case .horizontal:
             switch MotionButton(sender.tag) {
-            case .up: // `Forward` Button
-                print("Move Forward")
-            case .down: // `Bcak` Button
-                print("Move Back")
-            case .left: // `Left` Button
-                print("Move Left")
-            case .right: // `Right` Button
-                print("Move Right")
+            case .up, .down:
+                let dir = MoveDirection(sender.tag + 4)
+                self.mgr.move(inDirection: dir, withDistance: distance)
+            case .left, .right:
+                let dir = MoveDirection(sender.tag)
+                self.mgr.move(inDirection: dir, withDistance: distance)
             }
         case .rotation: // `Vertical` or `Rotation` Mode
             switch MotionButton(sender.tag) {
-            case .up: // `Up` Button
-                print("Move Up")
-            case .down: // `Down` Button
-                print("Move Down")
-            case .left: // `Left` Button (Rotate)
-                print("Rotate Left")
-            case .right: // `Right` Button (Rotate)
-                print("Rotate Right")
+            case .up, .down:
+                let dir = MoveDirection(sender.tag)
+                self.mgr.move(inDirection: dir, withDistance: distance)
+            case .left, .right:
+                let dir = RotateDirection(sender.tag - 2)
+                self.mgr.rotate(inDirection: dir, withDegree: angle)
             }
         }
     }
     
-    // Swipe Gesture actions:
-        // UP: flip forward;
-        // DOWN: flip back;
-        // LEFT: flip left;
-        // RIGHT: flip right.
+    // Swipe Gesture actions.
     @IBAction func flipControl(_ sender: UISwipeGestureRecognizer) {
         if flipSwitch.isOn {
+            
+            var dir: FlipDirection?
+            
             switch sender.direction {
-            case .up: // Swipe UP on the screen.
-                print("Flip FORWARD")
-            case .down: // Swipe DOWN on the screen.
-                print("Flip BACK")
-            case .left: // Swipe LEFT on the screen.
-                print("Flip LEFT")
-            case .right: // Swipe RIGHT on the screen.
-                print("Flip RIGHT")
+            case .up: dir = FlipDirection(2)
+            case .down: dir = FlipDirection(3)
+            case .left: dir = FlipDirection(0)
+            case .right: dir = FlipDirection(1)
             default:
-                print(#function)
+                print("Unkown Gesture!", #function)
             }
+            
+            self.mgr.flip(inDirection: dir!)
+            
         }
     }
     
-    // Master Button actions:
-        // 1. Take off
-        // 2. Landing
-        // 3. Start connection
-        // 4. Stop connection
+    // Master Button actions.
     @IBAction func buttonMaster(_ sender: UIButton) {
+        
         switch MasterButton(sender.tag) {
-        case .takeoff: // `Takeoff` Button
-            print("Takeoff")
-        case .landing: // `Landing` Button
-            print("Landing")
-        case .start: // `Start` Button
-            print("Start")
-        case .stop: // `Stop` Button
-            print("Stop")
+        case .takeoff:
+            self.mgr.takeoff()
+        case .landing:
+            self.mgr.landing()
+        case .start:
+            resetStatus()
+            self.mgr.start()
+        case .stop:
+            resetStatus()
+            self.mgr.stop()
         }
+        
+    }
+    
+}
+
+
+// MARK: Drone Delegate
+extension BasicPlusView: DroneDelegate {
+    
+    // Status string from device
+    func onStatusDataArrival(withItems items: [Substring]) {
+        Global.updateLabel(self.aliveStatus, withValue: "Ok")
+    }
+    
+    func onConnectionStatusUpdate(msg: String) {
+        Global.updateLabel(self.connectionStatus, withValue: msg)
+    }
+    
+    func onListenerStatusUpdate(msg: String) {
+        print("TODO:", #function)
+    }
+    
+    func onDroneStatusUpdate(msg: String) {
+        Global.updateLabel(self.droneStatus, withValue: msg)
+    }
+    
+    func droneIsIdling() {
+        Global.updateLabel(self.droneStatus, withValue: "Idle")
     }
     
 }
