@@ -27,14 +27,14 @@ class BasicPlusView: UIViewController {
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceSliderValue: UILabel!
     @IBAction func distanceSliderValueChange(_ sender: UISlider) {
-        distanceSliderValue.text = "\(sender.value)"
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
     }
     
     // Rotation Angle Slider outlet and action to change value label.
     @IBOutlet weak var rotateAngleSlider: UISlider!
     @IBOutlet weak var rotateAngle: UILabel!
     @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
-        rotateAngle.text = "\(sender.value)"
+        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
     }
     
     // Drone Status labels.
@@ -49,13 +49,9 @@ class BasicPlusView: UIViewController {
         super.viewDidLoad()
         // "Do any additional setup after loading the view."
         
-        // Set corner radius of buttons.
-        startButton.layer.cornerRadius = 8
-        stopButton.layer.cornerRadius = 8
-        
         // Initialize label values of sliders.
-        distanceSliderValue.text = "\(distanceSlider.value)"
-        rotateAngle.text = "\(rotateAngleSlider.value)"
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
+        Global.updateLabel(rotateAngle, withValue: "\(Int(rotateAngleSlider.value))")
         
     }
     
@@ -84,8 +80,8 @@ extension BasicPlusView {
         // 3. moveLeft or rotateLeft
         // 4. moveRight or rotateRight
     @IBAction func buttonMotion(_ sender: UIButton) {
-        if mode.selectedSegmentIndex == 0 {
-            // `Horizontal` Mode
+        switch MotionMode(mode.selectedSegmentIndex) {
+        case .horizontal:
             switch sender.tag {
             case 0: // `Forward` Button
                 print("Move Forward")
@@ -98,8 +94,7 @@ extension BasicPlusView {
             default:
                 print(#function, mode.selectedSegmentIndex)
             }
-        } else {
-            // `Vertical` Mode
+        case .rotation: // `Vertical` or `Rotation` Mode
             switch sender.tag {
             case 0: // `Up` Button
                 print("Move Up")
@@ -141,17 +136,15 @@ extension BasicPlusView {
         // 3. Start connection
         // 4. Stop connection
     @IBAction func buttonMaster(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: // `Takeoff` Button
+        switch MasterButton(sender.tag) {
+        case .takeoff: // `Takeoff` Button
             print("Takeoff")
-        case 1: // `Landing` Button
+        case .landing: // `Landing` Button
             print("Landing")
-        case 2: // `Start` Button
+        case .start: // `Start` Button
             print("Start")
-        case 3: // `Stop` Button
+        case .stop: // `Stop` Button
             print("Stop")
-        default:
-            print(#function)
         }
     }
     

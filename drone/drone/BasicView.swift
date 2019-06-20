@@ -15,8 +15,8 @@ class BasicView: UIViewController {
         // Do any additional setup after loading the view.
         
         // Initialize label values of sliders.
-        distanceSliderValue.text = "\(distanceSlider.value)"
-        rotateAngle.text = "\(rotateAngleSlider.value)"
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
+        Global.updateLabel(rotateAngle, withValue: "\(Int(rotateAngleSlider.value))")
         
     }
     
@@ -34,14 +34,14 @@ class BasicView: UIViewController {
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var distanceSliderValue: UILabel!
     @IBAction func distanceSliderValueChange(_ sender: UISlider) {
-        distanceSliderValue.text = "\(sender.value)"
+        Global.updateLabel(distanceSliderValue, withValue: "\(Int(sender.value))")
     }
     
     // Rotation Angle Slider outlet and action to change value label.
     @IBOutlet weak var rotateAngleSlider: UISlider!
     @IBOutlet weak var rotateAngle: UILabel!
     @IBAction func rotateAngleSliderValueChange(_ sender: UISlider) {
-        rotateAngle.text = "\(sender.value)"
+        Global.updateLabel(rotateAngle, withValue: "\(Int(sender.value))")
     }
     
     // Drone Status labels.
