@@ -665,22 +665,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj6-Gz-NJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="fpu-GC-xn8"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="down" numberOfTouchesRequired="2" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="rBS-jf-yKr"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="2" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="gmb-ev-wEU"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="right" numberOfTouchesRequired="2" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="YZm-5O-l9v"/>
                     </connections>

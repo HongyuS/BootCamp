@@ -135,6 +135,7 @@ extension BasicView: DroneDelegate {
     
     // Status string from device
     func onStatusDataArrival(withItems items: [Substring]) {
+        self.processStateData(withItems: items)
         Global.updateLabel(self.aliveStatus, withValue: "Ok")
     }
     
