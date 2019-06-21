@@ -170,6 +170,7 @@ extension BasicPlusView {
     
     // Master Button actions.
     @IBAction func buttonMaster(_ sender: UIButton) {
+        Global.animateButton(sender)
         
         switch MasterButton(sender.tag) {
         case .takeoff:

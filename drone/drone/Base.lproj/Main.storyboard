@@ -14,7 +14,7 @@
         <scene sceneID="Qs4-oe-3eV">
             <objects>
                 <viewController id="aIA-os-i5q" userLabel="BasicPlus" customClass="BasicPlusView" customModule="drone" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="pFO-if-Izj">
+                    <view key="view" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pFO-if-Izj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -54,7 +54,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-GT-oKO">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-GT-oKO">
                                 <rect key="frame" x="9.5" y="12.5" width="356" height="593"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WER-cR-jgO" userLabel="Mode">
@@ -596,10 +596,6 @@
                                 <exclude reference="T8Q-eP-zZ1"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6OF-GG-vO7"/>
-                                <exclude reference="K6s-lR-0nL"/>
-                                <exclude reference="LL0-Aa-EEk"/>
-                                <exclude reference="ikf-l8-H1S"/>
                                 <exclude reference="8dM-Nx-3G7"/>
                                 <exclude reference="OHR-Q7-cdg"/>
                                 <exclude reference="SSQ-ey-Dty"/>
@@ -609,6 +605,10 @@
                                 <exclude reference="AGJ-uI-BFI"/>
                                 <exclude reference="dV0-Qx-Jnf"/>
                                 <exclude reference="tNT-rq-Foa"/>
+                                <exclude reference="6OF-GG-vO7"/>
+                                <exclude reference="K6s-lR-0nL"/>
+                                <exclude reference="LL0-Aa-EEk"/>
+                                <exclude reference="ikf-l8-H1S"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -631,16 +631,16 @@
                                 <include reference="OS6-ys-cNm"/>
                                 <include reference="SPj-0y-7iO"/>
                                 <include reference="ehA-Cx-orN"/>
-                                <include reference="6OF-GG-vO7"/>
-                                <include reference="K6s-lR-0nL"/>
-                                <include reference="LL0-Aa-EEk"/>
-                                <include reference="ikf-l8-H1S"/>
                                 <include reference="OHR-Q7-cdg"/>
                                 <include reference="nil-Eh-F9E"/>
                                 <include reference="3OY-zN-hj9"/>
                                 <include reference="AGJ-uI-BFI"/>
                                 <include reference="dV0-Qx-Jnf"/>
                                 <include reference="tNT-rq-Foa"/>
+                                <include reference="6OF-GG-vO7"/>
+                                <include reference="K6s-lR-0nL"/>
+                                <include reference="LL0-Aa-EEk"/>
+                                <include reference="ikf-l8-H1S"/>
                             </mask>
                         </variation>
                     </view>
@@ -665,22 +665,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj6-Gz-NJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="up" id="T1G-1o-4Xk" userLabel="Up Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="fpu-GC-xn8"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" numberOfTouchesRequired="2" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="down" id="HlS-qx-hfN" userLabel="Down Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="rBS-jf-yKr"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="2" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="left" id="Koq-5O-izR" userLabel="Left Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="gmb-ev-wEU"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" numberOfTouchesRequired="2" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer">
+                <swipeGestureRecognizer direction="right" id="AAU-07-t9A" userLabel="Right Swipe Gesture Recognizer">
                     <connections>
                         <action selector="flipControl:" destination="aIA-os-i5q" id="YZm-5O-l9v"/>
                     </connections>
@@ -714,15 +714,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="mgS-17-wFp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Zq-fh8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qr1-Iy-5Kj">
+                                    <rect key="frame" x="0.0" y="0.0" width="3271" height="4123"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="prominent"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="N2s-KF-M46">
-                                <rect key="frame" x="9.5" y="10" width="356" height="565"/>
+                                <rect key="frame" x="9.5" y="10" width="356" height="569"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6eS-aR-gd6">
                                         <rect key="frame" x="0.0" y="0.0" width="356" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-4H-gRI">
                                                 <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Takeoff">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -737,7 +748,7 @@
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-p0-hJM">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Landing">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -753,18 +764,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lvc-Ue-wcg">
-                                        <rect key="frame" x="0.0" y="64" width="356" height="20"/>
+                                        <rect key="frame" x="0.0" y="64" width="356" height="24"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="20" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mkL-LJ-kyP">
-                                                <rect key="frame" x="-2" y="0.0" width="289" height="21"/>
+                                                <rect key="frame" x="-2" y="0.0" width="308" height="25"/>
                                                 <connections>
                                                     <action selector="distanceSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="KeV-ZO-Ez6"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-nW-IGR">
-                                                <rect key="frame" x="295" y="0.0" width="61" height="20"/>
+                                                <rect key="frame" x="314" y="0.0" width="42" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="cts-m2-ciq"/>
+                                                    <constraint firstAttribute="height" constant="24" id="cts-m2-ciq"/>
+                                                    <constraint firstAttribute="width" constant="42" id="gW3-Ik-Rpf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -777,11 +789,11 @@
                                         <variation key="widthClass=regular" spacing="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-dJ-4S1">
-                                        <rect key="frame" x="0.0" y="100" width="356" height="48"/>
+                                        <rect key="frame" x="0.0" y="104" width="356" height="48"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-JG-BRK">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Left">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -796,7 +808,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB3-64-ubB">
                                                 <rect key="frame" x="91.5" y="0.0" width="81.5" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Up">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -811,7 +823,7 @@
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-zA-Piw">
                                                 <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Down">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -826,7 +838,7 @@
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-5c-PvH">
                                                 <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Right">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -842,11 +854,11 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ir-xa-8mw">
-                                        <rect key="frame" x="0.0" y="164" width="356" height="48"/>
+                                        <rect key="frame" x="0.0" y="168" width="356" height="48"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-d3-c7u">
                                                 <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Forward">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -861,7 +873,7 @@
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Bx-LNa">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Back">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -876,16 +888,16 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="n8Q-ZW-5go">
-                                        <rect key="frame" x="0.0" y="228" width="356" height="108"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n8Q-ZW-5go">
+                                        <rect key="frame" x="0.0" y="232" width="356" height="108"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QFh-1R-6vk">
-                                                <rect key="frame" x="0.0" y="0.0" width="356" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="356" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate Angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BW-kr-AZK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="9ue-tS-MUx"/>
+                                                            <constraint firstAttribute="height" constant="24" id="9ue-tS-MUx"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <nil key="textColor"/>
@@ -895,18 +907,19 @@
                                                         </variation>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rqw-zq-J0B">
-                                                        <rect key="frame" x="0.0" y="24" width="356" height="20"/>
+                                                        <rect key="frame" x="0.0" y="28" width="356" height="24"/>
                                                         <subviews>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="1" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="gjf-iH-Mcj">
-                                                                <rect key="frame" x="-2" y="0.0" width="289" height="21"/>
+                                                                <rect key="frame" x="-2" y="0.0" width="308" height="25"/>
                                                                 <connections>
                                                                     <action selector="rotateAngleSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="HyP-LS-dbc"/>
                                                                 </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-lr-Z3I">
-                                                                <rect key="frame" x="295" y="0.0" width="61" height="20"/>
+                                                                <rect key="frame" x="314" y="0.0" width="42" height="24"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="l2I-Pv-hTW"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="l2I-Pv-hTW"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="m7n-8i-PZo"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -925,7 +938,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-zb-d2y">
                                                         <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                         <state key="normal" title="CCW">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -940,7 +953,7 @@
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-jZ-CcG">
                                                         <rect key="frame" x="183" y="0.0" width="173" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                         <state key="normal" title="CW">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -958,7 +971,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-53-uD2">
-                                        <rect key="frame" x="0.0" y="352" width="356" height="76"/>
+                                        <rect key="frame" x="0.0" y="356" width="356" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2e-oE-0cb">
                                                 <rect key="frame" x="0.0" y="0.0" width="356" height="20"/>
@@ -977,7 +990,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-zD-TpA">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="Left">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -992,7 +1005,7 @@
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-MH-F9G">
                                                         <rect key="frame" x="91.5" y="0.0" width="81.5" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="Forward">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1007,7 +1020,7 @@
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-0n-oUE">
                                                         <rect key="frame" x="183" y="0.0" width="81.5" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="Back">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1022,7 +1035,7 @@
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-Hf-g2Y">
                                                         <rect key="frame" x="274.5" y="0.0" width="81.5" height="48"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="Right">
                                                             <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1050,7 +1063,7 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DxV-Xe-T63">
-                                        <rect key="frame" x="0.0" y="444" width="356" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="448" width="356" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-kh-Ph0">
                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="20.5"/>
@@ -1103,7 +1116,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-61-Oel">
-                                        <rect key="frame" x="0.0" y="480.5" width="356" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="484.5" width="356" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ue3-eP-KFA">
                                                 <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
@@ -1177,11 +1190,11 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wnh-lW-wpi">
-                                        <rect key="frame" x="0.0" y="517" width="356" height="48"/>
+                                        <rect key="frame" x="0.0" y="521" width="356" height="48"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAz-DR-k6y">
                                                 <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1196,7 +1209,7 @@
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRK-rw-Eb1">
                                                 <rect key="frame" x="183" y="0.0" width="173" height="48"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <state key="normal" title="Stop">
                                                     <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1213,13 +1226,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="gjf-iH-Mcj" firstAttribute="width" secondItem="N2s-KF-M46" secondAttribute="width" multiplier="4/5" id="8yi-DF-v0m"/>
                                     <constraint firstItem="Qk3-AR-YyU" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="CXd-lU-7MO"/>
                                     <constraint firstItem="zX5-dJ-4S1" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="Cgc-IY-Hdi"/>
                                     <constraint firstItem="0Ir-xa-8mw" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="OS0-LH-E9I"/>
                                     <constraint firstItem="wnh-lW-wpi" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="QWu-VX-JoO"/>
                                     <constraint firstItem="jSA-2j-BHc" firstAttribute="height" secondItem="6eS-aR-gd6" secondAttribute="height" id="Qzh-LE-65n"/>
-                                    <constraint firstItem="mkL-LJ-kyP" firstAttribute="width" secondItem="N2s-KF-M46" secondAttribute="width" multiplier="4/5" id="pCK-N5-QPh"/>
                                 </constraints>
                                 <variation key="heightClass=compact" spacing="8"/>
                                 <variation key="heightClass=regular-widthClass=regular" spacing="28"/>
@@ -1227,14 +1238,24 @@
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="IeZ-Zq-fh8" firstAttribute="height" secondItem="mgS-17-wFp" secondAttribute="height" id="2As-Xa-Pvc"/>
+                            <constraint firstItem="IeZ-Zq-fh8" firstAttribute="centerX" secondItem="mgS-17-wFp" secondAttribute="centerX" id="4fY-Ug-t6T"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="2/3" id="5at-Cu-UxZ"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8pw-8C-Qhh"/>
+                            <constraint firstItem="mgS-17-wFp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aau-Sx-Cut"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="B8j-rJ-Yna"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.95" id="D7d-dX-XAK"/>
+                            <constraint firstItem="mgS-17-wFp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dcn-jG-U5o"/>
+                            <constraint firstAttribute="trailing" secondItem="mgS-17-wFp" secondAttribute="trailing" id="OQH-Hr-ZPZ"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ucw-KI-mZA"/>
+                            <constraint firstItem="IeZ-Zq-fh8" firstAttribute="width" secondItem="mgS-17-wFp" secondAttribute="width" id="WtT-SE-VOP"/>
+                            <constraint firstItem="mgS-17-wFp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ejs-xu-I5i"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" constant="-20" id="jM2-mv-KFj"/>
+                            <constraint firstItem="mgS-17-wFp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mnl-SH-HvG"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qMa-by-0nh"/>
                             <constraint firstItem="N2s-KF-M46" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="3/5" id="rdi-Wi-nZB"/>
+                            <constraint firstItem="IeZ-Zq-fh8" firstAttribute="centerY" secondItem="mgS-17-wFp" secondAttribute="centerY" id="uHb-uI-v0j"/>
+                            <constraint firstAttribute="bottom" secondItem="mgS-17-wFp" secondAttribute="bottom" id="vfm-Xa-WfC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">

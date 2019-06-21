@@ -84,6 +84,7 @@ extension BasicView {
     
     // Move Button actions.
     @IBAction func buttonMove(_ sender: UIButton) {
+        Global.animateButton(sender)
         
         let distance = distanceSliderValue.text!
         
@@ -94,6 +95,7 @@ extension BasicView {
     
     // Rotate Button actions.
     @IBAction func buttonRotate(_ sender: UIButton) {
+        Global.animateButton(sender)
         
         let angle = rotateAngle.text!
         
@@ -104,6 +106,7 @@ extension BasicView {
     
     // Flip Button actions.
     @IBAction func flipControl(_ sender: UIButton) {
+        Global.animateButton(sender)
         
         let dir = FlipDirection(sender.tag)
         self.mgr.flip(inDirection: dir)
@@ -112,6 +115,7 @@ extension BasicView {
     
     // Master Button actions.
     @IBAction func buttonMaster(_ sender: UIButton) {
+        Global.animateButton(sender)
         
         switch MasterButton(sender.tag) {
         case .takeoff:
