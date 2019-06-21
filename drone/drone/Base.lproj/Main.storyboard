@@ -27,18 +27,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="2502" height="2478"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="regular"/>
                             </visualEffectView>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8Q-eP-zZ1">
-                                <rect key="frame" x="16" y="56.5" width="400" height="1016"/>
-                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8Q-eP-zZ1">
+                                <rect key="frame" x="16" y="28" width="400" height="1073"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-8F-3bf">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="1073"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C3x-b9-LrP">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="688"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="prominent"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gEn-8F-3bf" firstAttribute="width" secondItem="T8Q-eP-zZ1" secondAttribute="width" id="Bhz-nh-1Di"/>
+                                    <constraint firstItem="gEn-8F-3bf" firstAttribute="height" secondItem="T8Q-eP-zZ1" secondAttribute="height" id="VRe-ZO-rUV"/>
+                                    <constraint firstItem="gEn-8F-3bf" firstAttribute="centerY" secondItem="T8Q-eP-zZ1" secondAttribute="centerY" id="Xrr-IQ-KF7"/>
+                                    <constraint firstItem="gEn-8F-3bf" firstAttribute="centerX" secondItem="T8Q-eP-zZ1" secondAttribute="centerX" id="rOD-hO-ntS"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-GT-oKO">
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-GT-oKO">
                                 <rect key="frame" x="9.5" y="12.5" width="356" height="593"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WER-cR-jgO" userLabel="Mode">
