@@ -75,7 +75,7 @@ extension BasicPlusView {
         if let value = Global.extractInfo(byKey: "h", withItems: items) {
             Global.updateLabel(self.heightStatus, withValue: value)
         }
-        if let value = Global.extractInfo(byKey: "t", withItems: items) {
+        if let value = Global.extractInfo(byKey: "time", withItems: items) {
             Global.updateLabel(self.timeStatus, withValue: value)
         }
         
