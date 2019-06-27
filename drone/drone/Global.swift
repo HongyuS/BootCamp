@@ -29,7 +29,7 @@ class Global {
     }
     
     // Animate scaling of a button
-    class func animateButton(_ button: UIButton, withScaleFactor factor: CGFloat = 1.1, forDuration duration: CGFloat = 0.2 ) {
+    class func animateButton(_ button: UIButton, withScaleFactor factor: CGFloat = 0.95, forDuration duration: CGFloat = 0.1 ) {
         guard factor > 0 && factor < 2 else { return }
         guard duration > 0 && duration < 2 else { return }
         let duration = TimeInterval(duration)

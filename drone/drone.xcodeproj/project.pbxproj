@@ -13,6 +13,7 @@
 		7133617322BB5A0F00A8268D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133617222BB5A0F00A8268D /* Protocols.swift */; };
 		7133617522BB5A5900A8268D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133617422BB5A5900A8268D /* Enums.swift */; };
 		7133617722BB5A9B00A8268D /* DroneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133617622BB5A9B00A8268D /* DroneManager.swift */; };
+		7163AF1A22C4971900935F9A /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7163AF1922C4971900935F9A /* GestureViewController.swift */; };
 		7174D15922B7764A00B2F060 /* BasicPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174D15822B7764A00B2F060 /* BasicPlusView.swift */; };
 		71C210F822B1F94C00BA033F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C210F722B1F94C00BA033F /* AppDelegate.swift */; };
 		71C210FC22B1F94C00BA033F /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C210FB22B1F94C00BA033F /* BasicView.swift */; };
@@ -28,6 +29,7 @@
 		7133617222BB5A0F00A8268D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		7133617422BB5A5900A8268D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7133617622BB5A9B00A8268D /* DroneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneManager.swift; sourceTree = "<group>"; };
+		7163AF1922C4971900935F9A /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		7174D15822B7764A00B2F060 /* BasicPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPlusView.swift; sourceTree = "<group>"; };
 		71C210F422B1F94C00BA033F /* drone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C210F722B1F94C00BA033F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				71C210FB22B1F94C00BA033F /* BasicView.swift */,
 				7174D15822B7764A00B2F060 /* BasicPlusView.swift */,
 				71C210FD22B1F94C00BA033F /* Main.storyboard */,
+				7163AF1922C4971900935F9A /* GestureViewController.swift */,
 				7133616E22BB597A00A8268D /* Global.swift */,
 				7133617222BB5A0F00A8268D /* Protocols.swift */,
 				7133617422BB5A5900A8268D /* Enums.swift */,
@@ -164,6 +167,7 @@
 				7133616F22BB597A00A8268D /* Global.swift in Sources */,
 				7133617722BB5A9B00A8268D /* DroneManager.swift in Sources */,
 				7133617522BB5A5900A8268D /* Enums.swift in Sources */,
+				7163AF1A22C4971900935F9A /* GestureViewController.swift in Sources */,
 				7174D15922B7764A00B2F060 /* BasicPlusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,14 +313,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				INFOPLIST_FILE = drone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HongyuS.drone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -329,14 +333,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				INFOPLIST_FILE = drone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HongyuS.drone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

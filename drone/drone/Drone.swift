@@ -113,6 +113,8 @@ extension Drone {
         self.isIdle = (speedx + speedy + speedz) == 0
         if self.isIdle {
             self.delegate?.droneIsIdling()
+        } else {
+            self.delegate?.onDroneStatusUpdate(msg: "x:\(speedx) y:\(speedy) z:\(speedz)")
         }
     }
     
@@ -169,7 +171,7 @@ extension Drone {
         connection.receiveMessage(completion: { (content, ctx, complete, error) in
             if let data = content {
                 if let tmp = String(data: data, encoding: .utf8) {
-                    //                    print(#function, tmp)
+                    print(#function, tmp)
                     let items = tmp.split(separator: ";")
                     self.delegate?.onStatusDataArrival(withItems: items)
                     self.processDeviceData(withItems: items)
