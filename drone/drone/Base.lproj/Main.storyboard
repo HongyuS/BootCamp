@@ -115,23 +115,35 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Jd-1ty" userLabel="Takeoff">
-                                        <rect key="frame" x="26.5" y="16" width="31" height="31"/>
+                                        <rect key="frame" x="16" y="16" width="48" height="48"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="31" id="1Gz-xn-tD6"/>
-                                            <constraint firstAttribute="height" constant="31" id="o8d-gO-w93"/>
+                                            <constraint firstAttribute="width" constant="48" id="1Gz-xn-tD6"/>
+                                            <constraint firstAttribute="height" constant="48" id="o8d-gO-w93"/>
                                         </constraints>
-                                        <state key="normal" image="arrow.up" catalog="system"/>
+                                        <state key="normal" image="Takeoff"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="3iE-IH-bYL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6q-uc-JHo" userLabel="Landing">
-                                        <rect key="frame" x="298.5" y="16" width="31" height="31"/>
+                                        <rect key="frame" x="292" y="16" width="48" height="48"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="31" id="cpT-sp-hgb"/>
-                                            <constraint firstAttribute="height" constant="31" id="kCg-gZ-g8a"/>
+                                            <constraint firstAttribute="width" constant="48" id="cpT-sp-hgb"/>
+                                            <constraint firstAttribute="height" constant="48" id="kCg-gZ-g8a"/>
                                         </constraints>
-                                        <state key="normal" image="arrow.down.to.line" catalog="system"/>
+                                        <state key="normal" image="Landing"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonMaster:" destination="aIA-os-i5q" eventType="touchUpInside" id="vks-SV-AEl"/>
                                         </connections>
@@ -468,7 +480,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="U6q-uc-JHo" firstAttribute="leading" secondItem="WER-cR-jgO" secondAttribute="trailing" constant="24" id="1dQ-gy-Ywe"/>
                                     <constraint firstAttribute="trailing" secondItem="VVi-9U-RWz" secondAttribute="trailing" constant="8" id="40J-Nj-PVO">
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
@@ -495,10 +506,12 @@
                                     <constraint firstItem="Y6F-2f-hWU" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="8" id="LzQ-HI-26R">
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
+                                    <constraint firstItem="oJK-Jd-1ty" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="16" id="MXT-fg-lyS"/>
+                                    <constraint firstItem="oJK-Jd-1ty" firstAttribute="top" secondItem="NQJ-GT-oKO" secondAttribute="top" constant="16" id="On3-tx-9bv"/>
                                     <constraint firstItem="gEn-8F-3bf" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" id="T3t-Lm-GkC"/>
-                                    <constraint firstItem="WER-cR-jgO" firstAttribute="leading" secondItem="oJK-Jd-1ty" secondAttribute="trailing" constant="24" id="WMp-0o-rdJ"/>
                                     <constraint firstAttribute="bottom" secondItem="gEn-8F-3bf" secondAttribute="bottom" id="XXW-kc-SXv"/>
-                                    <constraint firstItem="WER-cR-jgO" firstAttribute="centerY" secondItem="oJK-Jd-1ty" secondAttribute="centerY" id="enO-2Y-7YS"/>
+                                    <constraint firstItem="U6q-uc-JHo" firstAttribute="top" secondItem="NQJ-GT-oKO" secondAttribute="top" constant="16" id="Y0w-ld-cog"/>
+                                    <constraint firstAttribute="trailing" secondItem="U6q-uc-JHo" secondAttribute="trailing" constant="16" id="Yqq-kp-gyN"/>
                                     <constraint firstItem="lxl-4U-o8v" firstAttribute="centerX" secondItem="NQJ-GT-oKO" secondAttribute="centerX" id="ezg-uC-nkt"/>
                                     <constraint firstItem="Hfw-oh-fsu" firstAttribute="leading" secondItem="NQJ-GT-oKO" secondAttribute="leading" constant="8" id="fLN-KI-zHB">
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
@@ -519,7 +532,6 @@
                                     <constraint firstItem="Hfw-oh-fsu" firstAttribute="top" secondItem="VVi-9U-RWz" secondAttribute="bottom" constant="24" id="lMM-c6-4m4"/>
                                     <constraint firstItem="Y6F-2f-hWU" firstAttribute="centerX" secondItem="NQJ-GT-oKO" secondAttribute="centerX" id="mox-QN-Cr6"/>
                                     <constraint firstItem="aHT-Zb-nha" firstAttribute="centerX" secondItem="XjU-0y-d9y" secondAttribute="centerX" id="ng4-5R-Dlm"/>
-                                    <constraint firstItem="U6q-uc-JHo" firstAttribute="centerY" secondItem="WER-cR-jgO" secondAttribute="centerY" id="oOs-eu-Gta"/>
                                     <constraint firstItem="lxl-4U-o8v" firstAttribute="top" secondItem="Y6F-2f-hWU" secondAttribute="bottom" constant="16" id="rEr-9D-kFS"/>
                                     <constraint firstItem="hDR-fu-4C4" firstAttribute="centerX" secondItem="XjU-0y-d9y" secondAttribute="centerX" constant="-78" id="uPH-LS-s12">
                                         <variation key="heightClass=regular-widthClass=regular" constant="-96"/>
@@ -687,7 +699,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-zg-BFx" userLabel="Takeoff">
                                         <rect key="frame" x="16" y="16" width="48" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemBlueColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="8F9-09-LsZ"/>
                                             <constraint firstAttribute="height" constant="48" id="e8K-P5-ecC"/>
@@ -705,7 +717,7 @@
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRd-tO-OPx" userLabel="Landing">
                                         <rect key="frame" x="292" y="16" width="48" height="48"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="systemBlueColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="RXG-mD-7Ip"/>
                                             <constraint firstAttribute="height" constant="48" id="ai1-Am-r0J"/>
@@ -1720,10 +1732,8 @@
     </scenes>
     <resources>
         <image name="Background" width="1024" height="1024"/>
-        <image name="Landing" width="1024" height="1024"/>
-        <image name="Takeoff" width="1024" height="1024"/>
-        <image name="arrow.down.to.line" catalog="system" width="64" height="64"/>
-        <image name="arrow.up" catalog="system" width="58" height="64"/>
+        <image name="Landing" width="48" height="48"/>
+        <image name="Takeoff" width="48" height="48"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="64" height="62"/>
         <image name="arrowtriangle.left.fill" catalog="system" width="64" height="56"/>
         <image name="arrowtriangle.right.fill" catalog="system" width="64" height="56"/>
