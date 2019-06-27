@@ -151,20 +151,13 @@ extension BasicPlusView {
     // Swipe Gesture actions.
     @IBAction func flipControl(_ sender: UISwipeGestureRecognizer) {
         if flipSwitch.isOn {
-            
-            var dir: FlipDirection?
-            
             switch sender.direction {
-            case .up: dir = FlipDirection(2)
-            case .down: dir = FlipDirection(3)
-            case .left: dir = FlipDirection(0)
-            case .right: dir = FlipDirection(1)
-            default:
-                print("Unkown Gesture!", #function)
+            case .up: self.mgr.flip(inDirection: .forward)
+            case .down: self.mgr.flip(inDirection: .back)
+            case .left: self.mgr.flip(inDirection: .left)
+            case .right: self.mgr.flip(inDirection: .right)
+            default: return
             }
-            
-            self.mgr.flip(inDirection: dir!)
-            
         }
     }
     

@@ -27,13 +27,6 @@ class GestureViewController: UIViewController {
     @IBOutlet weak var flipSwitch: UISwitch!
     
     @IBOutlet weak var touchPad: UIView!
-    // @IBOutlet var rotate: UIRotationGestureRecognizer!
-    // @IBOutlet var swipeForward: UISwipeGestureRecognizer!
-    // @IBOutlet var swipeBack: UISwipeGestureRecognizer!
-    // @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
-    // @IBOutlet var swipeRight: UISwipeGestureRecognizer!
-    // @IBOutlet var swipeUp: UISwipeGestureRecognizer!
-    // @IBOutlet var swipeDown: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +43,6 @@ class GestureViewController: UIViewController {
         mgr.drone = drone
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -88,7 +70,6 @@ extension GestureViewController {
         default:
             self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(angle))")
         }
-        
     }
     
     // Master Button actions.
@@ -107,7 +88,6 @@ extension GestureViewController {
             resetStatus()
             self.mgr.stop()
         }
-        
     }
     
 }
@@ -121,14 +101,14 @@ extension GestureViewController {
         let dir: [UISwipeGestureRecognizer.Direction] = [.up, .down, .left, .right]
         
         for d in dir {
-            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(singleFingerSwipeControl(_:)))
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(singleFingerSwipe(_:)))
             swipe.direction = d
             swipe.numberOfTouchesRequired = 1
             touchPad.addGestureRecognizer(swipe)
         }
         
         for d in dir[0...1] {
-            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(doubleFingerSwipeControl(_:)))
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(doubleFingerSwipe(_:)))
             swipe.direction = d
             swipe.numberOfTouchesRequired = 2
             touchPad.addGestureRecognizer(swipe)
@@ -137,48 +117,40 @@ extension GestureViewController {
     }
     
     // Single finger Swipe Gesture actions.
-    @objc private func singleFingerSwipeControl(_ sender: UISwipeGestureRecognizer) {
+    @objc private func singleFingerSwipe(_ sender: UISwipeGestureRecognizer) {
         switch flipSwitch.isOn {
         case true:
-            var dir: FlipDirection?
-            
             switch sender.direction {
-            case .up: dir = FlipDirection(2)
-            case .down: dir = FlipDirection(3)
-            case .left: dir = FlipDirection(0)
-            case .right: dir = FlipDirection(1)
+            case .up: self.mgr.flip(inDirection: .forward)
+            case .down: self.mgr.flip(inDirection: .back)
+            case .left: self.mgr.flip(inDirection: .left)
+            case .right: self.mgr.flip(inDirection: .right)
             default: return
             }
-            
-            self.mgr.flip(inDirection: dir!)
-            
         default:
-            var dir: MoveDirection?
-            
             switch sender.direction {
-            case .up: dir = MoveDirection(4)
-            case .down: dir = MoveDirection(5)
-            case .left: dir = MoveDirection(2)
-            case .right: dir = MoveDirection(3)
+            case .up:
+                self.mgr.move(inDirection: .forward, withDistance: distanceSliderValue.text ?? "50")
+            case .down:
+                self.mgr.move(inDirection: .back, withDistance: distanceSliderValue.text ?? "50")
+            case .left:
+                self.mgr.move(inDirection: .left, withDistance: distanceSliderValue.text ?? "50")
+            case .right:
+                self.mgr.move(inDirection: .right, withDistance: distanceSliderValue.text ?? "50")
             default: return
             }
-            
-            self.mgr.move(inDirection: dir!, withDistance: distanceSliderValue.text ?? "50")
-            
         }
     }
     
     // Single finger Swipe Gesture actions.
-    @objc private func doubleFingerSwipeControl(_ sender: UISwipeGestureRecognizer) {
-        var dir: MoveDirection?
-        
+    @objc private func doubleFingerSwipe(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
-        case .up: dir = MoveDirection(0)
-        case .down: dir = MoveDirection(1)
+        case .up:
+            self.mgr.move(inDirection: .up, withDistance: distanceSliderValue.text ?? "50")
+        case .down:
+            self.mgr.move(inDirection: .down, withDistance: distanceSliderValue.text ?? "50")
         default: return
         }
-        
-        self.mgr.move(inDirection: dir!, withDistance: distanceSliderValue.text ?? "50")
     }
     
     private func resetStatus() {
