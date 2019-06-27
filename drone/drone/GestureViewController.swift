@@ -26,6 +26,7 @@ class GestureViewController: UIViewController {
     // Switch to enalbe flip gestures.
     @IBOutlet weak var flipSwitch: UISwitch!
     
+    @IBOutlet weak var touchPad: UIView!
     // @IBOutlet var rotate: UIRotationGestureRecognizer!
     // @IBOutlet var swipeForward: UISwipeGestureRecognizer!
     // @IBOutlet var swipeBack: UISwipeGestureRecognizer!
@@ -38,6 +39,7 @@ class GestureViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        addGesture()
         
         // Initialize label values of sliders.
         Global.updateLabel(distanceSliderValue, withValue: "\(Int(distanceSlider.value))")
@@ -89,9 +91,53 @@ extension GestureViewController {
         
     }
     
+    // Master Button actions.
+    @IBAction func buttonMaster(_ sender: UIButton) {
+        Global.animateButton(sender)
+        
+        switch MasterButton(sender.tag) {
+        case .takeoff:
+            self.mgr.takeoff()
+        case .landing:
+            self.mgr.landing()
+        case .start:
+            resetStatus()
+            self.mgr.start()
+        case .stop:
+            resetStatus()
+            self.mgr.stop()
+        }
+        
+    }
+    
+}
+
+
+// MARK: Private Functions
+extension GestureViewController {
+    
+    private func addGesture() {
+        
+        let dir: [UISwipeGestureRecognizer.Direction] = [.up, .down, .left, .right]
+        
+        for d in dir {
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(singleFingerSwipeControl(_:)))
+            swipe.direction = d
+            swipe.numberOfTouchesRequired = 1
+            touchPad.addGestureRecognizer(swipe)
+        }
+        
+        for d in dir[0...1] {
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(doubleFingerSwipeControl(_:)))
+            swipe.direction = d
+            swipe.numberOfTouchesRequired = 2
+            touchPad.addGestureRecognizer(swipe)
+        }
+        
+    }
+    
     // Single finger Swipe Gesture actions.
-    @IBAction func swipeControl(_ sender: UISwipeGestureRecognizer) {
-        print(#function, sender.direction, "flip: \(flipSwitch.isOn)")
+    @objc private func singleFingerSwipeControl(_ sender: UISwipeGestureRecognizer) {
         switch flipSwitch.isOn {
         case true:
             var dir: FlipDirection?
@@ -123,8 +169,7 @@ extension GestureViewController {
     }
     
     // Single finger Swipe Gesture actions.
-    @IBAction func swipeControlWithTwoFingers(_ sender: UISwipeGestureRecognizer) {
-        print(#function, sender.direction)
+    @objc private func doubleFingerSwipeControl(_ sender: UISwipeGestureRecognizer) {
         var dir: MoveDirection?
         
         switch sender.direction {
@@ -135,31 +180,6 @@ extension GestureViewController {
         
         self.mgr.move(inDirection: dir!, withDistance: distanceSliderValue.text ?? "50")
     }
-    
-    // Master Button actions.
-    @IBAction func buttonMaster(_ sender: UIButton) {
-        Global.animateButton(sender)
-        
-        switch MasterButton(sender.tag) {
-        case .takeoff:
-            self.mgr.takeoff()
-        case .landing:
-            self.mgr.landing()
-        case .start:
-            resetStatus()
-            self.mgr.start()
-        case .stop:
-            resetStatus()
-            self.mgr.stop()
-        }
-        
-    }
-    
-}
-
-
-// MARK: Private Functions
-extension GestureViewController {
     
     private func resetStatus() {
         Global.updateProgress(self.batteryStatus, withValue: "0")

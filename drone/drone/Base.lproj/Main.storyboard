@@ -663,7 +663,7 @@
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUT-2F-YD4" userLabel="Function View">
                                 <rect key="frame" x="9.5" y="12.5" width="356" height="593"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld0-KN-8ua">
+                                    <visualEffectView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld0-KN-8ua">
                                         <rect key="frame" x="0.0" y="0.0" width="356" height="593"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="E0E-l6-Y2N">
                                             <rect key="frame" x="0.0" y="0.0" width="955.5" height="593"/>
@@ -671,14 +671,8 @@
                                         </view>
                                         <gestureRecognizers/>
                                         <blurEffect style="prominent"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="x2B-FK-iSF" appends="YES" id="Eae-V7-RNA"/>
-                                            <outletCollection property="gestureRecognizers" destination="JAx-P0-mbh" appends="YES" id="m5K-XD-6xL"/>
-                                            <outletCollection property="gestureRecognizers" destination="7Ng-XK-j6b" appends="YES" id="mTy-20-1Dm"/>
-                                            <outletCollection property="gestureRecognizers" destination="eqE-fW-O3R" appends="YES" id="kjZ-ek-W6T"/>
-                                        </connections>
                                     </visualEffectView>
-                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFp-0x-axG" userLabel="TouchPad">
+                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFp-0x-axG" userLabel="TouchPad">
                                         <rect key="frame" x="16" y="80" width="324" height="304"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="separatorColor"/>
                                         <gestureRecognizers/>
@@ -689,8 +683,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Qz4-ah-Ow7" appends="YES" id="tbS-lT-YdL"/>
-                                            <outletCollection property="gestureRecognizers" destination="lVa-95-T8I" appends="YES" id="rPH-uO-Nka"/>
-                                            <outletCollection property="gestureRecognizers" destination="HKE-a1-INO" appends="YES" id="G5V-bT-RzL"/>
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-zg-BFx" userLabel="Takeoff">
@@ -1037,7 +1029,7 @@
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="centerY" secondItem="sUa-r2-nR4" secondAttribute="centerY" id="JbB-FD-1jH"/>
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="top" secondItem="sUa-r2-nR4" secondAttribute="top" constant="32" id="Loe-Eg-a2c"/>
                             <constraint firstItem="sv3-Wq-MSz" firstAttribute="top" secondItem="Dwt-Kb-Tg9" secondAttribute="top" id="OH1-46-qIi"/>
-                            <constraint firstItem="PUT-2F-YD4" firstAttribute="leading" secondItem="sUa-r2-nR4" secondAttribute="leading" constant="16" id="OZn-Ve-QxA"/>
+                            <constraint firstItem="PUT-2F-YD4" firstAttribute="leading" secondItem="sUa-r2-nR4" secondAttribute="leading" constant="32" id="OZn-Ve-QxA"/>
                             <constraint firstAttribute="trailing" secondItem="Dwt-Kb-Tg9" secondAttribute="trailing" id="QTU-Jg-C3s"/>
                             <constraint firstItem="sUa-r2-nR4" firstAttribute="bottom" secondItem="PUT-2F-YD4" secondAttribute="bottom" constant="32" id="YLe-gM-gvP"/>
                             <constraint firstAttribute="bottom" secondItem="Dwt-Kb-Tg9" secondAttribute="bottom" id="ZGm-sy-uN7"/>
@@ -1086,6 +1078,7 @@
                         <outlet property="flipSwitch" destination="A6e-YH-LcW" id="Gej-Qw-crQ"/>
                         <outlet property="heightStatus" destination="qTD-HI-NL2" id="0ng-c9-LT9"/>
                         <outlet property="timeStatus" destination="O6B-dB-Jqf" id="P3e-jK-OXf"/>
+                        <outlet property="touchPad" destination="YFp-0x-axG" id="Oe0-sm-RMD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxb-5h-GFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1094,12 +1087,6 @@
                         <action selector="rotateGesture:" destination="vnZ-Do-OyO" id="JAD-50-FM5"/>
                     </connections>
                 </rotationGestureRecognizer>
-                <swipeGestureRecognizer enabled="NO" direction="up" id="x2B-FK-iSF" userLabel="Swipe Forward Gesture Recognizer"/>
-                <swipeGestureRecognizer enabled="NO" direction="down" id="JAx-P0-mbh" userLabel="Swipe Back Gesture Recognizer"/>
-                <swipeGestureRecognizer direction="left" id="lVa-95-T8I" userLabel="Swipe Left Gesture Recognizer"/>
-                <swipeGestureRecognizer direction="right" id="HKE-a1-INO" userLabel="Swipe Right Gesture Recognizer"/>
-                <swipeGestureRecognizer enabled="NO" direction="up" numberOfTouchesRequired="2" id="7Ng-XK-j6b" userLabel="Swipe Up Gesture Recognizer"/>
-                <swipeGestureRecognizer enabled="NO" direction="down" numberOfTouchesRequired="2" id="eqE-fW-O3R" userLabel="Swipe Down Gesture Recognizer"/>
             </objects>
             <point key="canvasLocation" x="882" y="-626"/>
         </scene>
