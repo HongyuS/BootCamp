@@ -1,5 +1,6 @@
 # BootCamp
 CSC100X Summer Program Notes &amp; Code Samples
 
-Storyboard files requires Xcode 11
-"Basic +" view only works on iOS 13/iPadOS 13 or heigher versions
+Environment Requirements:
+1. Storyboard files requires Xcode 11
+2. "Basic +" view only works on iOS 13/iPadOS 13 or heigher versions
