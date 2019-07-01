@@ -113,8 +113,6 @@ extension Drone {
         self.isIdle = (speedx + speedy + speedz) == 0
         if self.isIdle {
             self.delegate?.droneIsIdling()
-        } else {
-            self.delegate?.onDroneStatusUpdate(msg: "x:\(speedx) y:\(speedy) z:\(speedz)")
         }
     }
     
