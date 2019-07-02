@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5869707F22CB1C6C007EC937 /* JoyStickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5869707E22CB1C6C007EC937 /* JoyStickViewController.swift */; };
 		7133616D22BB58DD00A8268D /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133616C22BB58DD00A8268D /* Drone.swift */; };
 		7133616F22BB597A00A8268D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133616E22BB597A00A8268D /* Global.swift */; };
 		7133617122BB59C500A8268D /* DroneDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133617022BB59C500A8268D /* DroneDummy.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5869707E22CB1C6C007EC937 /* JoyStickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewController.swift; sourceTree = "<group>"; };
 		7133616C22BB58DD00A8268D /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
 		7133616E22BB597A00A8268D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		7133617022BB59C500A8268D /* DroneDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneDummy.swift; sourceTree = "<group>"; };
@@ -73,8 +75,9 @@
 				71C210F722B1F94C00BA033F /* AppDelegate.swift */,
 				71C210FB22B1F94C00BA033F /* BasicView.swift */,
 				7174D15822B7764A00B2F060 /* BasicPlusView.swift */,
-				71C210FD22B1F94C00BA033F /* Main.storyboard */,
 				7163AF1922C4971900935F9A /* GestureViewController.swift */,
+				5869707E22CB1C6C007EC937 /* JoyStickViewController.swift */,
+				71C210FD22B1F94C00BA033F /* Main.storyboard */,
 				7133616E22BB597A00A8268D /* Global.swift */,
 				7133617222BB5A0F00A8268D /* Protocols.swift */,
 				7133617422BB5A5900A8268D /* Enums.swift */,
@@ -164,6 +167,7 @@
 				7133617322BB5A0F00A8268D /* Protocols.swift in Sources */,
 				7133616D22BB58DD00A8268D /* Drone.swift in Sources */,
 				7133617122BB59C500A8268D /* DroneDummy.swift in Sources */,
+				5869707F22CB1C6C007EC937 /* JoyStickViewController.swift in Sources */,
 				7133616F22BB597A00A8268D /* Global.swift in Sources */,
 				7133617722BB5A9B00A8268D /* DroneManager.swift in Sources */,
 				7133617522BB5A5900A8268D /* Enums.swift in Sources */,
