@@ -26,6 +26,9 @@ class GestureViewController: UIViewController {
     // Switch to enalbe flip gestures.
     @IBOutlet weak var flipSwitch: UISwitch!
     
+    @IBOutlet weak var ssid: UITextField!
+    @IBOutlet weak var pass: UITextField!
+    
     @IBOutlet weak var touchPad: UIView!
     
     override func viewDidLoad() {
@@ -42,6 +45,14 @@ class GestureViewController: UIViewController {
         drone.delegate = self
         mgr.drone = drone
         
+    }
+    
+    @IBAction func setWifi(_ sender: UIButton) {
+        guard let ssid_text = ssid.text else { return }
+        guard ssid_text != "" else { return }
+        mgr.renameWifi(ssid: ssid_text, pass: pass.text ?? "")
+        ssid.text = nil
+        pass.text = nil
     }
     
 }

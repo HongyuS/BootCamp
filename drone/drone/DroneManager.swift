@@ -48,6 +48,11 @@ class DroneManager: DroneInterface {
         self.drone?.sendCommand(cmd: "land")
     }
     
+    func renameWifi(ssid: String, pass: String) {
+        print(#function, ssid, pass)
+        self.drone?.sendCommand(cmd: "wifi \(ssid) \(pass)")
+    }
+    
     func isIdle() -> Bool {
         print(#function)
         return self.drone?.isIdle ?? false
