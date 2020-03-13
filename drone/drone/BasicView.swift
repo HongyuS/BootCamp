@@ -143,6 +143,10 @@ extension BasicView: DroneDelegate {
         Global.updateLabel(self.aliveStatus, withValue: "Ok")
     }
     
+    func onVideoDataArrival(data: Array<UInt8>) {
+        print(#function)
+    }
+    
     func onConnectionStatusUpdate(msg: String) {
         Global.updateLabel(self.connectionStatus, withValue: msg)
     }

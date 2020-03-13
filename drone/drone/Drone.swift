@@ -18,17 +18,21 @@ class Drone {
     private var host_ip: NWEndpoint.Host!
     private var host_port: NWEndpoint.Port!
     private var local_port: NWEndpoint.Port!
+    private var video_port: NWEndpoint.Port!
     
     private var udpConnection: NWConnection?
     private var udpListener: NWListener?
+    private var udpVideoListener: NWListener?
     private var queue_listener_state: DispatchQueue?
+    private var queue_video_listener: DispatchQueue?
     
     private var stateConnection: NWConnection?
     
-    required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port) {
+    required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, video_port: NWEndpoint.Port) {
         self.host_ip = host
         self.host_port = port
         self.local_port = port_local
+        self.video_port = video_port
     }
 }
 
@@ -88,12 +92,20 @@ extension Drone: DeviceInterface {
         udpListener?.stateUpdateHandler = listenerHandler(state:)
         udpListener?.start(queue: queue_listener_state!)
         
+        // UDP Receiver for video stream from device
+        queue_video_listener = DispatchQueue(label: "video listener queue")
+        udpVideoListener = try? NWListener(using: .udp, on: self.video_port)
+        udpVideoListener?.newConnectionHandler = newVideoConnectionHandler(connection:)
+        udpVideoListener?.stateUpdateHandler = listenerHandler(state:)
+        udpVideoListener?.start(queue: queue_video_listener!)
+        
     }
     
     func stopConnection() {
         udpConnection?.cancel()
         udpConnection?.forceCancel()
         udpListener?.cancel()
+        udpVideoListener?.cancel()
         stateConnection?.cancel()
     }
     
@@ -164,6 +176,17 @@ extension Drone {
         self.receiveStateInfo(onConnection: connection)
     }
     
+    private func newVideoConnectionHandler(connection: NWConnection) {
+        print(#function)
+        guard let queue = queue_video_listener else { return }
+        
+        self.stateConnection = connection
+        
+        connection.start(queue: queue)
+        
+        self.receiveVideoData(onConnection: connection)
+    }
+    
     private func receiveStateInfo(onConnection connection: NWConnection) {
         
         connection.receiveMessage(completion: { (content, ctx, complete, error) in
@@ -181,6 +204,22 @@ extension Drone {
                 }
             }
         })
+    }
+    
+    private func receiveVideoData(onConnection connection: NWConnection) {
+        print(#function)
+        /*
+         connection.receiveMessage(completion: { (content, ctx, complete, error) in
+            if let data = content {
+                self.delegate?.onVideoDataArrival(data: Array(data))
+            }
+            if error == nil {
+                Global.delay(1.0) {
+                    self.receiveStateInfo(onConnection: connection)
+                }
+            }
+        })
+         */
     }
 }
 

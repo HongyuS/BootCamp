@@ -12,7 +12,7 @@ import Network
 let device_ip_address: NWEndpoint.Host = "192.168.10.1"
 let device_ip_port: NWEndpoint.Port = 8889
 let local_ip_port_state: NWEndpoint.Port = 8890
-
+let local_ip_video_port: NWEndpoint.Port = 11111
 
 // Static global class
 class Global {
@@ -65,9 +65,9 @@ class Global {
     class func createDrone() -> DeviceInterface {
         
         if CommandLine.arguments.contains("-droneDummy") {
-            return DroneDummy(host: device_ip_address, port: device_ip_port, port_local: local_ip_port_state)
+            return DroneDummy(host: device_ip_address, port: device_ip_port, port_local: local_ip_port_state, video_port: local_ip_video_port)
         } else {
-            return Drone(host: device_ip_address, port: device_ip_port, port_local: local_ip_port_state)
+            return Drone(host: device_ip_address, port: device_ip_port, port_local: local_ip_port_state, video_port: local_ip_video_port)
         }
         
     }

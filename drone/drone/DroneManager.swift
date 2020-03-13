@@ -48,14 +48,28 @@ class DroneManager: DroneInterface {
         self.drone?.sendCommand(cmd: "land")
     }
     
+    func isIdle() -> Bool {
+        print(#function)
+        return self.drone?.isIdle ?? false
+    }
+    
+}
+
+extension DroneManager {
+    
     func renameWifi(ssid: String, pass: String) {
         print(#function, ssid, pass)
         self.drone?.sendCommand(cmd: "wifi \(ssid) \(pass)")
     }
     
-    func isIdle() -> Bool {
+    func streamon() {
         print(#function)
-        return self.drone?.isIdle ?? false
+        self.drone?.sendCommand(cmd: "streamon")
+    }
+    
+    func streamoff() {
+        print(#function)
+        self.drone?.sendCommand(cmd: "streamoff")
     }
     
 }

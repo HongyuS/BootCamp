@@ -13,7 +13,7 @@ class DroneDummy {
     public var delegate: DroneDelegate?
     public var isIdle: Bool = false
     
-    required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port) {
+    required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, video_port: NWEndpoint.Port) {
         print(#function)
     }
 }

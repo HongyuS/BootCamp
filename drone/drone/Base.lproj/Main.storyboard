@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFP-qa-P0z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFP-qa-P0z">
     <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -697,6 +697,52 @@
                                             <outletCollection property="gestureRecognizers" destination="Qz4-ah-Ow7" appends="YES" id="tbS-lT-YdL"/>
                                         </connections>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRR-gp-RWA">
+                                        <rect key="frame" x="80" y="24" width="104" height="32"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="1aj-5o-6vO"/>
+                                            <constraint firstAttribute="width" constant="104" id="RPu-Nh-1Hz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="Stream On">
+                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="videoButton:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="m88-d5-pEU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPW-Qi-8j8">
+                                        <rect key="frame" x="200" y="24" width="104" height="32"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="systemFillColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="hF9-OI-Ldr"/>
+                                            <constraint firstAttribute="height" constant="32" id="tup-xA-8pD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="Stream Off">
+                                            <color key="titleColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="videoButton:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="qfS-rF-WEP"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-zg-BFx" userLabel="Takeoff">
                                         <rect key="frame" x="16" y="16" width="48" height="48"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="secondaryLabelColor"/>
@@ -993,6 +1039,7 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
                                     <constraint firstItem="g1n-DK-NsR" firstAttribute="centerX" secondItem="PUT-2F-YD4" secondAttribute="centerX" id="SJC-G1-AQk"/>
+                                    <constraint firstItem="vPW-Qi-8j8" firstAttribute="top" secondItem="PUT-2F-YD4" secondAttribute="top" constant="24" id="UJf-ve-9PI"/>
                                     <constraint firstAttribute="width" constant="384" id="USM-YP-5J3"/>
                                     <constraint firstItem="SXZ-zg-BFx" firstAttribute="leading" secondItem="PUT-2F-YD4" secondAttribute="leading" constant="16" id="VH2-ed-UAX"/>
                                     <constraint firstAttribute="trailing" secondItem="YFp-0x-axG" secondAttribute="trailing" constant="16" id="aOI-Ur-2xi"/>
@@ -1004,7 +1051,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
                                     <constraint firstItem="YRd-tO-OPx" firstAttribute="top" secondItem="PUT-2F-YD4" secondAttribute="top" constant="16" id="f8f-FT-73c"/>
+                                    <constraint firstItem="YRd-tO-OPx" firstAttribute="leading" secondItem="vPW-Qi-8j8" secondAttribute="trailing" constant="16" id="fSd-OI-N5W"/>
                                     <constraint firstItem="Ld0-KN-8ua" firstAttribute="trailing" secondItem="PUT-2F-YD4" secondAttribute="trailing" id="gfO-ej-kTo"/>
+                                    <constraint firstItem="MRR-gp-RWA" firstAttribute="leading" secondItem="SXZ-zg-BFx" secondAttribute="trailing" constant="16" id="m9o-9R-xSo"/>
                                     <constraint firstAttribute="trailing" secondItem="pbE-of-ucZ" secondAttribute="trailing" constant="16" id="qSs-To-Emn">
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
@@ -1016,6 +1065,7 @@
                                     <constraint firstItem="pbE-of-ucZ" firstAttribute="leading" secondItem="PUT-2F-YD4" secondAttribute="leading" constant="16" id="vdk-eN-cnD">
                                         <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                                     </constraint>
+                                    <constraint firstItem="MRR-gp-RWA" firstAttribute="top" secondItem="PUT-2F-YD4" secondAttribute="top" constant="24" id="x3I-jF-ztj"/>
                                     <constraint firstItem="pbE-of-ucZ" firstAttribute="top" secondItem="g1n-DK-NsR" secondAttribute="bottom" constant="16" id="zib-tk-e87"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1024,17 +1074,41 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="MRR-gp-RWA"/>
+                                        <exclude reference="vPW-Qi-8j8"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="USM-YP-5J3"/>
+                                        <exclude reference="m9o-9R-xSo"/>
+                                        <exclude reference="x3I-jF-ztj"/>
+                                        <exclude reference="UJf-ve-9PI"/>
+                                        <exclude reference="fSd-OI-N5W"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="subviews">
+                                        <include reference="MRR-gp-RWA"/>
+                                        <include reference="vPW-Qi-8j8"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <include reference="USM-YP-5J3"/>
+                                        <include reference="m9o-9R-xSo"/>
+                                        <include reference="x3I-jF-ztj"/>
+                                        <include reference="UJf-ve-9PI"/>
+                                        <include reference="fSd-OI-N5W"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNW-wZ-yCK">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="al7-hO-f0a" userLabel="Video View">
+                                <rect key="frame" x="448" y="214" width="714" height="523"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNW-wZ-yCK" userLabel="Wi-Fi View">
                                 <rect key="frame" x="922" y="32" width="240" height="150"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcG-4U-7Wk">
@@ -1045,7 +1119,7 @@
                                         </view>
                                         <blurEffect style="prominent"/>
                                     </visualEffectView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-18-SoN">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new Wi-Fi name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-18-SoN">
                                         <rect key="frame" x="20" y="20" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Bop-6H-pR1"/>
@@ -1053,7 +1127,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1S-D9-hVa">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new password here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1S-D9-hVa">
                                         <rect key="frame" x="20" y="64" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="TjG-F7-LOd"/>
@@ -1068,8 +1142,8 @@
                                             <constraint firstAttribute="height" constant="30" id="IyX-1w-fcw"/>
                                             <constraint firstAttribute="width" constant="96" id="zv3-mD-25o"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="Change">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Set Wi-Fi">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1106,12 +1180,14 @@
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="sUa-r2-nR4" firstAttribute="bottom" secondItem="al7-hO-f0a" secondAttribute="bottom" constant="32" id="0aC-EN-kng"/>
                             <constraint firstItem="sv3-Wq-MSz" firstAttribute="bottom" secondItem="Dwt-Kb-Tg9" secondAttribute="bottom" id="4Y2-M8-KqL"/>
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="centerY" secondItem="sUa-r2-nR4" secondAttribute="centerY" id="JbB-FD-1jH"/>
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="top" secondItem="sUa-r2-nR4" secondAttribute="top" constant="32" id="Loe-Eg-a2c"/>
                             <constraint firstItem="sv3-Wq-MSz" firstAttribute="top" secondItem="Dwt-Kb-Tg9" secondAttribute="top" id="OH1-46-qIi"/>
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="leading" secondItem="sUa-r2-nR4" secondAttribute="leading" constant="32" id="OZn-Ve-QxA"/>
                             <constraint firstAttribute="trailing" secondItem="Dwt-Kb-Tg9" secondAttribute="trailing" id="QTU-Jg-C3s"/>
+                            <constraint firstItem="al7-hO-f0a" firstAttribute="top" secondItem="FNW-wZ-yCK" secondAttribute="bottom" constant="32" id="SSr-bI-Uyo"/>
                             <constraint firstItem="FNW-wZ-yCK" firstAttribute="trailing" secondItem="sUa-r2-nR4" secondAttribute="trailing" constant="-32" id="XUO-Nw-qej"/>
                             <constraint firstItem="sUa-r2-nR4" firstAttribute="bottom" secondItem="PUT-2F-YD4" secondAttribute="bottom" constant="32" id="YLe-gM-gvP"/>
                             <constraint firstAttribute="bottom" secondItem="Dwt-Kb-Tg9" secondAttribute="bottom" id="ZGm-sy-uN7"/>
@@ -1121,21 +1197,30 @@
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="centerX" secondItem="sUa-r2-nR4" secondAttribute="centerX" id="oXf-Yc-W5m"/>
                             <constraint firstItem="Dwt-Kb-Tg9" firstAttribute="top" secondItem="kbe-dM-MOJ" secondAttribute="top" id="oe8-X6-sPS"/>
                             <constraint firstItem="PUT-2F-YD4" firstAttribute="height" secondItem="sUa-r2-nR4" secondAttribute="height" multiplier="0.96" id="qPX-eN-tpO"/>
+                            <constraint firstItem="sUa-r2-nR4" firstAttribute="trailing" secondItem="al7-hO-f0a" secondAttribute="trailing" constant="32" id="qZT-o4-3es"/>
+                            <constraint firstItem="al7-hO-f0a" firstAttribute="leading" secondItem="PUT-2F-YD4" secondAttribute="trailing" constant="32" id="tYR-lc-v55"/>
                             <constraint firstItem="sv3-Wq-MSz" firstAttribute="trailing" secondItem="Dwt-Kb-Tg9" secondAttribute="trailing" id="vH5-Hc-5la"/>
                             <constraint firstItem="sv3-Wq-MSz" firstAttribute="leading" secondItem="Dwt-Kb-Tg9" secondAttribute="leading" id="xfQ-nz-OYL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sUa-r2-nR4"/>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="al7-hO-f0a"/>
                                 <exclude reference="FNW-wZ-yCK"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0aC-EN-kng"/>
                                 <exclude reference="YLe-gM-gvP"/>
+                                <exclude reference="qZT-o4-3es"/>
                                 <exclude reference="Loe-Eg-a2c"/>
                                 <exclude reference="OZn-Ve-QxA"/>
                                 <exclude reference="hiK-8x-pCm"/>
                                 <exclude reference="oXf-Yc-W5m"/>
                                 <exclude reference="qPX-eN-tpO"/>
+                                <exclude reference="SSr-bI-Uyo"/>
+                                <exclude reference="tYR-lc-v55"/>
+                                <exclude reference="XUO-Nw-qej"/>
+                                <exclude reference="jtn-e5-0Xc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1147,13 +1232,20 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="subviews">
+                                <include reference="al7-hO-f0a"/>
                                 <include reference="FNW-wZ-yCK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0aC-EN-kng"/>
                                 <include reference="YLe-gM-gvP"/>
+                                <include reference="qZT-o4-3es"/>
                                 <exclude reference="JbB-FD-1jH"/>
                                 <include reference="Loe-Eg-a2c"/>
                                 <include reference="OZn-Ve-QxA"/>
+                                <include reference="SSr-bI-Uyo"/>
+                                <include reference="tYR-lc-v55"/>
+                                <include reference="XUO-Nw-qej"/>
+                                <include reference="jtn-e5-0Xc"/>
                             </mask>
                         </variation>
                     </view>
@@ -1170,6 +1262,7 @@
                         <outlet property="ssid" destination="4Nn-18-SoN" id="lv9-0R-An5"/>
                         <outlet property="timeStatus" destination="O6B-dB-Jqf" id="P3e-jK-OXf"/>
                         <outlet property="touchPad" destination="YFp-0x-axG" id="Oe0-sm-RMD"/>
+                        <outlet property="videoView" destination="al7-hO-f0a" id="aNI-qB-BOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxb-5h-GFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1236,9 +1329,6 @@
                                                 <integer key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="buttonMaster:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="J5u-dF-8ef"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqk-6L-yhr" userLabel="Landing">
                                         <rect key="frame" x="320" y="16" width="48" height="48"/>
@@ -1255,9 +1345,6 @@
                                                 <integer key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="buttonMaster:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="N2t-yF-bep"/>
-                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vJR-rD-nmB">
                                         <rect key="frame" x="16" y="591" width="352" height="20.5"/>
@@ -1386,9 +1473,6 @@
                                                 <variation key="heightClass=compact">
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </variation>
-                                                <connections>
-                                                    <action selector="buttonMaster:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="rfl-Ut-MOb"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-5p-Tlh">
                                                 <rect key="frame" x="112" y="0.0" width="96" height="33"/>
@@ -1410,9 +1494,6 @@
                                                 <variation key="heightClass=compact">
                                                     <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </variation>
-                                                <connections>
-                                                    <action selector="buttonMaster:" destination="vnZ-Do-OyO" eventType="touchUpInside" id="KAU-8F-1mR"/>
-                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5ed-9C-FmN">
                                                 <rect key="frame" x="224" y="0.0" width="128" height="33"/>

@@ -8,10 +8,13 @@
 
 import Foundation
 import Network
+import VideoToolbox
 
 protocol DroneDelegate {
     
     func onStatusDataArrival(withItems items: [Substring])
+    
+    func onVideoDataArrival(data: Array<UInt8>)
     
     func onConnectionStatusUpdate(msg: String)
     
@@ -24,7 +27,7 @@ protocol DroneDelegate {
 
 protocol DeviceInterface {
     
-    init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port)
+    init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, video_port: NWEndpoint.Port)
     
     var delegate: DroneDelegate? { get set }
     
@@ -64,4 +67,9 @@ protocol DroneInterface {
 
 protocol JoystickMotionDelegate {
     func joystickMotion(direction: JoystickDirection, translation: Int)
+}
+
+// H.264 Video Decoder
+protocol VideoFrameDecoderDelegate {
+    func receivedDisplayableFrame(_ frame: CVPixelBuffer)
 }

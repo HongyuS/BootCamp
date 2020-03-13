@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import VideoToolbox
 
 class GestureViewController: UIViewController {
     
     private var mgr = DroneManager()
+    private var frameDecoder: VideoFrameDecoder!
     
     // Sliders and their labels.
     @IBOutlet weak var distanceSlider: UISlider!
@@ -30,6 +32,7 @@ class GestureViewController: UIViewController {
     @IBOutlet weak var pass: UITextField!
     
     @IBOutlet weak var touchPad: UIView!
+    @IBOutlet weak var videoView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +48,10 @@ class GestureViewController: UIViewController {
         drone.delegate = self
         mgr.drone = drone
         
-    }
-    
-    @IBAction func setWifi(_ sender: UIButton) {
-        guard let ssid_text = ssid.text else { return }
-        guard ssid_text != "" else { return }
-        mgr.renameWifi(ssid: ssid_text, pass: pass.text ?? "")
-        ssid.text = nil
-        pass.text = nil
+        // Create video decoder.
+        VideoFrameDecoder.delegate = self
+        frameDecoder = VideoFrameDecoder()
+        
     }
     
 }
@@ -96,8 +95,31 @@ extension GestureViewController {
             resetStatus()
             self.mgr.start()
         case .stop:
+//            self.mgr.streamoff()
             resetStatus()
             self.mgr.stop()
+        }
+    }
+    
+    @IBAction func setWifi(_ sender: UIButton) {
+        guard let ssid_text = ssid.text else { return }
+        guard ssid_text != "" else { return }
+        mgr.renameWifi(ssid: ssid_text, pass: pass.text ?? "")
+        ssid.text = nil
+        pass.text = nil
+    }
+    
+    @IBAction func videoButton(_ sender: UIButton) {
+        Global.animateButton(sender)
+        
+        guard connectionStatus.text! == "Ready" else { return }
+        
+        switch VideoButton(sender.tag) {
+        case .stream_on:
+            self.mgr.streamon()
+            self.startStreamServer()
+        case .stream_off:
+            self.mgr.streamoff()
         }
     }
     
@@ -182,8 +204,8 @@ extension GestureViewController {
         if let value = Global.extractInfo(byKey: "time", withItems: items) {
             Global.updateLabel(self.timeStatus, withValue: value)
         }
-        
     }
+    
 }
 
 
@@ -193,6 +215,24 @@ extension GestureViewController: DroneDelegate {
     // Status string from device
     func onStatusDataArrival(withItems items: [Substring]) {
         self.processStateData(withItems: items)
+    }
+    
+    func onVideoDataArrival(data: Array<UInt8>) {
+        print(#function, data.count)
+        /*
+        DispatchQueue.global(qos: .userInteractive).async {
+            var currentImg: [UInt8] = []
+            
+            currentImg = currentImg + data
+            
+            if data.count < 1460 && currentImg.count > 40 {
+                print("video received")
+                self.frameDecoder.interpretRawFrameData(&currentImg)
+                currentImg = []
+            }
+            
+        }
+         */
     }
     
     func onConnectionStatusUpdate(msg: String) {
@@ -209,6 +249,26 @@ extension GestureViewController: DroneDelegate {
     
     func droneIsIdling() {
         Global.updateLabel(self.droneStatus, withValue: "Idle")
+    }
+    
+}
+
+
+// MARK: VideoFrameDecoderDelegate
+// Show video in Video View
+extension GestureViewController: VideoFrameDecoderDelegate {
+    
+    internal func receivedDisplayableFrame(_ frame: CVPixelBuffer) {
+        var cgImage: CGImage?
+        VTCreateCGImageFromCVPixelBuffer(frame, options: nil, imageOut: &cgImage)
+        
+        if let cgImage = cgImage {
+            DispatchQueue.main.async {
+                self.videoView.image = UIImage(cgImage: cgImage)
+            }
+        } else {
+            print("Fail")
+        }
     }
     
 }

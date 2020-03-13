@@ -51,6 +51,15 @@ enum ResetButton: Int, CaseIterable {
     }
 }
 
+// Video Streaming Buttons on the UI
+enum VideoButton: Int, CaseIterable {
+    case stream_on
+    case stream_off
+    init(_ ix:Int) {
+        self = VideoButton.allCases[ix]
+    }
+}
+
 // Commands to be sent to drone (see spec)
 enum MoveDirection: String, CaseIterable {
     case up
