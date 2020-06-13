@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:drone-swiftUI/drone-swiftUI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:drone/drone.xcodeproj">
    </FileRef>
    <FileRef

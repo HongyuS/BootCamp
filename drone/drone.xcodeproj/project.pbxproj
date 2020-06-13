@@ -320,12 +320,13 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				INFOPLIST_FILE = drone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HongyuS.drone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hys.drone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -340,12 +341,13 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				INFOPLIST_FILE = drone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HongyuS.drone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hys.drone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
