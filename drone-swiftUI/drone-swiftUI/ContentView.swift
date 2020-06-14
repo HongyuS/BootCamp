@@ -15,21 +15,19 @@ struct ContentView: View {
             Text("Hello, World!")
             
             VStack {
-                HStack {
-                    Text("Hello, World!")
-                    Spacer()
-                }
-                .frame(height: 80)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .padding(.horizontal, 16)
+                TopBarView()
+                    .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
                 
                 Spacer()
                 
                 HStack {
                     LeftControllerView()
+                        .shadow(color: Color.black.opacity(0.4), radius: 20, x: 0, y: 10)
+                    
                     Spacer()
+                    
                     RightControllerView()
+                        .shadow(color: Color.black.opacity(0.4), radius: 20, x: 0, y: 10)
                 }
                 Spacer()
             }

@@ -28,12 +28,13 @@ struct RightControllerView: View {
                         }
                     }
                     .onEnded { value in
+                        // MARK: TODO: send command
                         self.stickState = .zero
                     }
                 )
         }
         .frame(width: 80, height: 228)
-        .background(Color.white)
+        .background(Color.primary)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .opacity(0.5)
     }

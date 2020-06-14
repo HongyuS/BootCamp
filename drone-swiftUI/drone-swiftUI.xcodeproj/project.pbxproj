@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEA6152495E0130068F4BB /* TopBarView.swift */; };
 		ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246892494E007001FC6F7 /* AppDelegate.swift */; };
 		ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */; };
 		ECF2468E2494E007001FC6F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468D2494E007001FC6F7 /* ContentView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		ECF246862494E007001FC6F7 /* drone-swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "drone-swiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF246892494E007001FC6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				ECF246892494E007001FC6F7 /* AppDelegate.swift */,
 				ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */,
 				ECF2468D2494E007001FC6F7 /* ContentView.swift */,
+				ECAEA6152495E0130068F4BB /* TopBarView.swift */,
 				ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */,
 				ECF246C124950390001FC6F7 /* RightControllerView.swift */,
 				ECF2468F2494E00A001FC6F7 /* Assets.xcassets */,
@@ -295,6 +298,7 @@
 				ECF246BE2494E28C001FC6F7 /* Enums.swift in Sources */,
 				ECF246C02494F06A001FC6F7 /* LeftControllerView.swift in Sources */,
 				ECF2468E2494E007001FC6F7 /* ContentView.swift in Sources */,
+				ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */,
 				ECF246BC2494E258001FC6F7 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +470,7 @@
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "drone-swiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,6 +493,7 @@
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "drone-swiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
