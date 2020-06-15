@@ -13,9 +13,10 @@ struct RightControllerView: View {
     
     var body: some View {
         ZStack {
-            Color.black
+            Color.secondary.opacity(0.9)
                 .frame(width: 72, height: 54)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .shadow(color: Color.black.opacity(0.7), radius: 10, x: 0, y: 0)
                 .offset(y: stickState.height)
                 .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
                 .gesture(
@@ -34,9 +35,8 @@ struct RightControllerView: View {
                 )
         }
         .frame(width: 80, height: 228)
-        .background(Color.primary)
+        .background(Blur(style: .regular))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .opacity(0.5)
     }
 }
 
