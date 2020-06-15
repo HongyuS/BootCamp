@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89A82B24972A120045C201 /* UIBlurView.swift */; };
 		ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEA6152495E0130068F4BB /* TopBarView.swift */; };
 		ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246892494E007001FC6F7 /* AppDelegate.swift */; };
 		ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */; };
-		ECF2468E2494E007001FC6F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468D2494E007001FC6F7 /* ContentView.swift */; };
+		ECF2468E2494E007001FC6F7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468D2494E007001FC6F7 /* HomeView.swift */; };
 		ECF246902494E00A001FC6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF2468F2494E00A001FC6F7 /* Assets.xcassets */; };
 		ECF246932494E00A001FC6F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF246922494E00A001FC6F7 /* Preview Assets.xcassets */; };
 		ECF246962494E00A001FC6F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF246942494E00A001FC6F7 /* LaunchScreen.storyboard */; };
@@ -40,11 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC89A82B24972A120045C201 /* UIBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurView.swift; sourceTree = "<group>"; };
 		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		ECF246862494E007001FC6F7 /* drone-swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "drone-swiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF246892494E007001FC6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECF2468D2494E007001FC6F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ECF2468D2494E007001FC6F7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECF2468F2494E00A001FC6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECF246922494E00A001FC6F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ECF246952494E00A001FC6F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,10 +116,11 @@
 				ECF246B92494E032001FC6F7 /* drone-swiftUI.entitlements */,
 				ECF246892494E007001FC6F7 /* AppDelegate.swift */,
 				ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */,
-				ECF2468D2494E007001FC6F7 /* ContentView.swift */,
+				ECF2468D2494E007001FC6F7 /* HomeView.swift */,
 				ECAEA6152495E0130068F4BB /* TopBarView.swift */,
 				ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */,
 				ECF246C124950390001FC6F7 /* RightControllerView.swift */,
+				EC89A82B24972A120045C201 /* UIBlurView.swift */,
 				ECF2468F2494E00A001FC6F7 /* Assets.xcassets */,
 				ECF246942494E00A001FC6F7 /* LaunchScreen.storyboard */,
 				ECF246972494E00A001FC6F7 /* Info.plist */,
@@ -292,12 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */,
 				ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */,
 				ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */,
 				ECF246C224950390001FC6F7 /* RightControllerView.swift in Sources */,
 				ECF246BE2494E28C001FC6F7 /* Enums.swift in Sources */,
 				ECF246C02494F06A001FC6F7 /* LeftControllerView.swift in Sources */,
-				ECF2468E2494E007001FC6F7 /* ContentView.swift in Sources */,
+				ECF2468E2494E007001FC6F7 /* HomeView.swift in Sources */,
 				ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */,
 				ECF246BC2494E258001FC6F7 /* Protocols.swift in Sources */,
 			);
@@ -475,6 +479,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -498,6 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
