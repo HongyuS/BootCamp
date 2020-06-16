@@ -123,7 +123,7 @@ extension HomeView: DroneDelegate {
     }
     
     func onListenerStatusUpdate(msg: String) {
-        print("TODO:", #function)
+        print("onListenerStatusUpdate: \(msg)")
     }
     
     func onDroneStatusUpdate(msg: String) {

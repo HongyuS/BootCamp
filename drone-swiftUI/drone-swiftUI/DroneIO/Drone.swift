@@ -3,6 +3,7 @@
 //  drone-swiftUI
 //
 //  Created by Kinley Lam (SSE) on 2019/6/11.
+//  Modified by Hongyu Shi on 2020/6/16
 //  Copyright © 2019 Kinley Lam (SSE). All rights reserved.
 //
 
@@ -80,10 +81,14 @@ extension Drone: DeviceInterface {
         cmdConnection = NWConnection(host: self.host_ip, port: self.host_port, using: .udp)
         
         // Not used for bootcamp (switching among wifi, 4G, hotspot, wifi on/off ...etc )
-        cmdConnection?.betterPathUpdateHandler = betterPathUpdateHandler(better:)
-        cmdConnection?.viabilityUpdateHandler = viabilityUpdateHandler(viable:)
+        cmdConnection?.betterPathUpdateHandler = { better in
+            print("betterPathUpdateHandler: Better path available? \(better)")
+        }
+        cmdConnection?.viabilityUpdateHandler = { viable in
+            print("viabilityUpdateHandler: Viable? \(viable)")
+        }
         
-        cmdConnection?.stateUpdateHandler = {state in
+        cmdConnection?.stateUpdateHandler = { state in
             switch state {
             case .ready:
                 print(#function, "\(state)")
@@ -93,7 +98,6 @@ extension Drone: DeviceInterface {
             }
             
             let status = "\(state)".capitalized
-            
             self.delegate?.onConnectionStatusUpdate(msg: status)
         }
         cmdConnection?.start(queue: queue_drone)
@@ -101,21 +105,25 @@ extension Drone: DeviceInterface {
         // UDP Listener for state info from device
         queue_listener_state = DispatchQueue(label: "listener state queue")
         statusListener = try? NWListener(using: .udp, on: self.local_port)
-        statusListener?.newConnectionHandler = {connection in
-            print(#function)
+        statusListener?.newConnectionHandler = { connection in
+            print("Start status connection")
             guard let queue = self.queue_listener_state else { return }
             
             self.stateConnection = connection
-            
             connection.start(queue: queue)
-            
             self.receiveStateInfo(onConnection: connection)
         }
-        statusListener?.stateUpdateHandler = {state in
-            print(#function, "\(state)")
+        statusListener?.stateUpdateHandler = { state in
+            switch state {
+            case .ready:
+                print("Listening on port \(String(describing: self.statusListener?.port))")
+            case .failed(let error):
+                print("Listener failed with error: \(error)")
+            default:
+                print(#function, "\(state)")
+            }
             
             let status = "\(state)".capitalized
-            
             self.delegate?.onListenerStatusUpdate(msg: status)
         }
         statusListener?.start(queue: queue_listener_state!)
@@ -123,18 +131,23 @@ extension Drone: DeviceInterface {
         // UDP Listener for video data from device
         queue_listener_video = DispatchQueue(label: "listener video queue")
         videoListener = try? NWListener(using: .udp, on: self.local_video_port)
-        videoListener?.newConnectionHandler = {connection in
-            print(#function)
+        videoListener?.newConnectionHandler = { connection in
+            print("Start video connection")
             guard let queue = self.queue_listener_video else { return }
             
             self.videoConnection = connection
-            
             connection.start(queue: queue)
-            
             self.receiveVideoData(onConnection: connection)
         }
-        videoListener?.stateUpdateHandler = {state in
-            // TODO
+        videoListener?.stateUpdateHandler = { state in
+            switch state {
+            case .ready:
+                print("Listening on port \(String(describing: self.videoListener?.port))")
+            case .failed(let error):
+                print("Listener failed with error: \(error)")
+            default:
+                print(#function, "\(state)")
+            }
         }
         videoListener?.start(queue: queue_listener_video!)
         
@@ -170,30 +183,20 @@ extension Drone {
     
 }
 
-// Handlers (state, path, viability, new connection ... etc)
+// Receive data from listeners
 extension Drone {
-    
-    private func betterPathUpdateHandler(better: Bool) {
-        print(#function, better)
-    }
-    
-    private func viabilityUpdateHandler(viable: Bool) {
-        print(#function, viable)
-    }
     
     private func receiveStateInfo(onConnection connection: NWConnection) {
         
-        connection.receiveMessage(completion: { (content, ctx, complete, error) in
+        connection.receiveMessage(completion: { (content, context, isComplete, error) in
             if let data = content {
                 if let tmp = String(data: data, encoding: .utf8) {
-                    print(#function, tmp)
+                    print("Received drone status message:\n\(tmp)\n")
                     let items = tmp.split(separator: ";")
                     self.delegate?.onStatusDataArrival(withItems: items)
                     self.processDeviceData(withItems: items)
                 }
-            }
-            if error == nil {
-                Global.delay(1.0) {
+                if error == nil {
                     self.receiveStateInfo(onConnection: connection)
                 }
             }
@@ -202,20 +205,14 @@ extension Drone {
     
     private func receiveVideoData(onConnection connection: NWConnection) {
         
-        connection.receiveMessage(completion: { (content, ctx, complete, error) in
-            /*if let data = content {
-                if let tmp = String(data: data, encoding: .utf8) {
-                    print(#function, tmp)
-                    let items = tmp.split(separator: ";")
-                    self.delegate?.onStatusDataArrival(withItems: items)
-                    self.processDeviceData(withItems: items)
+        connection.receiveMessage(completion: { (content, context, isComplete, error) in
+            if let data = content {
+                print("Received video data of size \(data.count) bytes")
+                
+                if error == nil {
+                        self.receiveVideoData(onConnection: connection)
                 }
             }
-            if error == nil {
-                Global.delay(1.0) {
-                    self.receiveStateInfo(onConnection: connection)
-                }
-            }*/
         })
     }
 }

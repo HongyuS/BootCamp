@@ -28,24 +28,6 @@ class Global {
         return nil
     }
     
-    
-    // Update a label control with given value.
-    class func updateLabel(_ label: UILabel, withValue value: String) {
-        DispatchQueue.main.async {
-            label.text = value
-        }
-    }
-    
-    // Update a progress bar with given value
-    class func updateProgress(_ progressBar: UIProgressView, withValue value: String) {
-        if let level = Float(value) {
-            DispatchQueue.main.async {
-                let pct = level/100.0
-                progressBar.setProgress(pct, animated: true)
-            }
-        }
-    }
-    
     // Drone device factory
     // Command line arguments can be added via "Edit Scheme"
     // Click "Help" and type "Scheme" in Search you will find "Edit Scheme"
