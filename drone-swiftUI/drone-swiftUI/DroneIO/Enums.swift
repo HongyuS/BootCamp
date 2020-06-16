@@ -1,6 +1,6 @@
 //
 //  Enums.swift
-//  drone
+//  drone-swiftUI
 //
 //  Created by Kinley Lam (SSE) on 2019/6/11.
 //  Copyright © 2019 Kinley Lam (SSE). All rights reserved.

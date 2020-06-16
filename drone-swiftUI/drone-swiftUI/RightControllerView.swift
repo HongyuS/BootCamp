@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RightControllerView: View {
     @State var stickState = CGSize.zero
+    @Binding var mgr: DroneManager
     
     var body: some View {
         ZStack {
@@ -42,6 +43,6 @@ struct RightControllerView: View {
 
 struct RightControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        RightControllerView()
+        RightControllerView(mgr: .constant(DroneManager()))
     }
 }

@@ -12,6 +12,8 @@ struct LeftControllerView: View {
     @State public var stickState: CGSize = .zero
     @State public var knobState: Double = 0
     
+    @Binding var mgr: DroneManager
+    
     var body: some View {
         ZStack {
             RotateWheel(knobState: $knobState)
@@ -26,7 +28,7 @@ struct LeftControllerView: View {
 
 struct LeftControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        LeftControllerView()
+        LeftControllerView(mgr: .constant(DroneManager()))
     }
 }
 

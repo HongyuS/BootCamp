@@ -1,6 +1,6 @@
 //
 //  Protocols.swift
-//  drone
+//  drone-swiftUI
 //
 //  Created by Kinley Lam (SSE) on 2019/6/11.
 //  Copyright © 2019 Kinley Lam (SSE). All rights reserved.
@@ -13,6 +13,8 @@ protocol DroneDelegate {
     
     func onStatusDataArrival(withItems items: [Substring])
     
+    func onVideoDataArrival()
+    
     func onConnectionStatusUpdate(msg: String)
     
     func onListenerStatusUpdate(msg: String)
@@ -24,7 +26,7 @@ protocol DroneDelegate {
 
 protocol DeviceInterface {
     
-    init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port)
+    init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, port_video: NWEndpoint.Port)
     
     var delegate: DroneDelegate? { get set }
     

@@ -1,0 +1,222 @@
+//
+//  Drone.swift
+//  drone-swiftUI
+//
+//  Created by Kinley Lam (SSE) on 2019/6/11.
+//  Copyright © 2019 Kinley Lam (SSE). All rights reserved.
+//
+
+import Foundation
+import Network
+
+class Drone {
+    
+    public var delegate: DroneDelegate?
+    
+    public var isIdle: Bool = false
+    
+    private var host_ip: NWEndpoint.Host!
+    private var host_port: NWEndpoint.Port!
+    private var local_port: NWEndpoint.Port!
+    private var local_video_port: NWEndpoint.Port!
+    
+    private var cmdConnection: NWConnection?
+    private var statusListener: NWListener?
+    private var videoListener: NWListener?
+    private var queue_listener_state: DispatchQueue?
+    private var queue_listener_video: DispatchQueue?
+    
+    private var stateConnection: NWConnection?
+    private var videoConnection: NWConnection?
+    
+    required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, port_video: NWEndpoint.Port) {
+        self.host_ip = host
+        self.host_port = port
+        self.local_port = port_local
+        self.local_video_port = port_video
+    }
+}
+
+
+extension Drone: DeviceInterface {
+    
+    func sendCommand(cmd: String) {
+        sendCommand(cmd: cmd, arg: "")
+    }
+    
+    func sendCommand(cmd: String, arg: String){
+        
+        guard let conn = self.cmdConnection, conn.state == .ready else { return }
+        
+        let tmp = "\(cmd) \(arg)".trimmingCharacters(in: .whitespaces)
+        
+        print(#function, tmp)
+        
+        guard let cmd = tmp.data(using: .utf8) else { return }
+        
+        conn.send(content: cmd, completion: .contentProcessed { error in
+            
+            if let _ = error {
+                print(#function, "failed to initialize drone SDK")
+            } else {
+                print(#function, "Drone command sent successfully")
+            }
+            
+            conn.receiveMessage { (data, cxt, completed, error) in
+                guard let data = data else { return }
+                let text = String(data: data, encoding: .utf8) ?? "Unknown"
+                self.delegate?.onDroneStatusUpdate(msg: text)
+            }
+            
+            })
+    }
+    
+    func startConnection() {
+        
+        stopConnection()
+        
+        // UDP connection for command
+        let queue_drone = DispatchQueue(label: "drone queue")
+        cmdConnection = NWConnection(host: self.host_ip, port: self.host_port, using: .udp)
+        
+        // Not used for bootcamp (switching among wifi, 4G, hotspot, wifi on/off ...etc )
+        cmdConnection?.betterPathUpdateHandler = betterPathUpdateHandler(better:)
+        cmdConnection?.viabilityUpdateHandler = viabilityUpdateHandler(viable:)
+        
+        cmdConnection?.stateUpdateHandler = {state in
+            switch state {
+            case .ready:
+                print(#function, "\(state)")
+                self.initDroneSDK()
+            default:
+                print(#function, "\(state)")
+            }
+            
+            let status = "\(state)".capitalized
+            
+            self.delegate?.onConnectionStatusUpdate(msg: status)
+        }
+        cmdConnection?.start(queue: queue_drone)
+        
+        // UDP Listener for state info from device
+        queue_listener_state = DispatchQueue(label: "listener state queue")
+        statusListener = try? NWListener(using: .udp, on: self.local_port)
+        statusListener?.newConnectionHandler = {connection in
+            print(#function)
+            guard let queue = self.queue_listener_state else { return }
+            
+            self.stateConnection = connection
+            
+            connection.start(queue: queue)
+            
+            self.receiveStateInfo(onConnection: connection)
+        }
+        statusListener?.stateUpdateHandler = {state in
+            print(#function, "\(state)")
+            
+            let status = "\(state)".capitalized
+            
+            self.delegate?.onListenerStatusUpdate(msg: status)
+        }
+        statusListener?.start(queue: queue_listener_state!)
+        
+        // UDP Listener for video data from device
+        queue_listener_video = DispatchQueue(label: "listener video queue")
+        videoListener = try? NWListener(using: .udp, on: self.local_video_port)
+        videoListener?.newConnectionHandler = {connection in
+            print(#function)
+            guard let queue = self.queue_listener_video else { return }
+            
+            self.videoConnection = connection
+            
+            connection.start(queue: queue)
+            
+            self.receiveVideoData(onConnection: connection)
+        }
+        videoListener?.stateUpdateHandler = {state in
+            // TODO
+        }
+        videoListener?.start(queue: queue_listener_video!)
+        
+    }
+    
+    func stopConnection() {
+        cmdConnection?.cancel()
+        cmdConnection?.forceCancel()
+        statusListener?.cancel()
+        stateConnection?.cancel()
+        videoListener?.cancel()
+        videoConnection?.cancel()
+    }
+    
+}
+
+extension Drone {
+    
+    private func initDroneSDK() {
+        sendCommand(cmd: "command")
+    }
+    
+    private func processDeviceData(withItems items: [Substring]) {
+        let speedx = Int(Global.extractInfo(byKey: "vgx:", withItems: items) ?? "0") ?? 0
+        let speedy = Int(Global.extractInfo(byKey: "vgy:", withItems: items) ?? "0") ?? 0
+        let speedz = Int(Global.extractInfo(byKey: "vgz:", withItems: items) ?? "0") ?? 0
+        print(#function, speedx, speedy, speedz)
+        self.isIdle = (speedx + speedy + speedz) == 0
+        if self.isIdle {
+            self.delegate?.droneIsIdling()
+        }
+    }
+    
+}
+
+// Handlers (state, path, viability, new connection ... etc)
+extension Drone {
+    
+    private func betterPathUpdateHandler(better: Bool) {
+        print(#function, better)
+    }
+    
+    private func viabilityUpdateHandler(viable: Bool) {
+        print(#function, viable)
+    }
+    
+    private func receiveStateInfo(onConnection connection: NWConnection) {
+        
+        connection.receiveMessage(completion: { (content, ctx, complete, error) in
+            if let data = content {
+                if let tmp = String(data: data, encoding: .utf8) {
+                    print(#function, tmp)
+                    let items = tmp.split(separator: ";")
+                    self.delegate?.onStatusDataArrival(withItems: items)
+                    self.processDeviceData(withItems: items)
+                }
+            }
+            if error == nil {
+                Global.delay(1.0) {
+                    self.receiveStateInfo(onConnection: connection)
+                }
+            }
+        })
+    }
+    
+    private func receiveVideoData(onConnection connection: NWConnection) {
+        
+        connection.receiveMessage(completion: { (content, ctx, complete, error) in
+            /*if let data = content {
+                if let tmp = String(data: data, encoding: .utf8) {
+                    print(#function, tmp)
+                    let items = tmp.split(separator: ";")
+                    self.delegate?.onStatusDataArrival(withItems: items)
+                    self.processDeviceData(withItems: items)
+                }
+            }
+            if error == nil {
+                Global.delay(1.0) {
+                    self.receiveStateInfo(onConnection: connection)
+                }
+            }*/
+        })
+    }
+}
+
