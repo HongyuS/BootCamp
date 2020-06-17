@@ -45,7 +45,7 @@ struct RotateWheel: View {
                     LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)), Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))]), startPoint: .trailing, endPoint: .leading),
                     style: StrokeStyle(lineWidth: 20, lineCap: .butt, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0)
                 )
-                .blur(radius: 20)
+                .blur(radius: 10)
                 .rotationEffect(Angle(degrees: -90))
                 .frame(width: 168, height: 168, alignment: .center)
             
