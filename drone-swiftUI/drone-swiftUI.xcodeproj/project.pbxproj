@@ -495,7 +495,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
 				PRODUCT_NAME = AViATOR;
 				SUPPORTS_MACCATALYST = YES;
@@ -521,7 +521,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
 				PRODUCT_NAME = AViATOR;
 				SUPPORTS_MACCATALYST = YES;
