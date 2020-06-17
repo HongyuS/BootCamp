@@ -30,12 +30,13 @@ class DroneManager: DroneInterface {
     func start() {
         print(#function)
         self.drone?.startConnection()
-        self.drone?.sendCommand(cmd: "streamon")
+        Global.delay(1.0) {
+            self.drone?.sendCommand(cmd: "streamon")
+        }
     }
     
     func stop() {
         print(#function)
-        self.drone?.sendCommand(cmd: "streamoff")
         self.landing()
         self.drone?.stopConnection()
     }
@@ -48,6 +49,15 @@ class DroneManager: DroneInterface {
     func landing() {
         print(#function)
         self.drone?.sendCommand(cmd: "land")
+        Global.delay(1.0) {
+            if self.isIdle() {
+                self.drone?.sendCommand(cmd: "streamoff")
+            } else {
+                Global.delay(1.0) {
+                    self.drone?.sendCommand(cmd: "streamoff")
+                }
+            }
+        }
     }
     
     func renameWifi(ssid: String, pass: String) {
