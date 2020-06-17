@@ -49,7 +49,8 @@
 		EC4417EF24986E73005FB654 /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
 		EC89A82B24972A120045C201 /* UIBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurView.swift; sourceTree = "<group>"; };
 		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
-		ECF246862494E007001FC6F7 /* drone-swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "drone-swiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AViATORRelease.entitlements; sourceTree = "<group>"; };
+		ECF246862494E007001FC6F7 /* AViATOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViATOR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF246892494E007001FC6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ECF2468D2494E007001FC6F7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -108,7 +109,7 @@
 		ECF246872494E007001FC6F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECF246862494E007001FC6F7 /* drone-swiftUI.app */,
+				ECF246862494E007001FC6F7 /* AViATOR.app */,
 				ECF2469C2494E00B001FC6F7 /* drone-swiftUITests.xctest */,
 				ECF246A72494E00B001FC6F7 /* drone-swiftUIUITests.xctest */,
 			);
@@ -118,8 +119,9 @@
 		ECF246882494E007001FC6F7 /* drone-swiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				ECF246BA2494E1A2001FC6F7 /* DroneIO */,
 				ECF246B92494E032001FC6F7 /* drone-swiftUI.entitlements */,
+				ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */,
+				ECF246BA2494E1A2001FC6F7 /* DroneIO */,
 				ECF246892494E007001FC6F7 /* AppDelegate.swift */,
 				ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */,
 				ECF2468D2494E007001FC6F7 /* HomeView.swift */,
@@ -190,7 +192,7 @@
 			);
 			name = "drone-swiftUI";
 			productName = "drone-swiftUI";
-			productReference = ECF246862494E007001FC6F7 /* drone-swiftUI.app */;
+			productReference = ECF246862494E007001FC6F7 /* AViATOR.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ECF2469B2494E00B001FC6F7 /* drone-swiftUITests */ = {
@@ -485,6 +487,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"drone-swiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "drone-swiftUI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -494,7 +497,7 @@
 				);
 				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AViATOR;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -505,11 +508,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "drone-swiftUI/drone-swiftUI.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "drone-swiftUI/AViATORRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"drone-swiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = T84X5VQX2Z;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "drone-swiftUI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -519,7 +523,7 @@
 				);
 				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AViATOR;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

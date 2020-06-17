@@ -116,7 +116,7 @@ extension Drone: DeviceInterface {
         statusListener?.stateUpdateHandler = { state in
             switch state {
             case .ready:
-                print("Listening on port \(String(describing: self.statusListener?.port))")
+                print("Listening on port \(String(describing: self.statusListener!.port!))")
             case .failed(let error):
                 print("Listener failed with error: \(error)")
             default:
@@ -142,7 +142,7 @@ extension Drone: DeviceInterface {
         videoListener?.stateUpdateHandler = { state in
             switch state {
             case .ready:
-                print("Listening on port \(String(describing: self.videoListener?.port))")
+                print("Listening on port \(String(describing: self.videoListener!.port!))")
             case .failed(let error):
                 print("Listener failed with error: \(error)")
             default:
