@@ -43,6 +43,6 @@ struct RightControllerView: View {
 
 struct RightControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        RightControllerView(mgr: .constant(DroneManager()))
+        RightControllerView(mgr: .constant(DroneManager { Drone(host: "0.0.0.0", port: 0, port_local: 0, port_video: 0) }))
     }
 }

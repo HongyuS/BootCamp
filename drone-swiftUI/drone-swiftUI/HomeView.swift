@@ -9,19 +9,21 @@
 import SwiftUI
 import Network
 
-// MARK: HomeView UI
+// MARK: - HomeView UI
+
 struct HomeView: View {
     
-    @State private var mgr = DroneManager()
+    // ViewModel
+    @State private var mgr = DroneManager {
+        Drone(host: device_ip_address,
+              port: device_ip_port,
+              port_local: local_ip_port_state,
+              port_video: local_ip_port_video)
+    }
     
     // Drone states
     @State private var takeoff: Bool = false
     @State private var recording: Bool = false
-    @State private var height: String = ""
-    @State private var time: String = ""
-    @State private var battery: Int = 100
-    @State private var connectionStatus: String = ""
-    @State private var droneStatus: String = "Unknown"
     
     var body: some View {
         ZStack {
@@ -31,12 +33,7 @@ struct HomeView: View {
             VStack {
                 TopBarView(mgr: $mgr,
                            takeoff: $takeoff,
-                           recording: $recording,
-                           height: $height,
-                           time: $time,
-                           battery: $battery,
-                           connectionStatus: $connectionStatus,
-                           droneStatus: $droneStatus
+                           recording: $recording
                 )
                     .shadow(
                         color: Color.black.opacity(0.3),
@@ -65,13 +62,7 @@ struct HomeView: View {
         }
         .background(Color.blue)
         .onAppear {
-            let drone = Drone(
-                host: device_ip_address,
-                port: device_ip_port,
-                port_local: local_ip_port_state,
-                port_video: local_ip_port_video)
-            drone.delegate = self
-            self.mgr.drone = drone
+            self.mgr.drone?.delegate = self.mgr
             self.mgr.start()
             print("load drone success")
         } .onDisappear {
@@ -80,62 +71,10 @@ struct HomeView: View {
     }
 }
 
-// MARK: HomeView Previews
+// MARK: - HomeView Previews
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
-}
-
-extension HomeView: DroneDelegate {
-    
-    private func processStateData(withItems items: [Substring]) {
-        if let value = Global.extractInfo(byKey: "bat", withItems: items) {
-            DispatchQueue.main.async {
-                self.battery = Int(value) ?? 0
-            }
-        }
-        if let value = Global.extractInfo(byKey: "h", withItems: items) {
-            DispatchQueue.main.async {
-                self.height = value
-            }
-        }
-        if let value = Global.extractInfo(byKey: "time", withItems: items) {
-            DispatchQueue.main.async {
-                self.time = value
-            }
-        }
-    }
-    
-    // Status string from device
-    func onStatusDataArrival(withItems items: [Substring]) {
-        self.processStateData(withItems: items)
-    }
-    
-    func onVideoDataArrival() {
-        print("TODO:", #function)
-    }
-    
-    func onConnectionStatusUpdate(msg: String) {
-        DispatchQueue.main.async {
-            self.connectionStatus = msg
-        }
-    }
-    
-    func onListenerStatusUpdate(msg: String) {
-        print("onListenerStatusUpdate: \(msg)")
-    }
-    
-    func onDroneStatusUpdate(msg: String) {
-        DispatchQueue.main.async {
-            self.droneStatus = msg
-        }
-    }
-    
-    func droneIsIdling() {
-        DispatchQueue.main.async {
-            self.droneStatus = "Idle"
-        }
-    }
-    
 }

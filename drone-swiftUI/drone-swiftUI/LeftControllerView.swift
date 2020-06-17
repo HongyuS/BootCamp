@@ -28,10 +28,12 @@ struct LeftControllerView: View {
 
 struct LeftControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        LeftControllerView(mgr: .constant(DroneManager()))
+        LeftControllerView(mgr: .constant(DroneManager { Drone(host: "0.0.0.0", port: 0, port_local: 0, port_video: 0) }))
     }
 }
 
+// MARK: - Rotate Wheel
+// A view that tells the drone to rotate
 struct RotateWheel: View {
     @Binding public var knobState: Double
     
@@ -83,6 +85,8 @@ struct RotateWheelPointer: View {
     }
 }
 
+// MARK: - Joystick View
+// A view to control horizontal motion of the drone
 struct JoyStick: View {
     @Binding public var stickState: CGSize
     

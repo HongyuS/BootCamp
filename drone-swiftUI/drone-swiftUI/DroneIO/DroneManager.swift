@@ -8,9 +8,43 @@
 
 import Foundation
 
-class DroneManager: DroneInterface {
+class DroneManager {
     
+    // Model
     var drone: DeviceInterface?
+    
+    var battery: Int?
+    var height: String?
+    var time: String?
+    var connectionStatus: String?
+    var droneStatus: String?
+    
+    init(drone: () -> Drone) {
+        self.drone = drone()
+    }
+    
+    func processStateData(withItems items: [Substring]) {
+        if let value = Global.extractInfo(byKey: "bat", withItems: items) {
+            DispatchQueue.main.async {
+                self.battery = Int(value) ?? 0
+            }
+        }
+        if let value = Global.extractInfo(byKey: "h", withItems: items) {
+            DispatchQueue.main.async {
+                self.height = value
+            }
+        }
+        if let value = Global.extractInfo(byKey: "time", withItems: items) {
+            DispatchQueue.main.async {
+                self.time = value
+            }
+        }
+    }
+}
+
+// MARK: - Drone Interface
+
+extension DroneManager: DroneInterface {
     
     func move(inDirection dir: MoveDirection, withDistance dist: String) {
         print("\(dir) \(dist)")
@@ -70,4 +104,40 @@ class DroneManager: DroneInterface {
         return self.drone?.isIdle ?? false
     }
     
+}
+
+// MARK: - Drone Delegate
+
+extension DroneManager: DroneDelegate {
+    
+    // Status string from device
+    func onStatusDataArrival(withItems items: [Substring]) {
+        self.processStateData(withItems: items)
+    }
+    
+    func onVideoDataArrival() {
+        print("TODO:", #function)
+    }
+    
+    func onConnectionStatusUpdate(msg: String) {
+        DispatchQueue.main.async {
+            self.connectionStatus = msg
+        }
+    }
+    
+    func onListenerStatusUpdate(msg: String) {
+        print("onListenerStatusUpdate: \(msg)")
+    }
+    
+    func onDroneStatusUpdate(msg: String) {
+        DispatchQueue.main.async {
+            self.droneStatus = msg
+        }
+    }
+    
+    func droneIsIdling() {
+        DispatchQueue.main.async {
+            self.droneStatus = "Idle"
+        }
+    }
 }
