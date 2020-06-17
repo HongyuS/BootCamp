@@ -16,7 +16,7 @@ struct LeftControllerView: View {
     
     var body: some View {
         ZStack {
-            RotateWheel(knobState: $knobState)
+            RotateWheel(knobState: $knobState, mgr: $mgr)
             
             JoyStick(stickState: $stickState).opacity(0.9)
         }
@@ -36,6 +36,7 @@ struct LeftControllerView_Previews: PreviewProvider {
 // A view that tells the drone to rotate
 struct RotateWheel: View {
     @Binding public var knobState: Double
+    @Binding var mgr: DroneManager
     
     var body: some View {
         ZStack {
@@ -54,15 +55,17 @@ struct RotateWheel: View {
             Image("rotateWheel")
             
             GeometryReader {
-                RotateWheelPointer(knobState: self.$knobState, frame: $0.frame(in: .local))
+                RotateWheelPointer(knobState: self.$knobState, mgr: self.$mgr, frame: $0.frame(in: .local))
             }
         }
     }
 }
 
 struct RotateWheelPointer: View {
-    @Binding public var knobState: Double
+    @Binding var knobState: Double
     @GestureState private var dragLocation: CGPoint = .zero
+    @Binding var mgr: DroneManager
+    
     public var frame: CGRect
     
     var body: some View {
@@ -73,12 +76,19 @@ struct RotateWheelPointer: View {
                 .updating($dragLocation, body: { value, state, transaction in
                     state = value.location
                 })
-                .onChanged { value in
+                .onChanged { _ in
                     let angle: Double = -((Double(atan2(Double(self.frame.midX - self.dragLocation.x), Double(self.frame.midY - self.dragLocation.y)))) / .pi) * 180
                     self.knobState = angle
                 }
-                .onEnded { angle in
-                    // MARK: TODO: send rotate command
+                .onEnded { _ in
+                    // Send rotate command
+                    switch self.knobState > 0 {
+                    case true:
+                        self.mgr.rotate(inDirection: .cw, withDegree: "\(Int(self.knobState))")
+                    case false:
+                        self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(self.knobState))")
+                    }
+                    // Reset knob state
                     self.knobState = 0
                 }
         )
