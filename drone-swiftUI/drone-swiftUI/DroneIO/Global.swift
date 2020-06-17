@@ -6,7 +6,6 @@
 //  Copyright © 2019 Kinley Lam (SSE). All rights reserved.
 //
 
-import UIKit
 import Network
 
 let device_ip_address: NWEndpoint.Host = "192.168.10.1"
@@ -43,8 +42,8 @@ class Global {
     }*/
     
     // Execute a closure after a given delay in seconds.
-    class func delay(_ delay: Double, closure: @escaping ()->()) {
+    class func delay(_ delay: Double, action: @escaping ()->()) {
         let when = DispatchTime.now() + delay
-        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+        DispatchQueue.main.asyncAfter(deadline: when, execute: action)
     }
 }
