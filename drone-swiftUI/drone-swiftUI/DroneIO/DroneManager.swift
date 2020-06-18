@@ -24,17 +24,17 @@ class DroneManager {
     }
     
     func processStateData(withItems items: [Substring]) {
-        if let value = Global.extractInfo(byKey: "bat", withItems: items) {
+        if let value = extractInfo(byKey: "bat", withItems: items) {
             DispatchQueue.main.async {
                 self.battery = Int(value) ?? 0
             }
         }
-        if let value = Global.extractInfo(byKey: "h", withItems: items) {
+        if let value = extractInfo(byKey: "h", withItems: items) {
             DispatchQueue.main.async {
                 self.height = value
             }
         }
-        if let value = Global.extractInfo(byKey: "time", withItems: items) {
+        if let value = extractInfo(byKey: "time", withItems: items) {
             DispatchQueue.main.async {
                 self.time = value
             }
@@ -64,7 +64,7 @@ extension DroneManager: DroneInterface {
     func start() {
         print(#function)
         self.drone?.startConnection()
-        Global.delay(1.0) {
+        delay(1.0) {
             self.drone?.sendCommand(cmd: "streamon")
         }
     }
@@ -83,11 +83,11 @@ extension DroneManager: DroneInterface {
     func landing() {
         print(#function)
         self.drone?.sendCommand(cmd: "land")
-        Global.delay(1.0) {
+        delay(1.0) {
             if self.isIdle() {
                 self.drone?.sendCommand(cmd: "streamoff")
             } else {
-                Global.delay(1.0) {
+                delay(1.0) {
                     self.drone?.sendCommand(cmd: "streamoff")
                 }
             }

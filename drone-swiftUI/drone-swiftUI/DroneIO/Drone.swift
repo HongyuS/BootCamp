@@ -171,9 +171,9 @@ extension Drone {
     }
     
     private func processDeviceData(withItems items: [Substring]) {
-        let speedx = Int(Global.extractInfo(byKey: "vgx:", withItems: items) ?? "0") ?? 0
-        let speedy = Int(Global.extractInfo(byKey: "vgy:", withItems: items) ?? "0") ?? 0
-        let speedz = Int(Global.extractInfo(byKey: "vgz:", withItems: items) ?? "0") ?? 0
+        let speedx = Int(extractInfo(byKey: "vgx:", withItems: items) ?? "0") ?? 0
+        let speedy = Int(extractInfo(byKey: "vgy:", withItems: items) ?? "0") ?? 0
+        let speedz = Int(extractInfo(byKey: "vgz:", withItems: items) ?? "0") ?? 0
         print(#function, speedx, speedy, speedz)
         self.isIdle = (speedx + speedy + speedz) == 0
         if self.isIdle {
