@@ -11,46 +11,6 @@ import Foundation
 // MARK: ??
 // TODO: all init() DO NOT catch index out of range !!!
 
-// modes of the motion
-enum MotionMode: Int, CaseIterable {
-    case horizontal
-    case rotation
-    init(_ ix:Int) {
-        self = MotionMode.allCases[ix]
-    }
-}
-
-// Motion Buttons on the UI
-enum MotionButton: Int, CaseIterable {
-    case up
-    case down
-    case left
-    case right
-    init(_ ix:Int) {
-        self = MotionButton.allCases[ix]
-    }
-}
-
-// Master Buttons on the UI
-enum MasterButton: Int, CaseIterable {
-    case takeoff
-    case landing
-    case start
-    case stop
-    init(_ ix:Int) {
-        self = MasterButton.allCases[ix]
-    }
-}
-
-// Reset Buttons on the UI
-enum ResetButton: Int, CaseIterable {
-    case distance
-    case angle
-    init(_ ix:Int) {
-        self = ResetButton.allCases[ix]
-    }
-}
-
 // Commands to be sent to drone (see spec)
 enum MoveDirection: String, CaseIterable {
     case up
