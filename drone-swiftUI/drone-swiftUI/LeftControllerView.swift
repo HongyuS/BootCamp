@@ -17,8 +17,7 @@ struct LeftControllerView: View {
     var body: some View {
         ZStack {
             RotateWheel(knobState: $knobState, mgr: $mgr)
-            
-            JoyStick(stickState: $stickState).opacity(0.9)
+            JoyStick(stickState: $stickState, mgr: $mgr)
         }
         .frame(width: 228, height: 228)
         .background(Blur(style: .regular))
@@ -84,9 +83,9 @@ struct RotateWheelPointer: View {
                     // Send rotate command
                     switch self.knobState > 0 {
                     case true:
-                        self.mgr.rotate(inDirection: .cw, withDegree: "\(Int(self.knobState))")
+                        self.mgr.rotate(inDirection: .cw, withDegree: "\(Int(self.knobState/15)*15)")
                     case false:
-                        self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(self.knobState))")
+                        self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(self.knobState/15)*15)")
                     }
                     // Reset knob state
                     self.knobState = 0
@@ -99,6 +98,8 @@ struct RotateWheelPointer: View {
 // A view to control horizontal motion of the drone
 struct JoyStick: View {
     @Binding public var stickState: CGSize
+    @Binding var mgr: DroneManager
+    @State var joystickDirection: JoystickDirection = .center
     
     var body: some View {
         Circle()
@@ -113,25 +114,54 @@ struct JoyStick: View {
             .gesture(DragGesture()
                 .onChanged { value in
                     if value.translation.width.magnitude > value.translation.height.magnitude {
+                        // Update joystick location
                         self.stickState.width = value.translation.width
                         self.stickState.height = 0
+                        // Limit joystick movement (horizontal)
                         if self.stickState.width > 70 {
                             self.stickState.width = 70
                         } else if self.stickState.width < -70 {
                             self.stickState.width = -70
                         }
+                        // Set joystickDirection
+                        if self.stickState.width > 0 {
+                            self.joystickDirection = .right
+                        } else {
+                            self.joystickDirection = .left
+                        }
                     } else {
+                        // Update joystick location
                         self.stickState.height = value.translation.height
                         self.stickState.width = 0
+                        // Limit joystick movement (vertical)
                         if self.stickState.height > 70 {
                             self.stickState.height = 70
                         } else if self.stickState.height < -70 {
                             self.stickState.height = -70
                         }
+                        // Set joystickDirection
+                        if self.stickState.height > 0 {
+                            self.joystickDirection = .down
+                        } else {
+                            self.joystickDirection = .up
+                        }
                     }
                 }
                 .onEnded { value in
-                    // MARK: TODO: send move command
+                    // Send horizontal move command
+                    switch self.joystickDirection {
+                    case .up:
+                        self.mgr.move(inDirection: .forward, withDistance: "\((-Int(self.stickState.height/10)+3)*10)")
+                    case .down:
+                        self.mgr.move(inDirection: .back, withDistance: "\((Int(self.stickState.height/10)+3)*10)")
+                    case .left:
+                        self.mgr.move(inDirection: .left, withDistance: "\((-Int(self.stickState.width/10)+3)*10)")
+                    case .right:
+                        self.mgr.move(inDirection: .right, withDistance: "\((Int(self.stickState.width/10)+3)*10)")
+                    case .center:
+                        print("Joystick not moved!")
+                    }
+                    // Reset stick state
                     self.stickState = .zero
                 }
         )
