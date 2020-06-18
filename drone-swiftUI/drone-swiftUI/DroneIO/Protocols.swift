@@ -11,9 +11,9 @@ import Network
 
 protocol DroneDelegate {
     
-    func onStatusDataArrival(withItems items: [Substring])
+    func onStatusDataArrival(with items: [Substring])
     
-    func onVideoDataArrival()
+    func onVideoDataArrival(with data: Data)
     
     func onConnectionStatusUpdate(msg: String)
     

@@ -38,6 +38,7 @@ class Drone {
     }
 }
 
+// MARK: - Device Interface
 
 extension Drone: DeviceInterface {
     
@@ -170,19 +171,9 @@ extension Drone {
         sendCommand(cmd: "command")
     }
     
-    private func processDeviceData(withItems items: [Substring]) {
-        let speedx = Int(extractInfo(byKey: "vgx:", withItems: items) ?? "0") ?? 0
-        let speedy = Int(extractInfo(byKey: "vgy:", withItems: items) ?? "0") ?? 0
-        let speedz = Int(extractInfo(byKey: "vgz:", withItems: items) ?? "0") ?? 0
-        print(#function, speedx, speedy, speedz)
-        self.isIdle = (speedx + speedy + speedz) == 0
-        if self.isIdle {
-            self.delegate?.droneIsIdling()
-        }
-    }
-    
 }
 
+// MARK: - Data Receivers
 // Receive data from listeners
 extension Drone {
     
@@ -193,8 +184,7 @@ extension Drone {
                 if let tmp = String(data: data, encoding: .utf8) {
                     print("Received drone status message:\n\(tmp)\n")
                     let items = tmp.split(separator: ";")
-                    self.delegate?.onStatusDataArrival(withItems: items)
-                    self.processDeviceData(withItems: items)
+                    self.delegate?.onStatusDataArrival(with: items)
                 }
                 if error == nil {
                     self.receiveStateInfo(onConnection: connection)
@@ -208,6 +198,7 @@ extension Drone {
         connection.receiveMessage(completion: { (content, context, isComplete, error) in
             if let data = content {
                 print("Received video data of size \(data.count) bytes")
+                self.delegate?.onVideoDataArrival(with: data)
                 
                 if error == nil {
                         self.receiveVideoData(onConnection: connection)

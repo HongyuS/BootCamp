@@ -8,36 +8,43 @@
 
 import Foundation
 
-class DroneManager {
+class DroneManager: ObservableObject {
     
     // Model
     var drone: DeviceInterface?
-    
-    var battery: Int?
-    var height: String?
-    var time: String?
-    var connectionStatus: String?
-    var droneStatus: String?
+    @Published var droneData = DroneData()
     
     init(drone: () -> Drone) {
         self.drone = drone()
+        self.drone?.delegate = self
     }
     
-    func processStateData(withItems items: [Substring]) {
-        if let value = extractInfo(byKey: "bat", withItems: items) {
+    func processStateData(with items: [Substring]) {
+        if let value = extractInfo(byKey: "bat", with: items) {
             DispatchQueue.main.async {
-                self.battery = Int(value) ?? 0
+                self.droneData.battery = Int(value) ?? 0
             }
         }
-        if let value = extractInfo(byKey: "h", withItems: items) {
+        if let value = extractInfo(byKey: "h", with: items) {
             DispatchQueue.main.async {
-                self.height = value
+                self.droneData.height = value
             }
         }
-        if let value = extractInfo(byKey: "time", withItems: items) {
+        if let value = extractInfo(byKey: "time", with: items) {
             DispatchQueue.main.async {
-                self.time = value
+                self.droneData.time = value
             }
+        }
+    }
+    
+    func processDeviceData(with items: [Substring]) {
+        let speedx = Int(extractInfo(byKey: "vgx:", with: items) ?? "0") ?? 0
+        let speedy = Int(extractInfo(byKey: "vgy:", with: items) ?? "0") ?? 0
+        let speedz = Int(extractInfo(byKey: "vgz:", with: items) ?? "0") ?? 0
+        print(#function, speedx, speedy, speedz)
+        self.droneData.isIdle = (speedx + speedy + speedz) == 0
+        if self.droneData.isIdle {
+            self.droneIsIdling()
         }
     }
 }
@@ -111,17 +118,24 @@ extension DroneManager: DroneInterface {
 extension DroneManager: DroneDelegate {
     
     // Status string from device
-    func onStatusDataArrival(withItems items: [Substring]) {
-        self.processStateData(withItems: items)
+    func onStatusDataArrival(with items: [Substring]) {
+        processStateData(with: items)
+        processDeviceData(with: items)
     }
     
-    func onVideoDataArrival() {
-        print("TODO:", #function)
+    func onVideoDataArrival(with data: Data) {
+        print(#function)
+        DispatchQueue.main.async {
+            self.droneData.videoFrame?.append(data)
+            if data.count < 1460 && self.droneData.videoFrame?.count ?? 0 > 40 {
+                // TODO: decode video frame
+            }
+        }
     }
     
     func onConnectionStatusUpdate(msg: String) {
         DispatchQueue.main.async {
-            self.connectionStatus = msg
+            self.droneData.connectionStatus = msg
         }
     }
     
@@ -131,13 +145,13 @@ extension DroneManager: DroneDelegate {
     
     func onDroneStatusUpdate(msg: String) {
         DispatchQueue.main.async {
-            self.droneStatus = msg
+            self.droneData.droneStatus = msg
         }
     }
     
     func droneIsIdling() {
         DispatchQueue.main.async {
-            self.droneStatus = "Idle"
+            self.droneData.droneStatus = "Idle"
         }
     }
 }

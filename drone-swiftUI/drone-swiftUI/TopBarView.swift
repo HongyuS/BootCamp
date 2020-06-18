@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TopBarView: View {
     
-    @Binding var mgr: DroneManager
+    @ObservedObject var mgr: DroneManager
     
     // drone states
     @Binding var takeoff: Bool
@@ -82,9 +82,15 @@ struct TopBarView: View {
 
 struct TopBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TopBarView(mgr: .constant(DroneManager { Drone(host: "0.0.0.0", port: 0, port_local: 0, port_video: 0) }),
-                   takeoff: .constant(false),
-                   recording: .constant(false)
+        TopBarView(
+            mgr: DroneManager {
+                Drone(host: "0.0.0.0",
+                      port: 0,
+                      port_local: 0,
+                      port_video: 0)
+            },
+            takeoff: .constant(false),
+            recording: .constant(false)
         )
     }
 }

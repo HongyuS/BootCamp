@@ -10,6 +10,7 @@
 		EC4417EC24986DD8005FB654 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417EB24986DD8005FB654 /* Global.swift */; };
 		EC4417EE24986E56005FB654 /* DroneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417ED24986E56005FB654 /* DroneManager.swift */; };
 		EC4417F024986E73005FB654 /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417EF24986E73005FB654 /* Drone.swift */; };
+		EC7330FC249B63D300467AD5 /* DroneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7330FB249B63D300467AD5 /* DroneData.swift */; };
 		EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89A82B24972A120045C201 /* UIBlurView.swift */; };
 		ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEA6152495E0130068F4BB /* TopBarView.swift */; };
 		ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246892494E007001FC6F7 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		EC4417EB24986DD8005FB654 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EC4417ED24986E56005FB654 /* DroneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneManager.swift; sourceTree = "<group>"; };
 		EC4417EF24986E73005FB654 /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
+		EC7330FB249B63D300467AD5 /* DroneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneData.swift; sourceTree = "<group>"; };
 		EC89A82B24972A120045C201 /* UIBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurView.swift; sourceTree = "<group>"; };
 		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AViATORRelease.entitlements; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				ECF246BB2494E258001FC6F7 /* Protocols.swift */,
 				ECF246BD2494E28C001FC6F7 /* Enums.swift */,
 				EC4417ED24986E56005FB654 /* DroneManager.swift */,
+				EC7330FB249B63D300467AD5 /* DroneData.swift */,
 				EC4417EF24986E73005FB654 /* Drone.swift */,
 			);
 			path = DroneIO;
@@ -317,6 +320,7 @@
 				ECF2468E2494E007001FC6F7 /* HomeView.swift in Sources */,
 				ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */,
 				EC4417EC24986DD8005FB654 /* Global.swift in Sources */,
+				EC7330FC249B63D300467AD5 /* DroneData.swift in Sources */,
 				ECF246BC2494E258001FC6F7 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

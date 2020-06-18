@@ -14,7 +14,7 @@ import Network
 struct HomeView: View {
     
     // ViewModel
-    @State private var mgr = DroneManager {
+    @ObservedObject private var mgr = DroneManager {
         Drone(host: device_ip_address,
               port: device_ip_port,
               port_local: local_ip_port_state,
@@ -31,7 +31,7 @@ struct HomeView: View {
             Text("Hello, World!")
             
             VStack {
-                TopBarView(mgr: $mgr,
+                TopBarView(mgr: mgr,
                            takeoff: $takeoff,
                            recording: $recording
                 )
@@ -43,14 +43,14 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack {
-                    LeftControllerView(mgr: $mgr)
+                    LeftControllerView(mgr: mgr)
                         .shadow(
                             color: Color.black.opacity(0.4),
                             radius: 20, x: 0, y: 10)
                     
                     Spacer()
                     
-                    RightControllerView(mgr: $mgr)
+                    RightControllerView(mgr: mgr)
                         .shadow(
                             color: Color.black.opacity(0.4),
                             radius: 20, x: 0, y: 10)

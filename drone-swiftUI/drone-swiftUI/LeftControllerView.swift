@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct LeftControllerView: View {
-    @State public var stickState: CGSize = .zero
-    @State public var knobState: Double = 0
+    @State private var stickState: CGSize = .zero
+    @State private var knobState: Double = 0
     
-    @Binding var mgr: DroneManager
+    var mgr: DroneManager
     
     var body: some View {
         ZStack {
-            RotateWheel(knobState: $knobState, mgr: $mgr)
-            JoyStick(stickState: $stickState, mgr: $mgr)
+            RotateWheel(knobState: $knobState, mgr: mgr)
+            Joystick(stickState: $stickState, mgr: mgr)
         }
         .frame(width: 228, height: 228)
         .background(Blur(style: .regular))
@@ -27,15 +27,22 @@ struct LeftControllerView: View {
 
 struct LeftControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        LeftControllerView(mgr: .constant(DroneManager { Drone(host: "0.0.0.0", port: 0, port_local: 0, port_video: 0) }))
+        LeftControllerView(mgr: DroneManager {
+            Drone(host: "0.0.0.0",
+                  port: 0,
+                  port_local: 0,
+                  port_video: 0)
+        })
     }
 }
 
 // MARK: - Rotate Wheel
 // A view that tells the drone to rotate
 struct RotateWheel: View {
-    @Binding public var knobState: Double
-    @Binding var mgr: DroneManager
+    
+    @Binding var knobState: Double
+    
+    var mgr: DroneManager
     
     var body: some View {
         ZStack {
@@ -44,28 +51,37 @@ struct RotateWheel: View {
                       to: knobState > 0 ? CGFloat(knobState/360) : 1
                 )
                 .stroke(
-                    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)), Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))]), startPoint: .trailing, endPoint: .leading),
-                    style: StrokeStyle(lineWidth: 20, lineCap: .butt, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0)
+                    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)), Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))]),
+                                   startPoint: .trailing,
+                                   endPoint: .leading),
+                    style: StrokeStyle(lineWidth: 20,
+                                       lineCap: .butt,
+                                       lineJoin: .round,
+                                       miterLimit: .infinity,
+                                       dash: [20, 0],
+                                       dashPhase: 0)
                 )
                 .blur(radius: 10)
                 .rotationEffect(Angle(degrees: -90))
-                .frame(width: 168, height: 168, alignment: .center)
+                .frame(width: 168, height: 168)
             
             Image("rotateWheel")
             
             GeometryReader {
-                RotateWheelPointer(knobState: self.$knobState, mgr: self.$mgr, frame: $0.frame(in: .local))
+                RotateWheelPointer(knobState: self.$knobState, mgr: self.mgr, frame: $0.frame(in: .local))
             }
         }
     }
 }
 
 struct RotateWheelPointer: View {
+    
     @Binding var knobState: Double
     @GestureState private var dragLocation: CGPoint = .zero
-    @Binding var mgr: DroneManager
     
-    public var frame: CGRect
+    var mgr: DroneManager
+    
+    var frame: CGRect
     
     var body: some View {
         Image("rotatePointer")
@@ -96,10 +112,12 @@ struct RotateWheelPointer: View {
 
 // MARK: - Joystick View
 // A view to control horizontal motion of the drone
-struct JoyStick: View {
-    @Binding public var stickState: CGSize
-    @Binding var mgr: DroneManager
+struct Joystick: View {
+    
+    @Binding var stickState: CGSize
     @State var joystickDirection: JoystickDirection = .center
+    
+    var mgr: DroneManager
     
     var body: some View {
         Circle()
