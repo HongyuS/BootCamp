@@ -62,8 +62,3 @@ protocol DroneInterface {
     
     func isIdle() -> Bool
 }
-
-
-protocol JoystickMotionDelegate {
-    func joystickMotion(direction: JoystickDirection, translation: Int)
-}
