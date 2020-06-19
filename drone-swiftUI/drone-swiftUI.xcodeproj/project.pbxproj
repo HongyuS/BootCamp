@@ -12,6 +12,7 @@
 		EC4417F024986E73005FB654 /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417EF24986E73005FB654 /* Drone.swift */; };
 		EC7330FC249B63D300467AD5 /* DroneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7330FB249B63D300467AD5 /* DroneData.swift */; };
 		EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89A82B24972A120045C201 /* UIBlurView.swift */; };
+		EC939F78249B6C0400B1D442 /* VideoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC939F77249B6C0400B1D442 /* VideoDelegate.swift */; };
 		ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEA6152495E0130068F4BB /* TopBarView.swift */; };
 		ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246892494E007001FC6F7 /* AppDelegate.swift */; };
 		ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 		EC4417EF24986E73005FB654 /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
 		EC7330FB249B63D300467AD5 /* DroneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneData.swift; sourceTree = "<group>"; };
 		EC89A82B24972A120045C201 /* UIBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurView.swift; sourceTree = "<group>"; };
+		EC939F77249B6C0400B1D442 /* VideoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDelegate.swift; sourceTree = "<group>"; };
 		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AViATORRelease.entitlements; sourceTree = "<group>"; };
 		ECF246862494E007001FC6F7 /* AViATOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViATOR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ECD049B2249C98ED003FC435 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECF2468D2494E007001FC6F7 /* HomeView.swift */,
+				ECAEA6152495E0130068F4BB /* TopBarView.swift */,
+				ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */,
+				ECF246C124950390001FC6F7 /* RightControllerView.swift */,
+				EC89A82B24972A120045C201 /* UIBlurView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		ECF2467D2494E007001FC6F7 = {
 			isa = PBXGroup;
 			children = (
@@ -123,14 +137,10 @@
 			children = (
 				ECF246B92494E032001FC6F7 /* drone-swiftUI.entitlements */,
 				ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */,
-				ECF246BA2494E1A2001FC6F7 /* DroneIO */,
 				ECF246892494E007001FC6F7 /* AppDelegate.swift */,
 				ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */,
-				ECF2468D2494E007001FC6F7 /* HomeView.swift */,
-				ECAEA6152495E0130068F4BB /* TopBarView.swift */,
-				ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */,
-				ECF246C124950390001FC6F7 /* RightControllerView.swift */,
-				EC89A82B24972A120045C201 /* UIBlurView.swift */,
+				ECF246BA2494E1A2001FC6F7 /* DroneIO */,
+				ECD049B2249C98ED003FC435 /* View */,
 				ECF2468F2494E00A001FC6F7 /* Assets.xcassets */,
 				ECF246942494E00A001FC6F7 /* LaunchScreen.storyboard */,
 				ECF246972494E00A001FC6F7 /* Info.plist */,
@@ -172,6 +182,7 @@
 				ECF246BB2494E258001FC6F7 /* Protocols.swift */,
 				ECF246BD2494E28C001FC6F7 /* Enums.swift */,
 				EC4417ED24986E56005FB654 /* DroneManager.swift */,
+				EC939F77249B6C0400B1D442 /* VideoDelegate.swift */,
 				EC7330FB249B63D300467AD5 /* DroneData.swift */,
 				EC4417EF24986E73005FB654 /* Drone.swift */,
 			);
@@ -311,6 +322,7 @@
 			files = (
 				EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */,
 				ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */,
+				EC939F78249B6C0400B1D442 /* VideoDelegate.swift in Sources */,
 				ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */,
 				EC4417EE24986E56005FB654 /* DroneManager.swift in Sources */,
 				ECF246C224950390001FC6F7 /* RightControllerView.swift in Sources */,
