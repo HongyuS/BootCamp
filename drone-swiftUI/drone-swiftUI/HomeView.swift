@@ -41,7 +41,6 @@ struct HomeView: View {
                     .shadow(
                         color: Color.black.opacity(0.3),
                         radius: 20, x: 0, y: 10)
-                    .offset(x: 0, y: -36)
                 
                 Spacer()
                 

@@ -35,7 +35,6 @@ struct TopBarView: View {
             .background(self.takeoff ? Color.red.opacity(0.7) : Color.green.opacity(0.7))
             .background(Blur(style: .regular))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .padding(.top, 20)
             
             HStack(spacing: 16) {
                 Text("Hello, World!")
@@ -45,15 +44,14 @@ struct TopBarView: View {
                 Text("Hello, World!")
             }
             .padding(16)
-            .padding(.top, 20)
-            .frame(height: 112)
+            .frame(height: 60)
             .background(Blur(style: .regular))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .padding(.horizontal, 16)
             
             HStack(spacing: 0) {
                 Button(action: {
-                    // MARK: TODO: send command
+                    // TODO: start recording
                     self.recording.toggle()
                 }) {
                     Image(systemName: self.recording ? "video.slash.fill" : "video.fill")
@@ -64,7 +62,7 @@ struct TopBarView: View {
                 .background(self.recording ? Color.red.opacity(0.7) : Color.green.opacity(0.7))
                 
                 Button(action: {
-                    // MARK: TODO: show app settings
+                    // TODO: show app settings
                 }) {
                     Image(systemName: "gear")
                         .font(.title)
@@ -75,7 +73,6 @@ struct TopBarView: View {
             }
             .background(Blur(style: .regular))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .padding(.top, 20)
         }
     }
 }
