@@ -29,6 +29,9 @@ struct HomeView: View {
         ZStack {
             
             Text("Hello, World!")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.blue)
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
                 TopBarView(mgr: mgr,
@@ -59,8 +62,8 @@ struct HomeView: View {
                 Spacer()
             }
             .padding()
+            .clipShape(Rectangle())
         }
-        .background(Color.blue)
         .onAppear {
             self.mgr.drone?.delegate = self.mgr
             self.mgr.start()

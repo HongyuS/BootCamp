@@ -28,6 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
+            
+            let statusBarView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+            statusBarView.frame = windowScene.statusBarManager!.statusBarFrame
+            window.rootViewController?.view.addSubview(statusBarView)
         }
     }
 
