@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct RightControllerView: View {
+    
     @State var stickState = CGSize.zero
+    @State var stickDirection: VerticalKnobDirection = .center
+    
     var mgr: DroneManager
     
     var body: some View {
@@ -22,7 +25,15 @@ struct RightControllerView: View {
                 .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
                 .gesture(
                     DragGesture().onChanged { value in
+                        // Update knob location
                         self.stickState = value.translation
+                        // Set knob direction
+                        if self.stickState.height > 0 {
+                            self.stickDirection = .down
+                        } else if self.stickState.height < 0 {
+                            self.stickDirection = .up
+                        }
+                        // Limit knob movement
                         if self.stickState.height > 83 {
                             self.stickState.height = 83
                         } else if self.stickState.height < -83 {
@@ -30,8 +41,20 @@ struct RightControllerView: View {
                         }
                     }
                     .onEnded { value in
-                        // MARK: TODO: send command
+                        // Send vertical move command
+                        if abs(self.stickState.height) > 13 {
+                            switch self.stickDirection {
+                            case .up:
+                                self.mgr.move(inDirection: .up, withDistance: "\((-Int((self.stickState.height+13)/10)+3)*10)")
+                            case .down:
+                                self.mgr.move(inDirection: .down, withDistance: "\((Int((self.stickState.height-13)/10)+3)*10)")
+                            case .center:
+                                print("Vertical knob not moved!")
+                            }
+                        }
+                        // Reset vertical knob state
                         self.stickState = .zero
+                        self.stickDirection = .center
                     }
                 )
         }

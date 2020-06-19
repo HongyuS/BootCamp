@@ -144,7 +144,7 @@ struct Joystick: View {
                         // Set joystickDirection
                         if self.stickState.width > 0 {
                             self.joystickDirection = .right
-                        } else {
+                        } else if self.stickState.width < 0 {
                             self.joystickDirection = .left
                         }
                     } else {
@@ -160,7 +160,7 @@ struct Joystick: View {
                         // Set joystickDirection
                         if self.stickState.height > 0 {
                             self.joystickDirection = .down
-                        } else {
+                        } else if self.stickState.height < 0 {
                             self.joystickDirection = .up
                         }
                     }
@@ -179,8 +179,9 @@ struct Joystick: View {
                     case .center:
                         print("Joystick not moved!")
                     }
-                    // Reset stick state
+                    // Reset joystick state
                     self.stickState = .zero
+                    self.joystickDirection = .center
                 }
         )
     }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: ??
 // TODO: all init() DO NOT catch index out of range !!!
 
 // Commands to be sent to drone (see spec)
@@ -44,14 +43,18 @@ enum FlipDirection: String, CaseIterable {
     }
 }
 
-// Future
-enum JoystickDirection: Int, CaseIterable {
+// Joystick directions
+enum JoystickDirection {
     case up
     case down
     case left
     case right
     case center
-    init(_ ix:Int) {
-        self = JoystickDirection.allCases[ix]
-    }
+}
+
+// Vertical Knob directions
+enum VerticalKnobDirection {
+    case up
+    case down
+    case center
 }
