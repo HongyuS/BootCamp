@@ -61,10 +61,8 @@ struct HomeView: View {
                 Spacer()
             }
             .padding()
-            .clipShape(Rectangle())
         }
         .onAppear {
-            self.mgr.drone?.delegate = self.mgr
             self.mgr.start()
             print("load drone success")
         } .onDisappear {

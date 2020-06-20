@@ -11,6 +11,8 @@ import Network
 
 protocol DroneDelegate {
     
+    var networkHandler: DeviceInterface? { get set }
+    
     func onStatusDataArrival(with items: [Substring])
     
     func onVideoDataArrival(with data: Data)
@@ -30,8 +32,6 @@ protocol DeviceInterface {
     
     var delegate: DroneDelegate? { get set }
     
-    var isIdle: Bool { get }
-    
     func sendCommand(cmd: String)
     
     func sendCommand(cmd: String, arg: String)
@@ -44,7 +44,7 @@ protocol DeviceInterface {
 
 protocol DroneInterface {
     
-    var drone: DeviceInterface? { get set }
+    var drone: Drone { get set }
     
     func move(inDirection dir: MoveDirection, withDistance dist: String)
     

@@ -10,50 +10,33 @@
 		EC4417EC24986DD8005FB654 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417EB24986DD8005FB654 /* Global.swift */; };
 		EC4417EE24986E56005FB654 /* DroneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417ED24986E56005FB654 /* DroneManager.swift */; };
 		EC4417F024986E73005FB654 /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4417EF24986E73005FB654 /* Drone.swift */; };
-		EC7330FC249B63D300467AD5 /* DroneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7330FB249B63D300467AD5 /* DroneData.swift */; };
 		EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89A82B24972A120045C201 /* UIBlurView.swift */; };
-		EC939F78249B6C0400B1D442 /* VideoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC939F77249B6C0400B1D442 /* VideoDelegate.swift */; };
+		EC939F78249B6C0400B1D442 /* VideoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC939F77249B6C0400B1D442 /* VideoDecoder.swift */; };
 		ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEA6152495E0130068F4BB /* TopBarView.swift */; };
+		ECD78EE9249CE98F00CFCA09 /* UIVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD78EE8249CE98F00CFCA09 /* UIVideoView.swift */; };
+		ECEFA107249DDD8300F3608E /* DroneNWHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFA106249DDD8300F3608E /* DroneNWHandler.swift */; };
 		ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246892494E007001FC6F7 /* AppDelegate.swift */; };
 		ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */; };
 		ECF2468E2494E007001FC6F7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF2468D2494E007001FC6F7 /* HomeView.swift */; };
 		ECF246902494E00A001FC6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF2468F2494E00A001FC6F7 /* Assets.xcassets */; };
 		ECF246932494E00A001FC6F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF246922494E00A001FC6F7 /* Preview Assets.xcassets */; };
 		ECF246962494E00A001FC6F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF246942494E00A001FC6F7 /* LaunchScreen.storyboard */; };
-		ECF246A12494E00B001FC6F7 /* drone_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246A02494E00B001FC6F7 /* drone_swiftUITests.swift */; };
-		ECF246AC2494E00B001FC6F7 /* drone_swiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246AB2494E00B001FC6F7 /* drone_swiftUIUITests.swift */; };
 		ECF246BC2494E258001FC6F7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246BB2494E258001FC6F7 /* Protocols.swift */; };
 		ECF246BE2494E28C001FC6F7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246BD2494E28C001FC6F7 /* Enums.swift */; };
 		ECF246C02494F06A001FC6F7 /* LeftControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */; };
 		ECF246C224950390001FC6F7 /* RightControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF246C124950390001FC6F7 /* RightControllerView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ECF2469D2494E00B001FC6F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECF2467E2494E007001FC6F7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECF246852494E007001FC6F7;
-			remoteInfo = "drone-swiftUI";
-		};
-		ECF246A82494E00B001FC6F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECF2467E2494E007001FC6F7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECF246852494E007001FC6F7;
-			remoteInfo = "drone-swiftUI";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		EC4417EB24986DD8005FB654 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		EC4417ED24986E56005FB654 /* DroneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneManager.swift; sourceTree = "<group>"; };
 		EC4417EF24986E73005FB654 /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
-		EC7330FB249B63D300467AD5 /* DroneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneData.swift; sourceTree = "<group>"; };
 		EC89A82B24972A120045C201 /* UIBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurView.swift; sourceTree = "<group>"; };
-		EC939F77249B6C0400B1D442 /* VideoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDelegate.swift; sourceTree = "<group>"; };
+		EC939F77249B6C0400B1D442 /* VideoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDecoder.swift; sourceTree = "<group>"; };
 		ECAEA6152495E0130068F4BB /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		ECD3D72C2499A79F005C1669 /* AViATORRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AViATORRelease.entitlements; sourceTree = "<group>"; };
+		ECD78EE8249CE98F00CFCA09 /* UIVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoView.swift; sourceTree = "<group>"; };
+		ECEFA106249DDD8300F3608E /* DroneNWHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneNWHandler.swift; sourceTree = "<group>"; };
 		ECF246862494E007001FC6F7 /* AViATOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViATOR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF246892494E007001FC6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF2468B2494E007001FC6F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,12 +45,6 @@
 		ECF246922494E00A001FC6F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ECF246952494E00A001FC6F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECF246972494E00A001FC6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECF2469C2494E00B001FC6F7 /* drone-swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "drone-swiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECF246A02494E00B001FC6F7 /* drone_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drone_swiftUITests.swift; sourceTree = "<group>"; };
-		ECF246A22494E00B001FC6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECF246A72494E00B001FC6F7 /* drone-swiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "drone-swiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECF246AB2494E00B001FC6F7 /* drone_swiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drone_swiftUIUITests.swift; sourceTree = "<group>"; };
-		ECF246AD2494E00B001FC6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECF246B92494E032001FC6F7 /* drone-swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "drone-swiftUI.entitlements"; sourceTree = "<group>"; };
 		ECF246BB2494E258001FC6F7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		ECF246BD2494E28C001FC6F7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -77,20 +54,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		ECF246832494E007001FC6F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECF246992494E00B001FC6F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECF246A42494E00B001FC6F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -107,6 +70,7 @@
 				ECAEA6152495E0130068F4BB /* TopBarView.swift */,
 				ECF246BF2494F06A001FC6F7 /* LeftControllerView.swift */,
 				ECF246C124950390001FC6F7 /* RightControllerView.swift */,
+				ECD78EE8249CE98F00CFCA09 /* UIVideoView.swift */,
 				EC89A82B24972A120045C201 /* UIBlurView.swift */,
 			);
 			path = View;
@@ -116,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				ECF246882494E007001FC6F7 /* drone-swiftUI */,
-				ECF2469F2494E00B001FC6F7 /* drone-swiftUITests */,
-				ECF246AA2494E00B001FC6F7 /* drone-swiftUIUITests */,
 				ECF246872494E007001FC6F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,8 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				ECF246862494E007001FC6F7 /* AViATOR.app */,
-				ECF2469C2494E00B001FC6F7 /* drone-swiftUITests.xctest */,
-				ECF246A72494E00B001FC6F7 /* drone-swiftUIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,24 +117,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ECF2469F2494E00B001FC6F7 /* drone-swiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ECF246A02494E00B001FC6F7 /* drone_swiftUITests.swift */,
-				ECF246A22494E00B001FC6F7 /* Info.plist */,
-			);
-			path = "drone-swiftUITests";
-			sourceTree = "<group>";
-		};
-		ECF246AA2494E00B001FC6F7 /* drone-swiftUIUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ECF246AB2494E00B001FC6F7 /* drone_swiftUIUITests.swift */,
-				ECF246AD2494E00B001FC6F7 /* Info.plist */,
-			);
-			path = "drone-swiftUIUITests";
-			sourceTree = "<group>";
-		};
 		ECF246BA2494E1A2001FC6F7 /* DroneIO */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +124,9 @@
 				ECF246BB2494E258001FC6F7 /* Protocols.swift */,
 				ECF246BD2494E28C001FC6F7 /* Enums.swift */,
 				EC4417ED24986E56005FB654 /* DroneManager.swift */,
-				EC939F77249B6C0400B1D442 /* VideoDelegate.swift */,
-				EC7330FB249B63D300467AD5 /* DroneData.swift */,
+				EC939F77249B6C0400B1D442 /* VideoDecoder.swift */,
 				EC4417EF24986E73005FB654 /* Drone.swift */,
+				ECEFA106249DDD8300F3608E /* DroneNWHandler.swift */,
 			);
 			path = DroneIO;
 			sourceTree = "<group>";
@@ -209,42 +151,6 @@
 			productReference = ECF246862494E007001FC6F7 /* AViATOR.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ECF2469B2494E00B001FC6F7 /* drone-swiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECF246B32494E00B001FC6F7 /* Build configuration list for PBXNativeTarget "drone-swiftUITests" */;
-			buildPhases = (
-				ECF246982494E00B001FC6F7 /* Sources */,
-				ECF246992494E00B001FC6F7 /* Frameworks */,
-				ECF2469A2494E00B001FC6F7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECF2469E2494E00B001FC6F7 /* PBXTargetDependency */,
-			);
-			name = "drone-swiftUITests";
-			productName = "drone-swiftUITests";
-			productReference = ECF2469C2494E00B001FC6F7 /* drone-swiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		ECF246A62494E00B001FC6F7 /* drone-swiftUIUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECF246B62494E00B001FC6F7 /* Build configuration list for PBXNativeTarget "drone-swiftUIUITests" */;
-			buildPhases = (
-				ECF246A32494E00B001FC6F7 /* Sources */,
-				ECF246A42494E00B001FC6F7 /* Frameworks */,
-				ECF246A52494E00B001FC6F7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECF246A92494E00B001FC6F7 /* PBXTargetDependency */,
-			);
-			name = "drone-swiftUIUITests";
-			productName = "drone-swiftUIUITests";
-			productReference = ECF246A72494E00B001FC6F7 /* drone-swiftUIUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,14 +163,6 @@
 				TargetAttributes = {
 					ECF246852494E007001FC6F7 = {
 						CreatedOnToolsVersion = 11.5;
-					};
-					ECF2469B2494E00B001FC6F7 = {
-						CreatedOnToolsVersion = 11.5;
-						TestTargetID = ECF246852494E007001FC6F7;
-					};
-					ECF246A62494E00B001FC6F7 = {
-						CreatedOnToolsVersion = 11.5;
-						TestTargetID = ECF246852494E007001FC6F7;
 					};
 				};
 			};
@@ -282,8 +180,6 @@
 			projectRoot = "";
 			targets = (
 				ECF246852494E007001FC6F7 /* drone-swiftUI */,
-				ECF2469B2494E00B001FC6F7 /* drone-swiftUITests */,
-				ECF246A62494E00B001FC6F7 /* drone-swiftUIUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,20 +195,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECF2469A2494E00B001FC6F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECF246A52494E00B001FC6F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,51 +204,23 @@
 			files = (
 				EC89A82C24972A120045C201 /* UIBlurView.swift in Sources */,
 				ECF2468A2494E007001FC6F7 /* AppDelegate.swift in Sources */,
-				EC939F78249B6C0400B1D442 /* VideoDelegate.swift in Sources */,
+				EC939F78249B6C0400B1D442 /* VideoDecoder.swift in Sources */,
 				ECF2468C2494E007001FC6F7 /* SceneDelegate.swift in Sources */,
 				EC4417EE24986E56005FB654 /* DroneManager.swift in Sources */,
 				ECF246C224950390001FC6F7 /* RightControllerView.swift in Sources */,
 				ECF246BE2494E28C001FC6F7 /* Enums.swift in Sources */,
+				ECEFA107249DDD8300F3608E /* DroneNWHandler.swift in Sources */,
 				EC4417F024986E73005FB654 /* Drone.swift in Sources */,
 				ECF246C02494F06A001FC6F7 /* LeftControllerView.swift in Sources */,
 				ECF2468E2494E007001FC6F7 /* HomeView.swift in Sources */,
 				ECAEA6162495E0130068F4BB /* TopBarView.swift in Sources */,
 				EC4417EC24986DD8005FB654 /* Global.swift in Sources */,
-				EC7330FC249B63D300467AD5 /* DroneData.swift in Sources */,
+				ECD78EE9249CE98F00CFCA09 /* UIVideoView.swift in Sources */,
 				ECF246BC2494E258001FC6F7 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECF246982494E00B001FC6F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECF246A12494E00B001FC6F7 /* drone_swiftUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECF246A32494E00B001FC6F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECF246AC2494E00B001FC6F7 /* drone_swiftUIUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ECF2469E2494E00B001FC6F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECF246852494E007001FC6F7 /* drone-swiftUI */;
-			targetProxy = ECF2469D2494E00B001FC6F7 /* PBXContainerItemProxy */;
-		};
-		ECF246A92494E00B001FC6F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECF246852494E007001FC6F7 /* drone-swiftUI */;
-			targetProxy = ECF246A82494E00B001FC6F7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ECF246942494E00A001FC6F7 /* LaunchScreen.storyboard */ = {
@@ -546,90 +400,6 @@
 			};
 			name = Release;
 		};
-		ECF246B42494E00B001FC6F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T84X5VQX2Z;
-				INFOPLIST_FILE = "drone-swiftUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/drone-swiftUI.app/drone-swiftUI";
-			};
-			name = Debug;
-		};
-		ECF246B52494E00B001FC6F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T84X5VQX2Z;
-				INFOPLIST_FILE = "drone-swiftUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/drone-swiftUI.app/drone-swiftUI";
-			};
-			name = Release;
-		};
-		ECF246B72494E00B001FC6F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T84X5VQX2Z;
-				INFOPLIST_FILE = "drone-swiftUIUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUIUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "drone-swiftUI";
-			};
-			name = Debug;
-		};
-		ECF246B82494E00B001FC6F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T84X5VQX2Z;
-				INFOPLIST_FILE = "drone-swiftUIUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hys.drone-swiftUIUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "drone-swiftUI";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -647,24 +417,6 @@
 			buildConfigurations = (
 				ECF246B12494E00B001FC6F7 /* Debug */,
 				ECF246B22494E00B001FC6F7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECF246B32494E00B001FC6F7 /* Build configuration list for PBXNativeTarget "drone-swiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECF246B42494E00B001FC6F7 /* Debug */,
-				ECF246B52494E00B001FC6F7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECF246B62494E00B001FC6F7 /* Build configuration list for PBXNativeTarget "drone-swiftUIUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECF246B72494E00B001FC6F7 /* Debug */,
-				ECF246B82494E00B001FC6F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

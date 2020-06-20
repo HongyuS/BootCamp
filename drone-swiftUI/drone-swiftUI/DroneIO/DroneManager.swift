@@ -11,42 +11,16 @@ import Foundation
 class DroneManager: ObservableObject {
     
     // Model
-    var drone: DeviceInterface?
-    @Published var droneData = DroneData()
+    @Published var drone: Drone
     
     init(drone: () -> Drone) {
         self.drone = drone()
-        self.drone?.delegate = self
+        self.drone.networkHandler = DroneNWHandler(host: self.drone.host_ip,
+                                                   port: self.drone.host_port,
+                                                   port_local: self.drone.local_port,
+                                                   port_video: self.drone.local_video_port)
     }
     
-    func processStateData(with items: [Substring]) {
-        if let value = extractInfo(byKey: "bat", with: items) {
-            DispatchQueue.main.async {
-                self.droneData.battery = Int(value) ?? 0
-            }
-        }
-        if let value = extractInfo(byKey: "h", with: items) {
-            DispatchQueue.main.async {
-                self.droneData.height = value
-            }
-        }
-        if let value = extractInfo(byKey: "time", with: items) {
-            DispatchQueue.main.async {
-                self.droneData.time = value
-            }
-        }
-    }
-    
-    func processDeviceData(with items: [Substring]) {
-        let speedx = Int(extractInfo(byKey: "vgx:", with: items) ?? "0") ?? 0
-        let speedy = Int(extractInfo(byKey: "vgy:", with: items) ?? "0") ?? 0
-        let speedz = Int(extractInfo(byKey: "vgz:", with: items) ?? "0") ?? 0
-        print(#function, speedx, speedy, speedz)
-        self.droneData.isIdle = (speedx + speedy + speedz) == 0
-        if self.droneData.isIdle {
-            self.droneIsIdling()
-        }
-    }
 }
 
 // MARK: - Drone Interface
@@ -55,47 +29,47 @@ extension DroneManager: DroneInterface {
     
     func move(inDirection dir: MoveDirection, withDistance dist: String) {
         print("\(dir) \(dist)")
-        self.drone?.sendCommand(cmd: dir.rawValue, arg: dist)
+        self.drone.networkHandler?.sendCommand(cmd: dir.rawValue, arg: dist)
     }
     
     func rotate(inDirection dir: RotateDirection, withDegree deg: String) {
         print("\(dir) \(deg)")
-        self.drone?.sendCommand(cmd: dir.rawValue, arg: deg)
+        self.drone.networkHandler?.sendCommand(cmd: dir.rawValue, arg: deg)
     }
     
     func flip(inDirection dir: FlipDirection) {
         print("flip \(dir.rawValue)")
-        self.drone?.sendCommand(cmd: "flip", arg: dir.rawValue)
+        self.drone.networkHandler?.sendCommand(cmd: "flip", arg: dir.rawValue)
     }
     
     func start() {
         print(#function)
-        self.drone?.startConnection()
+        self.drone.networkHandler?.startConnection()
         delay(1.0) {
-            self.drone?.sendCommand(cmd: "streamon")
+            self.drone.networkHandler?.sendCommand(cmd: "streamon")
         }
     }
     
     func stop() {
         print(#function)
         self.landing()
-        self.drone?.stopConnection()
+        self.drone.networkHandler?.stopConnection()
     }
     
     func takeoff() {
         print(#function)
-        self.drone?.sendCommand(cmd: "takeoff")
+        self.drone.networkHandler?.sendCommand(cmd: "takeoff")
     }
     
     func landing() {
         print(#function)
-        self.drone?.sendCommand(cmd: "land")
+        self.drone.networkHandler?.sendCommand(cmd: "land")
         delay(1.0) {
             if self.isIdle() {
-                self.drone?.sendCommand(cmd: "streamoff")
+                self.drone.networkHandler?.sendCommand(cmd: "streamoff")
             } else {
                 delay(1.0) {
-                    self.drone?.sendCommand(cmd: "streamoff")
+                    self.drone.networkHandler?.sendCommand(cmd: "streamoff")
                 }
             }
         }
@@ -103,55 +77,12 @@ extension DroneManager: DroneInterface {
     
     func renameWifi(ssid: String, pass: String) {
         print(#function, ssid, pass)
-        self.drone?.sendCommand(cmd: "wifi \(ssid) \(pass)")
+        self.drone.networkHandler?.sendCommand(cmd: "wifi \(ssid) \(pass)")
     }
     
     func isIdle() -> Bool {
         print(#function)
-        return self.drone?.isIdle ?? false
+        return self.drone.isIdle 
     }
     
-}
-
-// MARK: - Drone Delegate
-
-extension DroneManager: DroneDelegate {
-    
-    // Status string from device
-    func onStatusDataArrival(with items: [Substring]) {
-        processStateData(with: items)
-        processDeviceData(with: items)
-    }
-    
-    func onVideoDataArrival(with data: Data) {
-        print(#function)
-        DispatchQueue.main.async {
-            self.droneData.videoFrame?.append(data)
-            if data.count < 1460 && self.droneData.videoFrame?.count ?? 0 > 40 {
-                // TODO: decode video frame
-            }
-        }
-    }
-    
-    func onConnectionStatusUpdate(msg: String) {
-        DispatchQueue.main.async {
-            self.droneData.connectionStatus = msg
-        }
-    }
-    
-    func onListenerStatusUpdate(msg: String) {
-        print("onListenerStatusUpdate: \(msg)")
-    }
-    
-    func onDroneStatusUpdate(msg: String) {
-        DispatchQueue.main.async {
-            self.droneData.droneStatus = msg
-        }
-    }
-    
-    func droneIsIdling() {
-        DispatchQueue.main.async {
-            self.droneData.droneStatus = "Idle"
-        }
-    }
 }
