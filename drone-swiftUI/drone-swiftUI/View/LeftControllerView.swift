@@ -88,9 +88,9 @@ struct RotateWheelPointer: View {
                     // Send rotate command
                     switch self.knobState > 0 {
                     case true:
-                        self.mgr.rotate(inDirection: .cw, withDegree: "\(Int(self.knobState/15)*15)")
+                        self.mgr.rotate(inDirection: .cw, withDegree: "\(Int(self.knobState/15)*15+15)")
                     case false:
-                        self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(self.knobState/15)*15)")
+                        self.mgr.rotate(inDirection: .ccw, withDegree: "\(-Int(self.knobState/15)*15+15)")
                     }
                     // Reset knob state
                     self.knobState = 0
@@ -158,13 +158,13 @@ struct Joystick: View {
                     // Send horizontal move command
                     switch self.joystickDirection {
                     case .up:
-                        self.mgr.move(inDirection: .forward, withDistance: "\((-Int(self.stickState.height/10)+3)*10)")
+                        self.mgr.move(inDirection: .forward, withDistance: self.dist(self.stickState.height))
                     case .down:
-                        self.mgr.move(inDirection: .back, withDistance: "\((Int(self.stickState.height/10)+3)*10)")
+                        self.mgr.move(inDirection: .back, withDistance: self.dist(self.stickState.height))
                     case .left:
-                        self.mgr.move(inDirection: .left, withDistance: "\((-Int(self.stickState.width/10)+3)*10)")
+                        self.mgr.move(inDirection: .left, withDistance: self.dist(self.stickState.width))
                     case .right:
-                        self.mgr.move(inDirection: .right, withDistance: "\((Int(self.stickState.width/10)+3)*10)")
+                        self.mgr.move(inDirection: .right, withDistance: self.dist(self.stickState.width))
                     case .center:
                         print("Joystick not moved!")
                     }
@@ -173,5 +173,9 @@ struct Joystick: View {
                     self.joystickDirection = .center
                 }
         )
+    }
+    
+    func dist(_ stickValue: CGFloat) -> String {
+        "\((abs(Int(stickValue/10))+3)*10)"
     }
 }

@@ -82,11 +82,6 @@ struct TopBarView_Previews: PreviewProvider {
         TopBarView(
             takeoff: .constant(false),
             recording: .constant(false)
-        ).environmentObject(DroneManager {
-            Drone(host: "0.0.0.0",
-                  port: 0,
-                  port_local: 1,
-                  port_video: 2)
-        })
+        ).environmentObject(DroneManager.preview)
     }
 }

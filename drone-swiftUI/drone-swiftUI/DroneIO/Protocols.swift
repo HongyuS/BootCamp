@@ -11,7 +11,7 @@ import Network
 
 protocol DroneDelegate {
     
-    var networkHandler: DeviceInterface? { get set }
+    var networkHandler: DeviceInterface { get set }
     
     func onStatusDataArrival(with items: [Substring])
     

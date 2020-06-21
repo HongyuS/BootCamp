@@ -69,11 +69,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(DroneManager {
-            Drone(host: "0.0.0.0",
-                  port: 0,
-                  port_local: 1,
-                  port_video: 2)
-        })
+        HomeView().environmentObject(DroneManager.preview)
     }
 }

@@ -13,12 +13,16 @@ class DroneManager: ObservableObject {
     // Model
     @Published var drone: Drone
     
+    static var tello = DroneManager {
+        Drone.tello
+    }
+    
+    static var preview = DroneManager {
+        Drone.preview
+    }
+    
     init(drone: () -> Drone) {
         self.drone = drone()
-        self.drone.networkHandler = DroneNWHandler(host: self.drone.host_ip,
-                                                   port: self.drone.host_port,
-                                                   port_local: self.drone.local_port,
-                                                   port_video: self.drone.local_video_port)
     }
     
 }
@@ -29,47 +33,47 @@ extension DroneManager: DroneInterface {
     
     func move(inDirection dir: MoveDirection, withDistance dist: String) {
         print("\(dir) \(dist)")
-        self.drone.networkHandler?.sendCommand(cmd: dir.rawValue, arg: dist)
+        self.drone.networkHandler.sendCommand(cmd: dir.rawValue, arg: dist)
     }
     
     func rotate(inDirection dir: RotateDirection, withDegree deg: String) {
         print("\(dir) \(deg)")
-        self.drone.networkHandler?.sendCommand(cmd: dir.rawValue, arg: deg)
+        self.drone.networkHandler.sendCommand(cmd: dir.rawValue, arg: deg)
     }
     
     func flip(inDirection dir: FlipDirection) {
         print("flip \(dir.rawValue)")
-        self.drone.networkHandler?.sendCommand(cmd: "flip", arg: dir.rawValue)
+        self.drone.networkHandler.sendCommand(cmd: "flip", arg: dir.rawValue)
     }
     
     func start() {
         print(#function)
-        self.drone.networkHandler?.startConnection()
+        self.drone.networkHandler.startConnection()
     }
     
     func stop() {
         print(#function)
         self.landing()
-        self.drone.networkHandler?.stopConnection()
+        self.drone.networkHandler.stopConnection()
     }
     
     func takeoff() {
         print(#function)
-        self.drone.networkHandler?.sendCommand(cmd: "takeoff")
+        self.drone.networkHandler.sendCommand(cmd: "takeoff")
         delay(1.0) {
-            self.drone.networkHandler?.sendCommand(cmd: "streamon")
+            self.drone.networkHandler.sendCommand(cmd: "streamon")
         }
     }
     
     func landing() {
         print(#function)
-        self.drone.networkHandler?.sendCommand(cmd: "land")
+        self.drone.networkHandler.sendCommand(cmd: "land")
         delay(1.0) {
             if self.isIdle() {
-                self.drone.networkHandler?.sendCommand(cmd: "streamoff")
+                self.drone.networkHandler.sendCommand(cmd: "streamoff")
             } else {
                 delay(1.0) {
-                    self.drone.networkHandler?.sendCommand(cmd: "streamoff")
+                    self.drone.networkHandler.sendCommand(cmd: "streamoff")
                 }
             }
         }
@@ -77,7 +81,7 @@ extension DroneManager: DroneInterface {
     
     func renameWifi(ssid: String, pass: String) {
         print(#function, ssid, pass)
-        self.drone.networkHandler?.sendCommand(cmd: "wifi \(ssid) \(pass)")
+        self.drone.networkHandler.sendCommand(cmd: "wifi \(ssid) \(pass)")
     }
     
     func isIdle() -> Bool {

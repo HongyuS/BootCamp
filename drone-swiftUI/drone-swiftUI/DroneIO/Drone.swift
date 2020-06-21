@@ -12,7 +12,14 @@ import Network
 
 class Drone {
     
-    var networkHandler: DeviceInterface?
+    static var tello = Drone(host: device_ip_address,
+                                      port: device_ip_port,
+                                      port_local: local_ip_port_state,
+                                      port_video: local_ip_port_video)
+    
+    static var preview = Drone(host: "0.0.0.0", port: 0, port_local: 1, port_video: 2)
+    
+    var networkHandler: DeviceInterface
     
     public var isIdle: Bool = false
     
@@ -34,6 +41,7 @@ class Drone {
         self.host_port = port
         self.local_port = port_local
         self.local_video_port = port_video
+        self.networkHandler = DroneNWHandler(host: host_ip, port: host_port, port_local: local_port, port_video: local_video_port)
     }
     
     func processStateData(with items: [Substring]) {

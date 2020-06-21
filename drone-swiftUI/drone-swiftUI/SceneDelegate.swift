@@ -13,12 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var droneManager = DroneManager {
-        Drone(host: device_ip_address,
-              port: device_ip_port,
-              port_local: local_ip_port_state,
-              port_video: local_ip_port_video)
-    }
+    var droneManager = DroneManager.tello
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
