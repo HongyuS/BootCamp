@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TopBarView: View {
     
-    @ObservedObject var mgr: DroneManager
+    @EnvironmentObject var mgr: DroneManager
     
     // drone states
     @Binding var takeoff: Bool
@@ -37,7 +37,7 @@ struct TopBarView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             
             HStack(spacing: 16) {
-                Text("Hello, World!")
+                Text("\(String(describing: mgr.drone.battery))")
                 Spacer()
                 Text("Hello, World!")
                 Spacer()
@@ -80,14 +80,13 @@ struct TopBarView: View {
 struct TopBarView_Previews: PreviewProvider {
     static var previews: some View {
         TopBarView(
-            mgr: DroneManager {
-                Drone(host: "0.0.0.0",
-                      port: 0,
-                      port_local: 0,
-                      port_video: 0)
-            },
             takeoff: .constant(false),
             recording: .constant(false)
-        )
+        ).environmentObject(DroneManager {
+            Drone(host: "0.0.0.0",
+                  port: 0,
+                  port_local: 1,
+                  port_video: 2)
+        })
     }
 }

@@ -14,12 +14,7 @@ import Network
 struct HomeView: View {
     
     // ViewModel
-    @ObservedObject private var mgr = DroneManager {
-        Drone(host: device_ip_address,
-              port: device_ip_port,
-              port_local: local_ip_port_state,
-              port_video: local_ip_port_video)
-    }
+    @EnvironmentObject var mgr: DroneManager
     
     // Drone states
     @State private var takeoff: Bool = false
@@ -28,14 +23,13 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             
-            Text("Hello, World!")
+            VideoView(mgr: mgr)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.blue)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                TopBarView(mgr: mgr,
-                           takeoff: $takeoff,
+                TopBarView(takeoff: $takeoff,
                            recording: $recording
                 )
                     .shadow(
@@ -45,14 +39,14 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack {
-                    LeftControllerView(mgr: mgr)
+                    LeftControllerView()
                         .shadow(
                             color: Color.black.opacity(0.4),
                             radius: 20, x: 0, y: 10)
                     
                     Spacer()
                     
-                    RightControllerView(mgr: mgr)
+                    RightControllerView()
                         .shadow(
                             color: Color.black.opacity(0.4),
                             radius: 20, x: 0, y: 10)
@@ -75,6 +69,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView().environmentObject(DroneManager {
+            Drone(host: "0.0.0.0",
+                  port: 0,
+                  port_local: 1,
+                  port_video: 2)
+        })
     }
 }

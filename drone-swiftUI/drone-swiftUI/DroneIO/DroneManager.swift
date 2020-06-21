@@ -45,9 +45,6 @@ extension DroneManager: DroneInterface {
     func start() {
         print(#function)
         self.drone.networkHandler?.startConnection()
-        delay(1.0) {
-            self.drone.networkHandler?.sendCommand(cmd: "streamon")
-        }
     }
     
     func stop() {
@@ -59,6 +56,9 @@ extension DroneManager: DroneInterface {
     func takeoff() {
         print(#function)
         self.drone.networkHandler?.sendCommand(cmd: "takeoff")
+        delay(1.0) {
+            self.drone.networkHandler?.sendCommand(cmd: "streamon")
+        }
     }
     
     func landing() {

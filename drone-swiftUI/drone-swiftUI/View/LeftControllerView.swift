@@ -9,15 +9,11 @@
 import SwiftUI
 
 struct LeftControllerView: View {
-    @State private var stickState: CGSize = .zero
-    @State private var knobState: Double = 0
-    
-    var mgr: DroneManager
     
     var body: some View {
         ZStack {
-            RotateWheel(knobState: $knobState, mgr: mgr)
-            Joystick(stickState: $stickState, mgr: mgr)
+            RotateWheel()
+            Joystick()
         }
         .frame(width: 228, height: 228)
         .background(Blur(style: .regular))
@@ -27,12 +23,7 @@ struct LeftControllerView: View {
 
 struct LeftControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        LeftControllerView(mgr: DroneManager {
-            Drone(host: "0.0.0.0",
-                  port: 0,
-                  port_local: 0,
-                  port_video: 0)
-        })
+        LeftControllerView()
     }
 }
 
@@ -40,9 +31,7 @@ struct LeftControllerView_Previews: PreviewProvider {
 // A view that tells the drone to rotate
 struct RotateWheel: View {
     
-    @Binding var knobState: Double
-    
-    var mgr: DroneManager
+    @State private var knobState: Double = 0
     
     var body: some View {
         ZStack {
@@ -68,7 +57,7 @@ struct RotateWheel: View {
             Image("rotateWheel")
             
             GeometryReader {
-                RotateWheelPointer(knobState: self.$knobState, mgr: self.mgr, frame: $0.frame(in: .local))
+                RotateWheelPointer(knobState: self.$knobState, frame: $0.frame(in: .local))
             }
         }
     }
@@ -79,7 +68,7 @@ struct RotateWheelPointer: View {
     @Binding var knobState: Double
     @GestureState private var dragLocation: CGPoint = .zero
     
-    var mgr: DroneManager
+    @EnvironmentObject var mgr: DroneManager
     
     var frame: CGRect
     
@@ -114,10 +103,10 @@ struct RotateWheelPointer: View {
 // A view to control horizontal motion of the drone
 struct Joystick: View {
     
-    @Binding var stickState: CGSize
+    @State private var stickState: CGSize = .zero
     @State var joystickDirection: JoystickDirection = .center
     
-    var mgr: DroneManager
+    @EnvironmentObject var mgr: DroneManager
     
     var body: some View {
         Circle()

@@ -13,7 +13,7 @@ struct RightControllerView: View {
     @State var stickState = CGSize.zero
     @State var stickDirection: VerticalKnobDirection = .center
     
-    var mgr: DroneManager
+    @EnvironmentObject var mgr: DroneManager
     
     var body: some View {
         ZStack {
@@ -66,11 +66,11 @@ struct RightControllerView: View {
 
 struct RightControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        RightControllerView(mgr: DroneManager {
+        RightControllerView().environmentObject(DroneManager {
             Drone(host: "0.0.0.0",
                   port: 0,
-                  port_local: 0,
-                  port_video: 0)
+                  port_local: 1,
+                  port_video: 2)
         })
     }
 }

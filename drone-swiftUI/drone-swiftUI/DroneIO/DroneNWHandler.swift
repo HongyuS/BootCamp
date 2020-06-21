@@ -27,6 +27,9 @@ class DroneNWHandler: DeviceInterface {
     private var stateConnection: NWConnection?
     private var videoConnection: NWConnection?
     
+    public var statusListenerState: NWListener.State?
+    public var videoListenerState: NWListener.State?
+    
     required init(host: NWEndpoint.Host, port: NWEndpoint.Port, port_local: NWEndpoint.Port, port_video: NWEndpoint.Port) {
         self.host_ip = host
         self.host_port = port
@@ -107,6 +110,8 @@ class DroneNWHandler: DeviceInterface {
             self.receiveStateInfo(onConnection: connection)
         }
         statusListener?.stateUpdateHandler = { state in
+            self.statusListenerState = state
+            
             switch state {
             case .ready:
                 print("Listening on port \(String(describing: self.statusListener!.port!))")
@@ -133,6 +138,8 @@ class DroneNWHandler: DeviceInterface {
             self.receiveVideoData(onConnection: connection)
         }
         videoListener?.stateUpdateHandler = { state in
+            self.videoListenerState = state
+            
             switch state {
             case .ready:
                 print("Listening on port \(String(describing: self.videoListener!.port!))")
@@ -170,7 +177,7 @@ extension DroneNWHandler {
         connection.receiveMessage(completion: { (content, context, isComplete, error) in
             if let data = content {
                 if let tmp = String(data: data, encoding: .utf8) {
-                    print("Received drone status message:\n\(tmp)\n")
+                    print("\nReceived drone status message: \(tmp)")
                     let items = tmp.split(separator: ";")
                     self.delegate?.onStatusDataArrival(with: items)
                 }
